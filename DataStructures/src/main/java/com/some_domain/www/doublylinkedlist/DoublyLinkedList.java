@@ -36,8 +36,8 @@ public class DoublyLinkedList {
             System.out.println("5 for deleting node from the end of the doubly linked list");
             System.out.println("6 for deleting node from specific index of the doubly linked list");
             System.out.println("7 for searching for a given node form the doubly linked list");
-            System.out.println("8 for displying contents of the doubly linked list using forward traversal");
-            System.out.println("9 for displying contents of the doubly linked list using backward traversal");
+            System.out.println("8 for displaying contents of the doubly linked list using forward traversal");
+            System.out.println("9 for displaying contents of the doubly linked list using backward traversal");
             System.out.println("10 for clearing the current contents of the doubly linked list");
             System.out.println("0 for terminating the program");
             System.out.println("Enter your choice....");

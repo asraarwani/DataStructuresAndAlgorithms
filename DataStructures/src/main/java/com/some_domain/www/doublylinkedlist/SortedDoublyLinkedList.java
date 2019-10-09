@@ -2,6 +2,11 @@ package com.some_domain.www.doublylinkedlist;
 
 import java.util.Scanner;
 
+/**
+ * @author : waniasra
+ * @date : 10/9/2019 3:25 PM
+ * This class demonstrates how to create a sorted doubly linked list
+ */
 public class SortedDoublyLinkedList {
 
     private Node head;
@@ -58,17 +63,17 @@ public class SortedDoublyLinkedList {
 
     public void insertNodeIntoDouyblyLinkedListInOrder(int data) {
         Node newNode = new Node(data, null, null);
-        if (head == null) {
+        if (head == null) { //If the sorted doubly linked list is empty
             head = tail = newNode;
-        } else if (data < head.getData()) {
+        } else if (data < head.getData()) { //If the node to be inserted is smaller than the head node
             newNode.setNext(head);
             head.setPrevious(newNode);
             head = newNode;
-        } else if (data > tail.getData()) {
+        } else if (data > tail.getData()) { //If the node to be inserted is greater than the tail node
             tail.setNext(newNode);
             newNode.setPrevious(tail);
             tail = newNode;
-        } else {
+        } else { //If the node to be inserted is greater than head node and smaller than tail node, we need to find the appropriate position for the insertion
             Node traversalNode = head;
             Node nextNode = head.next;
             while (traversalNode != null && traversalNode.getNext() != null) {
