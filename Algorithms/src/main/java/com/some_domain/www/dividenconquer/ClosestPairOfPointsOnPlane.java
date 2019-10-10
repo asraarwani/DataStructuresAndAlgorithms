@@ -24,11 +24,13 @@ public class ClosestPairOfPointsOnPlane {
         Pair closestPair = findClosestPairUsingBruteForceApproach(listOfPoints);
         System.out.println("Closest pair of points using divide  and conquer is " + closestPair);
         System.out.println("Total time taken  is " + (System.currentTimeMillis() - startingTime) + " ms");
+        System.out.println("Time complexity is N^2");
 
         startingTime = System.currentTimeMillis();
         closestPair = findClosestPairUsingDivideAndConquer(listOfPoints);
         System.out.println("Closest pair of points using brute force is " + closestPair);
         System.out.println("Total time taken  is " + (System.currentTimeMillis() - startingTime) + " ms");
+        System.out.println("Time complexity is NLogN");
     }
 
     public static Pair findClosestPairUsingDivideAndConquer(List<Point> pointList) {
