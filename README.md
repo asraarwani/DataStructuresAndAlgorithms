@@ -6,6 +6,8 @@
      1.  Linked list
          1. Singly linked list
          1. Doubly linked list 
+  2. Algorithm techniques
+     1. Divide and Conquer
          
          
          
