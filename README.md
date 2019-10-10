@@ -4,6 +4,7 @@
 ## Table of contents
   1. Data Structures
      1.  Linked list
+         1. Singly linked list
          1. Doubly linked list 
          
          
