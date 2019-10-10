@@ -30,6 +30,8 @@ public class SortedSinglyLinkedList {
 
         System.out.println("Contents of the sorted singly linked list are as follows");
         list.displayContentsOfSinglyLinkedList(list.getHead());
+
+        System.out.println("\nCurrent size of the sorted singly linked list is " + list.getSize() + " Head node is " + list.getHead().getData());
     }
 
     public void insertNodeInSinglyLinkedListInOrder(int data) {
