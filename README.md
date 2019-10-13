@@ -4,10 +4,14 @@
 ## Table of contents
   1. Data Structures
      1.  Linked list
-         1. Singly linked list
-         1. Doubly linked list 
+         1. Singly linked list - (Sorted, Circular, Circular Sorted)
+         1. Doubly linked list - (Sorted, Circular, Circular Sorted)
+     2. Stack
+     3. Queue
   2. Algorithm techniques
      1. Divide and Conquer
+     2. Dynamic Programming
+  
          
          
          
