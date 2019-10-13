@@ -1,4 +1,4 @@
-package com.some_domain.www.Queue;
+package com.some_domain.www.queue;
 
 /**
  * @author : waniasra
