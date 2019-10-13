@@ -3,7 +3,7 @@ package com.some_domain.www.stack;
 /**
  * @author : waniasra
  * @date : 10/13/2019 10:37 PM
- * This class demonstrates how to crate a stack
+ * This class demonstrates how to create a stack
  */
 public class Stack {
 
