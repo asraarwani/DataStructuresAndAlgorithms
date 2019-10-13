@@ -49,7 +49,6 @@ public class RectangleOverlapCheck {
                     this.getBottomLeftPoint().getX() > otherRectangle.getTopRightPoint().getX()) {
                 return false;
             }
-
             return true;
         }
 
