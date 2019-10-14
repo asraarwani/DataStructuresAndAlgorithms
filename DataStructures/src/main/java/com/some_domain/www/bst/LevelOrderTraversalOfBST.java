@@ -1,12 +1,18 @@
 package com.some_domain.www.bst;
 
+import sun.awt.geom.AreaOp;
+
+import javax.security.auth.login.AccountExpiredException;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
  * @author : waniasra
  * @date : 10/14/2019 10:33 PM
  * This class demonstrates how to perform a level order traversal of a BST (BFS)
+ * Also, shows how to print the nodes at each level of the BST
  */
 public class LevelOrderTraversalOfBST {
 
@@ -35,6 +41,35 @@ public class LevelOrderTraversalOfBST {
         System.out.println("\nLevel order traversal of BST using enhanced approach (using queue)");
         bst.printLevelOrderTraversalOfBSTEnhanced(rootReference);
         System.out.println("\nTime complexity is O(N)");
+
+        System.out.println("\nList of nodes at each level of  the BST is given as follows");
+        List<List<Integer>> list = bst.getListOfNodesAtEachLevel(rootReference);
+        System.out.println(list);
+    }
+
+    public List<List<Integer>> getListOfNodesAtEachLevel(Node rootReference) {
+        List<List<Integer>> resultList = new ArrayList<>();
+        if (rootReference == null) {
+            return resultList;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(rootReference);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> currentLevelNodesList = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                Node processedNode = queue.poll();
+                currentLevelNodesList.add(processedNode.getData());
+                if (processedNode.getLeftChild() != null) {
+                    queue.add(processedNode.getLeftChild());
+                }
+                if (processedNode.getRightChild() != null) {
+                    queue.add(processedNode.getRightChild());
+                }
+            }
+            resultList.add(currentLevelNodesList);
+        }
+        return resultList;
     }
 
     public void printLevelOrderTraversalOfBSTEnhanced(Node rootReference) {
