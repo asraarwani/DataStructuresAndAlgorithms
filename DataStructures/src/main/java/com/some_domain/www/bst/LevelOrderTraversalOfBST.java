@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * @author : waniasra
  * @date : 10/14/2019 10:33 PM
- * This class demonstrates how to perform a level order traversal of a BST
+ * This class demonstrates how to perform a level order traversal of a BST (BFS)
  */
 public class LevelOrderTraversalOfBST {
 
