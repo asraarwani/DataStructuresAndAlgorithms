@@ -67,7 +67,7 @@ public class VerticalOrderTraversalOfBST {
                 if (verticalOrderTraversalMap.containsKey(leftChildHorizontalDistance)) {  // If we've already encountered the distance (vertical line)
                     List<Node> temporaryList = verticalOrderTraversalMap.get(leftChildHorizontalDistance);
                     temporaryList.add(leftChild);
-                    verticalOrderTraversalMap.put(leftChildHorizontalDistance, temporaryList);
+                    //verticalOrderTraversalMap.put(leftChildHorizontalDistance, temporaryList); //Reference is being updated hence not required
                     parentNodeHorizontalDistanceMap.put(leftChild, leftChildHorizontalDistance);
                 } else {
                     List<Node> newVerticalLine = new ArrayList<>();
@@ -84,7 +84,7 @@ public class VerticalOrderTraversalOfBST {
                 if (verticalOrderTraversalMap.containsKey(rightChildHorizontalDistance)) {  // If we've already encountered the distance (vertical line)
                     List<Node> temporaryList = verticalOrderTraversalMap.get(rightChildHorizontalDistance);
                     temporaryList.add(rightChild);
-                    verticalOrderTraversalMap.put(rightChildHorizontalDistance, temporaryList);
+                    //verticalOrderTraversalMap.put(rightChildHorizontalDistance, temporaryList); //Reference is being updated hence not required
                     parentNodeHorizontalDistanceMap.put(rightChild, rightChildHorizontalDistance);
                 } else {
                     List<Node> newVerticalLine = new ArrayList<>();
