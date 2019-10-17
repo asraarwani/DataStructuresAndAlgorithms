@@ -26,13 +26,21 @@ public class LevelOrderTraversalOfBST {
 
         LevelOrderTraversalOfBST bst = new LevelOrderTraversalOfBST();
 
-        Node rootReference = bst.insertNodeIntoBST(4, null);
-        rootReference = bst.insertNodeIntoBST(1, rootReference);
-        rootReference = bst.insertNodeIntoBST(2, rootReference);
-        rootReference = bst.insertNodeIntoBST(5, rootReference);
-        rootReference = bst.insertNodeIntoBST(3, rootReference);
-        rootReference = bst.insertNodeIntoBST(6, rootReference);
-        rootReference = bst.insertNodeIntoBST(7, rootReference);
+          /* Example:-
+                                      20
+                                    /    \
+                                   15      25
+                                 /  \      /  \
+                                8    16   24   30
+         */
+
+        Node rootReference = bst.insertNodeIntoBST(20, null);
+        rootReference = bst.insertNodeIntoBST(15, rootReference);
+        rootReference = bst.insertNodeIntoBST(25, rootReference);
+        rootReference = bst.insertNodeIntoBST(8, rootReference);
+        rootReference = bst.insertNodeIntoBST(16, rootReference);
+        rootReference = bst.insertNodeIntoBST(24, rootReference);
+        rootReference = bst.insertNodeIntoBST(30, rootReference);
 
         System.out.println("Level order traversal of BST");
         bst.printLevelOrderTraversalOfBSTIteratively(rootReference);
