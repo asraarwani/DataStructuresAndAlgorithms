@@ -29,7 +29,7 @@ public class MinNubmerOfMergeOpsForPalindromArrayFormation {
             if (array[startingIndex] == array[endingIndex]) {
                 startingIndex++;
                 endingIndex--;
-            } else if (array[startingIndex] > array[endingIndex]) { //If the element at current startingIndex is greater, we perform merge operation at endingIndex + 1 using endingIndex and endingIndex + 1 and decrement endingIndex and merge count
+            } else if (array[startingIndex] > array[endingIndex]) { //If the element at current startingIndex is greater, we perform merge operation at endingIndex + 1 using endingIndex and endingIndex + 1 and decrement endingIndex and increment merge count
                 array[endingIndex - 1] = array[endingIndex - 1] + array[endingIndex];
                 endingIndex--;
                 mergeOperationCount++;
