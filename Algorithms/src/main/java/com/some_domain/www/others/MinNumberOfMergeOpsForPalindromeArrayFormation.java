@@ -6,11 +6,11 @@ package com.some_domain.www.others;
  * This class demonstrates minimum number of merge operations required for making an array palindromic
  */
 //Reference : https://www.tutorialcup.com/array/minimum-number-merge-operations-array-palindrome.htm
-public class MinNubmerOfMergeOpsForPalindromArrayFormation {
+public class MinNumberOfMergeOpsForPalindromeArrayFormation {
 
     public static void main(String[] args) {
 
-        MinNubmerOfMergeOpsForPalindromArrayFormation instance = new MinNubmerOfMergeOpsForPalindromArrayFormation();
+        MinNumberOfMergeOpsForPalindromeArrayFormation instance = new MinNumberOfMergeOpsForPalindromeArrayFormation();
 
         int[] array = {1, 3, 8, 6, 1};
 
