@@ -1,5 +1,6 @@
 package com.some_domain.www.bst;
 
+import com.sun.org.apache.regexp.internal.RE;
 import com.sun.xml.internal.bind.v2.TODO;
 
 /**
@@ -72,6 +73,23 @@ public class BST {
         } else {
             System.out.println("Node is not present in the BST");
         }
+
+        int deletionKey = 20;
+        if (bst.containsNode(deletionKey, bst.getRoot())) {
+            Node newRoot = bst.deleteNodeFromBST(deletionKey, bst.getRoot()); // In case we delete the root node, we will get reference to the new root of the BST
+            bst.setRoot(newRoot);
+        }
+
+        System.out.println();
+        System.out.println("After deleting the node from the BST");
+        System.out.println("\nInOrder traversal of BST");
+        bst.inOrderTraversalOfBST(bst.getRoot());
+
+        System.out.println("\nPreOrder traversal of BST");
+        bst.preOrderTraversalOfBST(bst.getRoot());
+
+        System.out.println("\nPostOrder traversal of BST");
+        bst.postOrderTraversalOfBST(bst.getRoot());
     }
 
 
@@ -156,9 +174,55 @@ public class BST {
         }
     }
 
-    public Node deleteNodeFromBST(int data, Node rootReference) {
-        //To be implemented
-        return null;
+    public boolean containsNode(int searchKey, Node rootReference) {
+        if (rootReference == null) {
+            System.out.println("BST is empty.");
+            return false;
+        } else {
+            Node traversingNode = rootReference;
+            while (traversingNode.getData() != searchKey) {
+                if (searchKey < traversingNode.getData()) {
+                    traversingNode = traversingNode.getLeftChild();
+                } else {
+                    traversingNode = traversingNode.getRightChild();
+                }
+                if (traversingNode == null) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    public Node deleteNodeFromBST(int deletionKey, Node rootReference) {
+        Node temporaryNode = null;
+        //If the node to be deleted is the root node
+        if (rootReference.getData() == deletionKey) {
+            Node leftChild = rootReference.getLeftChild();
+            Node rightChild = rootReference.getRightChild();
+            if (leftChild == null && rightChild == null) {
+                return null;
+            } else if (leftChild == null) {
+                return rightChild;
+            } else if (rightChild == null) {
+                return leftChild;
+            } else {
+                Node temporaryParent = rightChild;
+                Node traversingNode = rightChild;
+                while (traversingNode.getLeftChild() != null) {
+                    traversingNode = traversingNode.getLeftChild();
+                }
+                traversingNode.setLeftChild(leftChild);
+                return temporaryParent;
+            }
+        } else if (deletionKey < rootReference.getData()) {    //If the node to be deleted falls under left subtree
+            temporaryNode = deleteNodeFromBST(deletionKey, rootReference.getLeftChild());
+            rootReference.setLeftChild(temporaryNode);
+        } else {                                              //If the node to be deleted falls under right subtree
+            temporaryNode = deleteNodeFromBST(deletionKey, rootReference.getRightChild());
+            rootReference.setRightChild(temporaryNode);
+        }
+        return rootReference;
     }
 
     private class Node {
