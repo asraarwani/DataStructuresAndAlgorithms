@@ -1,5 +1,7 @@
 package com.some_domain.www.bst;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -45,16 +47,15 @@ public class IterativeInOrderTraversalOfBST {
         bst.insertNodeIntoBSTIteratively(24);
         bst.insertNodeIntoBSTIteratively(30);
 
-        bst.printIterativePreOrderTraversalOfBST(bst.getRoot());
+        bst.printIterativeInOrderTraversalOfBST(bst.getRoot());
     }
 
-    public void printIterativePreOrderTraversalOfBST(Node rootReference) {
+    public void printIterativeInOrderTraversalOfBST(Node rootReference) {
         if (rootReference != null) {
             Stack<Node> stack = new Stack<>();
             Node traversingNode = rootReference;
             while (true) {
                 while (traversingNode != null) {
-                    System.out.print(traversingNode.getData() + " ");
                     stack.push(traversingNode);
                     traversingNode = traversingNode.getLeftChild();
                 }
@@ -63,6 +64,7 @@ public class IterativeInOrderTraversalOfBST {
                     break;
                 }
                 traversingNode = stack.pop();
+                System.out.print(traversingNode.getData() + " ");
                 traversingNode = traversingNode.getRightChild();
             }
         } else {

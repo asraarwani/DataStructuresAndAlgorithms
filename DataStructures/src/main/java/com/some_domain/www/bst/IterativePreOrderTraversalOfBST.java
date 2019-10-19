@@ -1,5 +1,7 @@
 package com.some_domain.www.bst;
 
+import java.util.Stack;
+
 /**
  * @author : waniasra
  * @date : 10/19/2019 10:30 PM
@@ -32,7 +34,7 @@ public class IterativePreOrderTraversalOfBST {
                                 8    16   24   30
          */
 
-        IterativeInOrderTraversalOfBST bst = new IterativeInOrderTraversalOfBST();
+        IterativePreOrderTraversalOfBST bst = new IterativePreOrderTraversalOfBST();
 
         //Inserting few nodes into BST
         bst.insertNodeIntoBSTIteratively(20);
@@ -44,6 +46,29 @@ public class IterativePreOrderTraversalOfBST {
         bst.insertNodeIntoBSTIteratively(30);
 
         bst.printIterativePreOrderTraversalOfBST(bst.getRoot());
+    }
+
+
+    public void printIterativePreOrderTraversalOfBST(Node rootReference) {
+        if (rootReference != null) {
+            Stack<Node> stack = new Stack<>();
+            Node traversingNode = rootReference;
+            while (true) {
+                while (traversingNode != null) {
+                    System.out.print(traversingNode.getData() + " ");
+                    stack.push(traversingNode);
+                    traversingNode = traversingNode.getLeftChild();
+                }
+                //If stack is empty, means there are no further nodes to process
+                if (stack.isEmpty()) {
+                    break;
+                }
+                traversingNode = stack.pop();
+                traversingNode = traversingNode.getRightChild();
+            }
+        } else {
+            System.out.println("Binary search tree is empty.");
+        }
     }
 
     public void insertNodeIntoBSTIteratively(int data) {
