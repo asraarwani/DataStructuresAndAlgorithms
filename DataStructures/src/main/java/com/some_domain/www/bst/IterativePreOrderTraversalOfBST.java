@@ -1,18 +1,16 @@
 package com.some_domain.www.bst;
 
-import java.util.Stack;
-
 /**
  * @author : waniasra
- * @date : 10/19/2019 10:12 PM
- * This class demonstrates iterative in-order traversal of a BST
+ * @date : 10/19/2019 10:30 PM
+ * This class demonstrates pre-order traversal of a BST
  */
-//Reference : https://www.youtube.com/watch?v=SiyEwLrPpyQ&list=PLeIMaH7i8JDj7DnmO7lll97P1yZjMCpgY
-public class IterativeInOrderTraversalOfBST {
+//Reference : https://www.youtube.com/watch?v=VQTF_pRTZek&list=PLeIMaH7i8JDj7DnmO7lll97P1yZjMCpgY&index=2
+public class IterativePreOrderTraversalOfBST {
 
     private Node root;
 
-    public IterativeInOrderTraversalOfBST() {
+    public IterativePreOrderTraversalOfBST() {
         this.root = null;
     }
 
@@ -48,28 +46,6 @@ public class IterativeInOrderTraversalOfBST {
         bst.printIterativePreOrderTraversalOfBST(bst.getRoot());
     }
 
-    public void printIterativePreOrderTraversalOfBST(Node rootReference) {
-        if (rootReference != null) {
-            Stack<Node> stack = new Stack<>();
-            Node traversingNode = rootReference;
-            while (true) {
-                while (traversingNode != null) {
-                    System.out.print(traversingNode.getData() + " ");
-                    stack.push(traversingNode);
-                    traversingNode = traversingNode.getLeftChild();
-                }
-                //If stack is empty, means there are no further nodes to process
-                if (stack.isEmpty()) {
-                    break;
-                }
-                traversingNode = stack.pop();
-                traversingNode = traversingNode.getRightChild();
-            }
-        } else {
-            System.out.println("Binary search tree is empty.");
-        }
-    }
-
     public void insertNodeIntoBSTIteratively(int data) {
         Node newNode = new Node(data, null, null);
         if (root == null) {
@@ -95,7 +71,6 @@ public class IterativeInOrderTraversalOfBST {
             }
         }
     }
-
 
     private class Node {
         private int data;
