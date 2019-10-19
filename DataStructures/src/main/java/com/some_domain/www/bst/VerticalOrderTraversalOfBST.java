@@ -49,10 +49,8 @@ public class VerticalOrderTraversalOfBST {
         if (rootReference != null) {
             queue.add(rootReference);
             parentNodeHorizontalDistanceMap.put(rootReference, 0);  // Initially, setting the root node's horizontal distance to 0
-
         }
         //Assign the horizontal distance to the root node
-        int rootReferenceData = rootReference.getData();
         List<Node> verticalLine = new ArrayList<>();
         verticalLine.add(rootReference);
         verticalOrderTraversalMap.put(0, verticalLine);
