@@ -4,15 +4,15 @@ import java.util.Stack;
 
 /**
  * @author : waniasra
- * @date : 10/19/2019 10:30 PM
- * This class demonstrates iterative pre-order traversal of a BST
+ * @date : 10/19/2019 10:48 PM
+ * This class demonstrates iterative post-order traversal of BST using two stacks
  */
-//Reference : https://www.youtube.com/watch?v=VQTF_pRTZek&list=PLeIMaH7i8JDj7DnmO7lll97P1yZjMCpgY&index=2
-public class IterativePreOrderTraversalOfBST {
+//Reference : https://www.youtube.com/watch?v=qT65HltK2uE
+public class IterativePostOrderTraversalOfBSTUsingTwoStacks {
 
     private Node root;
 
-    public IterativePreOrderTraversalOfBST() {
+    public IterativePostOrderTraversalOfBSTUsingTwoStacks() {
         this.root = null;
     }
 
@@ -34,7 +34,7 @@ public class IterativePreOrderTraversalOfBST {
                                 8    16   24   30
          */
 
-        IterativePreOrderTraversalOfBST bst = new IterativePreOrderTraversalOfBST();
+        IterativePostOrderTraversalOfBSTUsingTwoStacks bst = new IterativePostOrderTraversalOfBSTUsingTwoStacks();
 
         //Inserting few nodes into BST
         bst.insertNodeIntoBSTIteratively(20);
@@ -45,27 +45,36 @@ public class IterativePreOrderTraversalOfBST {
         bst.insertNodeIntoBSTIteratively(24);
         bst.insertNodeIntoBSTIteratively(30);
 
-        bst.printIterativePreOrderTraversalOfBST(bst.getRoot());
+        bst.printIterativePostOrderTraversalOfBST(bst.getRoot());
     }
 
-
-    public void printIterativePreOrderTraversalOfBST(Node rootReference) {
+    public void printIterativePostOrderTraversalOfBST(Node rootReference) {
         if (rootReference != null) {
-            Stack<Node> stack = new Stack<>();
-            Node traversingNode = rootReference;
-            while (true) {
-                while (traversingNode != null) {
-                    System.out.print(traversingNode.getData() + " ");
-                    stack.push(traversingNode);
-                    traversingNode = traversingNode.getLeftChild();
+
+            Stack<Node> firstStack = new Stack<>();
+            Stack<Node> secondStack = new Stack<>();
+            firstStack.add(rootReference);
+
+            while (!firstStack.isEmpty()) {
+                Node processedNode = firstStack.pop();
+                secondStack.add(processedNode);
+
+                //If the processed node has a left child
+                if (processedNode.getLeftChild() != null) {
+                    firstStack.add(processedNode.getLeftChild());
                 }
-                //If stack is empty, means there are no further nodes to process
-                if (stack.isEmpty()) {
-                    break;
+
+                //If the processed node has a right child
+                if (processedNode.getRightChild() != null) {
+                    firstStack.add(processedNode.getRightChild());
                 }
-                traversingNode = stack.pop();
-                traversingNode = traversingNode.getRightChild();
             }
+
+            System.out.println("Iterative post order traversal of BST using two stacks");
+            while (!secondStack.isEmpty()) {
+                System.out.print(secondStack.pop().getData() + " ");
+            }
+
         } else {
             System.out.println("Binary search tree is empty.");
         }
