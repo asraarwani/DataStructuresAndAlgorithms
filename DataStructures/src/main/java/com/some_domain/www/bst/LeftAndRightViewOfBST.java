@@ -68,6 +68,7 @@ public class LeftAndRightViewOfBST {
         bst.printLeftViewRecursively(bst.getRoot(), 1);
         System.out.println("\nTime complexity for this approach is O(N)");
 
+        //Resetting the global/class-level variable
         maxLevel = 0;
 
         System.out.println("\nRight view of the BST using recursive approach is given as follows");
