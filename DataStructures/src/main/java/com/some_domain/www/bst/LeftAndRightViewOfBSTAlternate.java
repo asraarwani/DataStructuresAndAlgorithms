@@ -8,11 +8,11 @@ import java.util.Queue;
  * @date : 10/21/2019 11:17 PM
  * This class demonstrates right and left view of a BST using Queue
  */
-public class LeftAndRightViewOfBSTUsingAlternate {
+public class LeftAndRightViewOfBSTAlternate {
 
     private Node root;
 
-    public LeftAndRightViewOfBSTUsingAlternate() {
+    public LeftAndRightViewOfBSTAlternate() {
         this.root = null;
     }
 
@@ -34,7 +34,7 @@ public class LeftAndRightViewOfBSTUsingAlternate {
                                 8    16   24   30
          */
 
-        LeftAndRightViewOfBSTUsingAlternate bst = new LeftAndRightViewOfBSTUsingAlternate();
+        LeftAndRightViewOfBSTAlternate bst = new LeftAndRightViewOfBSTAlternate();
 
         bst.insertNodeIntoBSTIteratively(20);
         bst.insertNodeIntoBSTIteratively(15);
