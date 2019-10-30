@@ -11,7 +11,7 @@
     <modules>
         <module>Algorithms</module>
         <module>DataStructures</module>
-        <module>Other</module>
+        <module>Others</module>
     </modules>
 
     <name>DataStructuresAndAlgorithms</name>
