@@ -59,7 +59,6 @@ public class DiameterOfBST {
         bst.insertNodeIntoBSTIteratively(30);
         bst.insertNodeIntoBSTIteratively(4);
 
-        bst.inOrderTraversalOfBST(bst.getRoot());
 
         System.out.println();
         int diameterOfBST = bst.findDiameterOfBST(bst.getRoot());
@@ -139,28 +138,6 @@ public class DiameterOfBST {
                         break;
                     }
                 }
-            }
-        }
-    }
-
-    public void inOrderTraversalOfBST(Node rootReference) {
-        if (rootReference == null) {
-            System.out.println("BST is empty.");
-        } else {
-            Stack<Node> stack = new Stack<>();
-            Node traversingNode = rootReference;
-            while (true) {
-                while (traversingNode != null) {
-                    stack.push(traversingNode);
-                    traversingNode = traversingNode.getLeftChild();
-                }
-
-                if (stack.isEmpty())
-                    return;
-
-                traversingNode = stack.pop();
-                System.out.print(traversingNode.getData() + " ");
-                traversingNode = traversingNode.getRightChild();
             }
         }
     }

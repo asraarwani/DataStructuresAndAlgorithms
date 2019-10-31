@@ -59,7 +59,7 @@ public class TopViewOfBST {
 
         System.out.println("Top view of the BST is given as follows..");
         bst.printTopViewOfBST(bst.getRoot());
-        System.out.println("Time complexity is O(N)");
+        System.out.println("\nTime complexity is O(N)");
     }
 
     public void printTopViewOfBST(Node rootReference) {
