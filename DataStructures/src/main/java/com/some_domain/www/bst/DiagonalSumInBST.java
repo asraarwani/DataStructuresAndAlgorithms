@@ -1,25 +1,28 @@
 package com.some_domain.www.bst;
 
-import java.util.*;
+import com.sun.xml.internal.bind.v2.TODO;
+
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 
 /**
  * @author : waniasra
- * @date : 10/30/2019 10:09 PM
- * This class demonstrates how to do a diagonal traversal of a BST
+ * @date : 10/31/2019 5:11 PM
+ * This class demonstrates hwo to print the diagonal sum of a BST
  */
 
 /**
- * For approach 2, idea is to assign the slope distance to each node. For left child node of a given node slope distance will be slopeDistanceOfParent + 1
- * and for right child node, it will be same as parent node.
+ * Diagonal sum of a BST is the sum of all the nodes' data lying between diagonal lines or slope lines
  */
-
-//Reference : https://www.youtube.com/watch?v=e9ZGxH1y_PE
-//Reference : https://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/
-public class DiagonalTraversalOfBST {
+//Reference : https://www.youtube.com/watch?v=I3BC8nEKYm8
+//Reference : https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
+public class DiagonalSumInBST {
 
     private Node root;
 
-    public DiagonalTraversalOfBST() {
+    public DiagonalSumInBST() {
         this.root = null;
     }
 
@@ -39,13 +42,16 @@ public class DiagonalTraversalOfBST {
                                    15      25
                                  /  \      /  \
                                 8    16   24   30
-                               /
-                              4
+                               /       \
+                              4         17
          */
 
-        // 20 25 30 -> 15 16 24 -> 8 -> 4
+        // 20 25 30 = 75
+        // 15 16 24 17 = 72
+        // 8 = 8
+        // 4 = 4
 
-        DiagonalTraversalOfBST bst = new DiagonalTraversalOfBST();
+        DiagonalSumInBST bst = new DiagonalSumInBST();
         bst.insertNodeIntoBSTIteratively(20);
         bst.insertNodeIntoBSTIteratively(15);
         bst.insertNodeIntoBSTIteratively(25);
@@ -54,21 +60,57 @@ public class DiagonalTraversalOfBST {
         bst.insertNodeIntoBSTIteratively(24);
         bst.insertNodeIntoBSTIteratively(30);
         bst.insertNodeIntoBSTIteratively(4);
+        bst.insertNodeIntoBSTIteratively(17);
 
-        System.out.println("Diagonal traversal of BST is given as follows:");
-        bst.printDiagonalTraversalOfBST(bst.getRoot());
+        System.out.println("Diagonal sum for the BST is given as follows");
+        bst.printDiagonalSumInBST(bst.getRoot());
+        System.out.println("\nTime complexity is O(N)");
 
-        System.out.println("\nDiagonal traversal of BST using alternate approach is given as follows:");
-        bst.printDiagonalTraversalOfBSTAlternate(bst.getRoot());
-
-        System.out.println("\nTime complexity for the above two approaches is going to be O(N)");
+        System.out.println();
+        System.out.println("Diagonal sum for the BST using alternate approach is given as follows");
+        bst.printDiagonalSumInBSTAlternate(bst.getRoot());
+        System.out.println("\nTime complexity is O(N)");
     }
 
-    public void printDiagonalTraversalOfBST(Node rootReference) {
+    public void printDiagonalSumInBSTAlternate(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty.");
             return;
         } else {
+            Map<Integer, Integer> map = new LinkedHashMap<>();
+            Node traversingNode = rootReference;
+            Queue<Node> queue = new LinkedList<>();
+            queue.offer(traversingNode);
+            while (!queue.isEmpty()) {
+                traversingNode = queue.poll();
+                int diagonalDistance = traversingNode.getDiagonalDistance();
+                while (traversingNode != null) {
+                    int previousSum = (map.get(diagonalDistance) == null) ? 0 : map.get(diagonalDistance);
+                    map.put(diagonalDistance, previousSum + traversingNode.getData());
+
+                    //If currently processing node which in our case is traversingNode has a left child, we do two things:
+                    //1. Assign a diagonal distance to it (parent node's diagonalDistance + 1)
+                    //2. Add it to the queue
+                    if (traversingNode.getLeftChild() != null) {
+                        traversingNode.getLeftChild().setDiagonalDistance(diagonalDistance + 1);
+                        queue.add(traversingNode.getLeftChild());
+                    }
+
+                    traversingNode = traversingNode.getRightChild();
+                }
+            }
+            map.entrySet().stream().forEach(entry -> {
+                System.out.print(entry.getValue() + " ");
+            });
+        }
+    }
+
+    public void printDiagonalSumInBST(Node rootReference) {
+        if (rootReference == null) {
+            System.out.println("BST is empty.");
+            return;
+        } else {
+            int sum = 0;
             Node traversingNode = rootReference;
             Queue<Node> queue = new LinkedList<>();
             queue.offer(traversingNode);
@@ -76,6 +118,8 @@ public class DiagonalTraversalOfBST {
             while (!queue.isEmpty()) {
                 traversingNode = queue.poll();
                 if (traversingNode == null) {
+                    System.out.print(sum + " ");
+                    sum = 0;
                     queue.offer(null);
                     traversingNode = queue.poll();
                     if (traversingNode == null) {
@@ -83,8 +127,7 @@ public class DiagonalTraversalOfBST {
                     }
                 }
                 while (traversingNode != null) {
-                    System.out.print(traversingNode.getData() + " ");
-                    //If node has a left child, enqueue it and then move to the right child
+                    sum = sum + traversingNode.getData();
                     if (traversingNode.getLeftChild() != null) {
                         queue.offer(traversingNode.getLeftChild());
                     }
@@ -94,38 +137,8 @@ public class DiagonalTraversalOfBST {
         }
     }
 
-    public void printDiagonalTraversalOfBSTAlternate(Node rootReference) {
-        Map<Integer, List<Node>> diagonalMap = new LinkedHashMap<>();
-        printDiagonalTraversalOfBSTAlternateHelper(rootReference, 0, diagonalMap);
-
-        diagonalMap.entrySet().stream().forEach(entry -> {
-            entry.getValue().stream().forEach(node -> System.out.print(node.getData() + " "));
-        });
-    }
-
-    private void printDiagonalTraversalOfBSTAlternateHelper(Node rootReference, int diagonalNumber, Map<Integer, List<Node>> diagonalMap) {
-        if (rootReference == null)
-            return;
-        List<Node> nodeList = diagonalMap.get(diagonalNumber);
-        if (nodeList == null) {
-            nodeList = new ArrayList<>();
-            nodeList.add(rootReference);
-        } else {
-            nodeList.add(rootReference);
-        }
-
-        //Store nodes with same diagonalDistance as a list
-        diagonalMap.put(diagonalNumber, nodeList);
-
-        //For left sub-tree, increase the diagonalDistance/slopeDistance by 1
-        printDiagonalTraversalOfBSTAlternateHelper(rootReference.getLeftChild(), diagonalNumber + 1, diagonalMap);
-
-        //For right sub-tree, diagonalDistance/slopeDistance will remain the same
-        printDiagonalTraversalOfBSTAlternateHelper(rootReference.getRightChild(), diagonalNumber, diagonalMap);
-    }
-
     public void insertNodeIntoBSTIteratively(int data) {
-        Node newNode = new Node(data, null, null);
+        Node newNode = new Node(data, 0, null, null);
         if (root == null) {
             root = newNode;
         } else {
@@ -153,11 +166,13 @@ public class DiagonalTraversalOfBST {
     private class Node {
 
         private int data;
+        private int diagonalDistance;
         private Node leftChild;
         private Node rightChild;
 
-        public Node(int data, Node leftChild, Node rightChild) {
+        public Node(int data, int diagonalDistance, Node leftChild, Node rightChild) {
             this.data = data;
+            this.diagonalDistance = diagonalDistance;
             this.leftChild = leftChild;
             this.rightChild = rightChild;
         }
@@ -184,6 +199,14 @@ public class DiagonalTraversalOfBST {
 
         public void setRightChild(Node rightChild) {
             this.rightChild = rightChild;
+        }
+
+        public int getDiagonalDistance() {
+            return diagonalDistance;
+        }
+
+        public void setDiagonalDistance(int diagonalDistance) {
+            this.diagonalDistance = diagonalDistance;
         }
     }
 }
