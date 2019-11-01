@@ -29,6 +29,8 @@ public class BoundaryOrderTraversalOfBSTGeneric {
                                    15      25
                                  /  \      /  \
                                 8    16   24   30
+                                                \
+                                                 36
          */
 
         BoundaryOrderTraversalOfBSTGeneric bst = new BoundaryOrderTraversalOfBSTGeneric();
@@ -39,6 +41,7 @@ public class BoundaryOrderTraversalOfBSTGeneric {
         bst.insertNodeIntoBSTIteratively(16);
         bst.insertNodeIntoBSTIteratively(24);
         bst.insertNodeIntoBSTIteratively(30);
+        bst.insertNodeIntoBSTIteratively(36);
 
         bst.printBoundaryOrderTraversalOfBST(bst.getRoot());
 
@@ -51,51 +54,55 @@ public class BoundaryOrderTraversalOfBSTGeneric {
         bst.insertNodeIntoBSTIteratively(16.1);
         bst.insertNodeIntoBSTIteratively(24.1);
         bst.insertNodeIntoBSTIteratively(30.1);
+        bst.insertNodeIntoBSTIteratively(36.1);
 
         bst.printBoundaryOrderTraversalOfBST(bst.getRoot());
     }
 
     public void printBoundaryOrderTraversalOfBST(Node rootReference) {
 
-        //Printing left boundary of the BST
-        printLeftBoundary(rootReference);
-
-        //Printing the right boundary of the BST
-        printRightBoundary(rootReference.getRightChild());
-
-        //Printing the leaf boundary of the BST
-        printLeafBoundary(rootReference);
-    }
-
-    private void printLeafBoundary(Node rootReference) {
-        if (rootReference != null) {
+        if (rootReference == null) {
+            System.out.println("BST is empty.");
+        } else {
+            System.out.print(rootReference.getData() + " ");
+            printLeftBoundary(rootReference.getLeftChild());
             printLeafBoundary(rootReference.getLeftChild());
-            if (rootReference.getLeftChild() == null && rootReference.getRightChild() == null) {
-                System.out.print(rootReference.getData() + " ");
-            }
             printLeafBoundary(rootReference.getRightChild());
+            printRightBoundary(rootReference.getRightChild());
         }
     }
 
+    private void printLeafBoundary(Node rootReference) {
+        if (rootReference == null)
+            return;
+        printLeafBoundary(rootReference.getLeftChild());
+        if (rootReference.getLeftChild() == null && rootReference.getRightChild() == null) {
+            System.out.print(rootReference.getData() + " ");
+        }
+        printLeafBoundary(rootReference.getRightChild());
+    }
+
     private void printRightBoundary(Node rootReference) {
-        if (rootReference != null) {
-            if (rootReference.getRightChild() != null) {
-                System.out.print(rootReference.getData() + " ");
-                printRightBoundary(rootReference.getRightChild());
-            } else if (rootReference.getLeftChild() != null) {
-                printRightBoundary(rootReference.getLeftChild());
-            }
+        if (rootReference == null)
+            return;
+        if (rootReference.getRightChild() != null) {
+            printRightBoundary(rootReference.getRightChild());
+            System.out.print(rootReference.getData() + " ");
+        } else if (rootReference.getLeftChild() != null) {
+            printRightBoundary(rootReference.getLeftChild());
+            System.out.print(rootReference.getData() + " ");
         }
     }
 
     private void printLeftBoundary(Node rootReference) {
-        if (rootReference != null) {
-            if (rootReference.getLeftChild() != null) {
-                System.out.print(rootReference.getData() + " ");
-                printLeftBoundary(rootReference.getLeftChild());
-            } else if (rootReference.getRightChild() != null) {
-                printLeftBoundary(rootReference.getRightChild());
-            }
+        if (rootReference == null)
+            return;
+        if (rootReference.getLeftChild() != null) {
+            System.out.print(rootReference.getData() + " ");
+            printLeftBoundary(rootReference.getLeftChild());
+        } else if (rootReference.getRightChild() != null) {
+            System.out.print(rootReference.getData() + " ");
+            printLeftBoundary(rootReference.getRightChild());
         }
     }
 
