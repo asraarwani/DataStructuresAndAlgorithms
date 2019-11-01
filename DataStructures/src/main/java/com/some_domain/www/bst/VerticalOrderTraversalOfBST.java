@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
  * This class demonstrates vertical order traversal of a BST
  */
 //Reference : https://www.youtube.com/watch?v=PQKkr036wRc
+//Reference : https://www.geeksforgeeks.org/print-binary-tree-vertical-order-set-2/   (For alternate approach)
 public class VerticalOrderTraversalOfBST {
 
 
@@ -37,10 +38,41 @@ public class VerticalOrderTraversalOfBST {
         rootReference = bst.insertNodeIntoBSTRecursivelyBST(16, rootReference);
         rootReference = bst.insertNodeIntoBSTRecursivelyBST(24, rootReference);
         rootReference = bst.insertNodeIntoBSTRecursivelyBST(30, rootReference);
+        bst.setRoot(rootReference);
 
-        bst.printVerticalOrderTraversalOfBST(rootReference);
+        bst.printVerticalOrderTraversalOfBST(bst.getRoot());
+
+        System.out.println("\nVertical order traversal of BST using alternate approach");
+        bst.printVerticalOrderTraversalOfBSTAlternate(bst.getRoot());
+        System.out.println("Time complexity is O(N) under the assumption that we have a good hash function that allows insertion and retrieval operations in O(1)");
+
     }
 
+    public void printVerticalOrderTraversalOfBSTAlternate(Node rootReference) {
+        Map<Integer, List<Node>> map = new LinkedHashMap<>();
+        printVerticalOrderTraversalOfBSTAlternateHelper(rootReference, map, 0);
+        map.entrySet().stream().forEach(entry -> {
+            System.out.println(entry.getKey() + " " + entry.getValue().stream().map(item -> item.getData()).collect(Collectors.toList()));
+        });
+    }
+
+    public void printVerticalOrderTraversalOfBSTAlternateHelper(Node rootReference, Map<Integer, List<Node>> map, int horizontalDistance) {
+        if (rootReference == null)
+            return;
+
+        List<Node> nodeList = map.get(horizontalDistance);
+        if (nodeList == null) {
+            nodeList = new ArrayList<>();
+            nodeList.add(rootReference);
+        } else {
+            nodeList.add(rootReference);
+        }
+        map.put(horizontalDistance, nodeList);
+
+        printVerticalOrderTraversalOfBSTAlternateHelper(rootReference.getLeftChild(), map, horizontalDistance - 1);
+
+        printVerticalOrderTraversalOfBSTAlternateHelper(rootReference.getRightChild(), map, horizontalDistance + 1);
+    }
 
     public void printVerticalOrderTraversalOfBST(Node rootReference) {
         Map<Integer, List<Node>> verticalOrderTraversalMap = new LinkedHashMap<>();
