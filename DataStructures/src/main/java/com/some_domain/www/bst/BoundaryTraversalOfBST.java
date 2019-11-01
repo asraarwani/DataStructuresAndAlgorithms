@@ -3,9 +3,9 @@ package com.some_domain.www.bst;
 /**
  * @author : waniasra
  * @date : 10/16/2019 10:37 PM
- * This class demonstrates boundary traversal of BST
+ * This class demonstrates anti-clockwise boundary order traversal of BST
  */
-//Reference : https://www.youtube.com/watch?v=uemjIijtu2I
+//Reference : https://www.geeksforgeeks.org/boundary-traversal-of-binary-tree/
 public class BoundaryTraversalOfBST {
 
     private Node root;
@@ -24,8 +24,11 @@ public class BoundaryTraversalOfBST {
                                    15      25
                                  /  \      /  \
                                 8    16   24   30
+                                                 \
+                                                  40
          */
 
+        // 20 -> 15 ->  8 -> 16  -> 24  -> 40  -> 30  -> 25
         BoundaryTraversalOfBST bst = new BoundaryTraversalOfBST();
 
         //Inserting some nodes into BST
@@ -36,68 +39,58 @@ public class BoundaryTraversalOfBST {
         rootReference = bst.insertNodeIntoBSTRecursivelyBST(16, rootReference);
         rootReference = bst.insertNodeIntoBSTRecursivelyBST(24, rootReference);
         rootReference = bst.insertNodeIntoBSTRecursivelyBST(30, rootReference);
+        rootReference = bst.insertNodeIntoBSTRecursivelyBST(40, rootReference);
 
         bst.printBoundaryOfBST(rootReference);
+
+        System.out.println("\nTime complexity is O(N)");
     }
 
     public void printBoundaryOfBST(Node rootReference) {
-
-        //Print the left boundary of the BST
-        printLeftBoundaryOfBST(rootReference);
-
-        //Print  the right boundary of the BST
-        printRightBoundaryOfBST(rootReference.getRightChild());
-
-        //Print the leaf boundary of the BST
-        printLeafBoundaryOfBST(rootReference);
+        if (rootReference == null) {
+            System.out.println("BST is empty");
+            return;
+        } else {
+            System.out.print(rootReference.getData() + " ");
+            printLeftBoundaryOfBST(rootReference.getLeftChild());   // Top to bottom for the left boundary
+            printLeafBoundaryOfBST(rootReference.getLeftChild());   // Left to right for leaf node of the left sub-tree
+            printLeafBoundaryOfBST(rootReference.getRightChild());  // Left to right for leaf node of the right sub-tree
+            printRightBoundaryOfBST(rootReference.getRightChild()); // Bottom to top for the right boundary
+        }
     }
 
-    /**
-     * Prints the left boundary of the BST
-     *
-     * @param rootReference reference to the root node of the BST
-     */
     private void printLeftBoundaryOfBST(Node rootReference) {
-        if (rootReference != null) {
-            if (rootReference.getLeftChild() != null) {        //If the processing node has left child
-                System.out.print(rootReference.getData() + " ");
-                printLeftBoundaryOfBST(rootReference.getLeftChild());
-            } else if (rootReference.getRightChild() != null) { //If the processing node has right child
-                printLeftBoundaryOfBST(rootReference.getRightChild());
-            }
+        if (rootReference == null)
+            return;
+        if (rootReference.getLeftChild() != null) {
+            System.out.print(rootReference.getData() + " ");
+            printLeftBoundaryOfBST(rootReference.getLeftChild());
+        } else if (rootReference.getRightChild() != null) {
+            System.out.print(rootReference.getData() + " ");
+            printLeftBoundaryOfBST(rootReference.getRightChild());
         }
     }
 
-    /**
-     * Prints the right boundary of the BST
-     *
-     * @param rootReference reference to the immediate right child of the root node of BST (immediate right child to avoid printing root node twice)
-     */
     private void printRightBoundaryOfBST(Node rootReference) {
-        if (rootReference != null) {
-            if (rootReference.getRightChild() != null) {       //If the processing node has right child
-                System.out.print(rootReference.getData() + " ");
-                printRightBoundaryOfBST(rootReference.getRightChild());
-            } else if (rootReference.getLeftChild() != null) {  //If the processing node has left child
-                printRightBoundaryOfBST(rootReference.getLeftChild());
-            }
+        if (rootReference == null)
+            return;
+        if (rootReference.getRightChild() != null) {
+            printRightBoundaryOfBST(rootReference.getRightChild());
+            System.out.print(rootReference.getData() + " ");
+        } else if (rootReference.getLeftChild() != null) {
+            printRightBoundaryOfBST(rootReference.getLeftChild());
+            System.out.print(rootReference.getData() + " ");
         }
     }
 
-    /**
-     * Prints the leaf boundary of the BST
-     *
-     * @param rootReference reference to the root node of the BST
-     */
     private void printLeafBoundaryOfBST(Node rootReference) {
-        if (rootReference != null) {
-            printLeafBoundaryOfBST(rootReference.getLeftChild());
-            //If processing node doesn't have left and right child, meaning it is a leaf node and we need to print it
-            if (rootReference.getLeftChild() == null && rootReference.getRightChild() == null) {
-                System.out.print(rootReference.getData() + " ");
-            }
-            printLeafBoundaryOfBST(rootReference.getRightChild());
+        if (rootReference == null)
+            return;
+        printLeafBoundaryOfBST(rootReference.getLeftChild());
+        if (rootReference.getLeftChild() == null && rootReference.getRightChild() == null) {
+            System.out.print(rootReference.getData() + " ");
         }
+        printLeafBoundaryOfBST(rootReference.getRightChild());
     }
 
     public Node insertNodeIntoBSTRecursivelyBST(int data, Node rootReference) {
