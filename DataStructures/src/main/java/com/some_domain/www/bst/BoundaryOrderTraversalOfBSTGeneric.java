@@ -3,7 +3,7 @@ package com.some_domain.www.bst;
 /**
  * @author : waniasra
  * @date : 10/26/2019 11:19 AM
- * This class demonstrates the boundary order traversal of BST (Generic)
+ * This class demonstrates anti-clockwise boundary order traversal of BST (Generic)
  */
 public class BoundaryOrderTraversalOfBSTGeneric {
 
