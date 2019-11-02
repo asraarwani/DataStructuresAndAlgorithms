@@ -45,7 +45,6 @@ public class VerticalOrderTraversalOfBST {
         System.out.println("\nVertical order traversal of BST using alternate approach");
         bst.printVerticalOrderTraversalOfBSTAlternate(bst.getRoot());
         System.out.println("Time complexity is O(N) under the assumption that we have a good hash function that allows insertion and retrieval operations in O(1)");
-
     }
 
     public void printVerticalOrderTraversalOfBSTAlternate(Node rootReference) {
@@ -73,68 +72,54 @@ public class VerticalOrderTraversalOfBST {
     }
 
     public void printVerticalOrderTraversalOfBST(Node rootReference) {
-        Map<Integer, List<Node>> verticalOrderTraversalMap = new LinkedHashMap<>();
-        Map<Node, Integer> parentNodeHorizontalDistanceMap = new LinkedHashMap<>(); //Stores the parent's horizontal distance
+        if (rootReference == null) {
+            System.out.println("BST is empty");
+            return;
+        } else {
+            Map<Integer, List<Node>> map = printVerticalOrderTraversalOfBSTHelper(rootReference);
+            map.entrySet().stream().forEach(entry -> {
+                System.out.println(entry.getKey() + " " + entry.getValue().stream().map(node -> node.getData()).collect(Collectors.toList()));
+            });
+        }
+    }
+
+    private Map<Integer, List<Node>> printVerticalOrderTraversalOfBSTHelper(Node rootReference) {
+        Map<Integer, List<Node>> resultMap = new LinkedHashMap<>();
         Queue<Node> queue = new LinkedList<>();
-        if (rootReference != null) {
-            queue.add(rootReference);
-            parentNodeHorizontalDistanceMap.put(rootReference, 0);  // Initially, setting the root node's horizontal distance to 0
-        }
-        //Assign the horizontal distance to the root node
-        List<Node> verticalLine = new ArrayList<>();
-        verticalLine.add(rootReference);
-        verticalOrderTraversalMap.put(0, verticalLine);
-
+        Map<Node, Integer> parentHorizontalDistance = new LinkedHashMap<>();
+        Node traversalNode = rootReference;
+        queue.offer(traversalNode);
+        parentHorizontalDistance.put(traversalNode, 0);
+        resultMap.put(0, new ArrayList<>(Arrays.asList(traversalNode)));
         while (!queue.isEmpty()) {
-            Node processedNode = queue.poll();
-
-            //Assign the horizontal distance to the left child (parent_node_horizontal_distance - 1)
-            if (processedNode.getLeftChild() != null) {
-                int leftChildHorizontalDistance = parentNodeHorizontalDistanceMap.get(processedNode) - 1;
-                Node leftChild = processedNode.getLeftChild();
-                if (verticalOrderTraversalMap.containsKey(leftChildHorizontalDistance)) {  // If we've already encountered the distance (vertical line)
-                    List<Node> temporaryList = verticalOrderTraversalMap.get(leftChildHorizontalDistance);
-                    temporaryList.add(leftChild);
-                    //verticalOrderTraversalMap.put(leftChildHorizontalDistance, temporaryList); //Reference is being updated hence not required
-                    parentNodeHorizontalDistanceMap.put(leftChild, leftChildHorizontalDistance);
+            Node polledNode = queue.poll();
+            //If the polledNode has a left child
+            if (polledNode.getLeftChild() != null) {
+                Node leftChildNode = polledNode.getLeftChild();
+                queue.offer(leftChildNode);
+                int horizontalDistance = parentHorizontalDistance.get(polledNode) - 1;
+                parentHorizontalDistance.put(leftChildNode, horizontalDistance);
+                if (resultMap.containsKey(horizontalDistance)) {
+                    resultMap.get(horizontalDistance).add(leftChildNode);
                 } else {
-                    List<Node> newVerticalLine = new ArrayList<>();
-                    newVerticalLine.add(leftChild);
-                    verticalOrderTraversalMap.put(leftChildHorizontalDistance, newVerticalLine);
-                    parentNodeHorizontalDistanceMap.put(leftChild, leftChildHorizontalDistance);
+                    resultMap.put(horizontalDistance, new ArrayList<>(Arrays.asList(leftChildNode)));
                 }
             }
 
-            //Assign the horizontal distance to the right child (parent_node_horizontal_distance + 1)
-            if (processedNode.getRightChild() != null) {
-                int rightChildHorizontalDistance = parentNodeHorizontalDistanceMap.get(processedNode) + 1;
-                Node rightChild = processedNode.getRightChild();
-                if (verticalOrderTraversalMap.containsKey(rightChildHorizontalDistance)) {  // If we've already encountered the distance (vertical line)
-                    List<Node> temporaryList = verticalOrderTraversalMap.get(rightChildHorizontalDistance);
-                    temporaryList.add(rightChild);
-                    //verticalOrderTraversalMap.put(rightChildHorizontalDistance, temporaryList); //Reference is being updated hence not required
-                    parentNodeHorizontalDistanceMap.put(rightChild, rightChildHorizontalDistance);
+            //If the polledNode has a right child
+            if (polledNode.getRightChild() != null) {
+                Node rightChildNode = polledNode.getRightChild();
+                queue.offer(rightChildNode);
+                int horizontalDistance = parentHorizontalDistance.get(polledNode) + 1;
+                parentHorizontalDistance.put(rightChildNode, horizontalDistance);
+                if (resultMap.containsKey(horizontalDistance)) {
+                    resultMap.get(horizontalDistance).add(rightChildNode);
                 } else {
-                    List<Node> newVerticalLine = new ArrayList<>();
-                    newVerticalLine.add(rightChild);
-                    verticalOrderTraversalMap.put(rightChildHorizontalDistance, newVerticalLine);
-                    parentNodeHorizontalDistanceMap.put(rightChild, rightChildHorizontalDistance);
+                    resultMap.put(horizontalDistance, new ArrayList<>(Arrays.asList(rightChildNode)));
                 }
-            }
-
-            //Check if the node has left child
-            if (processedNode.getLeftChild() != null) {
-                queue.add(processedNode.getLeftChild());
-            }
-
-            //Check if the node has right child
-            if (processedNode.getRightChild() != null) {
-                queue.add(processedNode.getRightChild());
             }
         }
-        verticalOrderTraversalMap.entrySet().stream().forEach(entry -> {
-            System.out.println(entry.getKey() + " -> " + entry.getValue().stream().map(node -> node.getData()).collect(Collectors.toList()));
-        });
+        return resultMap;
     }
 
     public Node insertNodeIntoBSTRecursivelyBST(int data, Node rootReference) {
