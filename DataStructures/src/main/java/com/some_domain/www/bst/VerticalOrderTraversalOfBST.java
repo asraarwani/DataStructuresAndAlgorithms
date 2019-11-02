@@ -63,10 +63,8 @@ public class VerticalOrderTraversalOfBST {
         List<Node> nodeList = map.get(horizontalDistance);
         if (nodeList == null) {
             nodeList = new ArrayList<>();
-            nodeList.add(rootReference);
-        } else {
-            nodeList.add(rootReference);
         }
+        nodeList.add(rootReference);
         map.put(horizontalDistance, nodeList);
 
         printVerticalOrderTraversalOfBSTAlternateHelper(rootReference.getLeftChild(), map, horizontalDistance - 1);
