@@ -107,8 +107,7 @@ public class ReverseLevelOrderTraversalOfBST {
 
         //Print the stack
         while (!stack.isEmpty()) {
-            Node poppedNode = stack.pop();
-            System.out.print(poppedNode.getData() + " ");
+            System.out.print(stack.pop().getData() + " ");
         }
     }
 
