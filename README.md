@@ -8,7 +8,8 @@
          1. Doubly linked list - (Sorted, Circular, Circular Sorted)
      2. Stack
      3. Queue
-     4. BST
+     4. Tree
+     5. Binary Search Tree
   2. Algorithm techniques
      1. Divide and Conquer
      2. Dynamic Programming
