@@ -68,9 +68,43 @@ public class DiagonalSumInBST {
         System.out.println("Diagonal sum for the BST using alternate approach is given as follows");
         bst.printDiagonalSumInBSTAlternate(bst.getRoot());
         System.out.println("\nTime complexity is O(N)");
+
+        System.out.println();
+        System.out.println("Diagonal sum for the BST using alternate approach where we need to add one modify the Node class by adding one more filed 'diagonalDistance'");
+        bst.printDiagonalSumInBSTAlternate2(bst.getRoot());
+        System.out.println("\nTime complexity is O(N)");
     }
 
     public void printDiagonalSumInBSTAlternate(Node rootReference) {
+        Map<Integer, Integer> map = new LinkedHashMap<>();
+        printDiagonalSumInBSTAlternateHelper(rootReference, map, 0);
+        map.entrySet().stream().forEach(entry -> {
+            System.out.print(entry.getValue() + " ");
+        });
+    }
+
+    private void printDiagonalSumInBSTAlternateHelper(Node rootReference, Map<Integer, Integer> map, int diagonalDistance) {
+        if (rootReference == null)
+            return;
+        Integer sum = map.get(diagonalDistance);
+        if (sum == null) {
+            sum = 0;
+        }
+
+        sum = sum + rootReference.getData();
+        map.put(diagonalDistance, sum);
+
+        printDiagonalSumInBSTAlternateHelper(rootReference.getLeftChild(), map, diagonalDistance + 1);
+
+        printDiagonalSumInBSTAlternateHelper(rootReference.getRightChild(), map, diagonalDistance);
+    }
+
+    /**
+     * For this approach, we need to modify the Node class by adding additional field "diagonalDistance"
+     *
+     * @param rootReference
+     */
+    public void printDiagonalSumInBSTAlternate2(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty.");
             return;
