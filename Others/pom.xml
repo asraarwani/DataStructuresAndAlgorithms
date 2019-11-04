@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.some_domain.www</groupId>
-    <artifactId>Other</artifactId>
+    <artifactId>Others</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>Others</name>
