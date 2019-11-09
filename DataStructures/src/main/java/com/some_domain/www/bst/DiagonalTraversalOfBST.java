@@ -109,10 +109,8 @@ public class DiagonalTraversalOfBST {
         List<Node> nodeList = diagonalMap.get(diagonalNumber);
         if (nodeList == null) {
             nodeList = new ArrayList<>();
-            nodeList.add(rootReference);
-        } else {
-            nodeList.add(rootReference);
         }
+        nodeList.add(rootReference);
 
         //Store nodes with same diagonalDistance as a list
         diagonalMap.put(diagonalNumber, nodeList);
