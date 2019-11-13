@@ -63,7 +63,7 @@ public class IdenticalBSTsCheck {
         } else {
             System.out.println("Two BSTs aren't identical");
         }
-        System.out.println("Time complexity is O(N) assuming number of nodes in BSTs are M and N where N is smaller");
+        System.out.println("Time complexity is O(min(M, N)) where M and N are the number of nodes in two BSTs");
 
         System.out.println();
         identical = new IdenticalBSTsCheck().areTwoBSTsIdenticalIteratively(bstOne.getRoot(), bstTwo.getRoot());
@@ -72,7 +72,7 @@ public class IdenticalBSTsCheck {
         } else {
             System.out.println("Two BSTs aren't identical");
         }
-        System.out.println("Time complexity is O(M + N) where M and N are the number of nodes in the two BSTs");
+        System.out.println("Time complexity is O(min(M, N)) where M and N are the number of nodes in two BSTs");
     }
 
     public boolean areTwoBSTsIdenticalIteratively(Node firstBSTRootReference, Node secondBSTRootReference) {
