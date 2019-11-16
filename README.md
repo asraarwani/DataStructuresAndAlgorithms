@@ -17,7 +17,7 @@
                 1. Doubly linked list
                 2. Sorted doubly linked list
                 3. Circular doubly linked list
-                4. Sorted circular doubly linekd list
+                4. Sorted circular doubly linked list
      2. Stack
                 
                 1. Stack
