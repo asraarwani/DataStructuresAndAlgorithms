@@ -4,11 +4,31 @@
 ## Table of contents
   1. Data Structures
      1.  Linked list
-         1. Singly linked list - (Sorted, Circular, Circular Sorted)
-         1. Doubly linked list - (Sorted, Circular, Circular Sorted)
+         1. Singly linked list
+            
+                1.  Singly linked list
+                2.  Circular singly linked list
+                3.  Sorted singly linked list
+                4.  Sorted circular singly linked list
+                5.  Reverse singly linked list
+            
+         1. Doubly linked list
+                
+                1. Doubly linked list
+                2. Sorted doubly linked list
+                3. Circular doubly linked list
+                4. Sorted circular doubly linekd list
      2. Stack
+                
+                1. Stack
      3. Queue
+                
+                1. Queue
+                
      4. Tree
+                
+                1. Minimum and maximum data from a binary tree
+                
      5. Binary Search Tree
             
             1.  BST
