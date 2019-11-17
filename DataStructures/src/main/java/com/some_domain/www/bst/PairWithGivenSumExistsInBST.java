@@ -152,7 +152,7 @@ public class PairWithGivenSumExistsInBST {
     /**
      * Solution is to create an auxiliary array/list and store in-order traversal of BST in the array/list.
      * The array will be sorted as in-order traversal of BST always produces sorted data.
-     * Once we have the in-order traversal, we can pair in O(n) time.
+     * Once we have the in-order traversal, we can find pair in O(n) time.
      * This solution works in O(n) time, but requires O(n) auxiliary space.
      */
     public boolean pairWithGivenSumExistsInBST(Node rootReference, int givenSum) {
