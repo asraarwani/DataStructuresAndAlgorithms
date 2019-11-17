@@ -55,7 +55,8 @@
             23. Print path from root to any node in BST
             24. Check if two BSTs are Identical
             25. BST contains dead-end check
-            26. Pair equal to a given sum in BST
+            26. Print/Check if a pair equal to given sum exists in BST
+            27. Count pairs whose sum is equal to given sum in BST
             
   2. Algorithm techniques
      1. Divide and Conquer

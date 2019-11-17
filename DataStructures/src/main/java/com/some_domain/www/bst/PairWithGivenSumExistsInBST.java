@@ -109,6 +109,8 @@ public class PairWithGivenSumExistsInBST {
             if ((leftStackReference.getData() + rightStackReference.getData() == givenSum)) {
                 if (leftStackReference == rightStackReference)
                     return false;
+                System.out.println("There exists a pair ( " + leftStackReference.getData() + " , " + rightStackReference.getData() + " )" +
+                        " whose sum is equal to : " + givenSum);
                 return true;
             } else if ((leftStackReference.getData() + rightStackReference.getData() < givenSum)) {
                 leftStack.pop();
