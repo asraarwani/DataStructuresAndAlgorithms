@@ -57,6 +57,7 @@
             25. BST contains dead-end check
             26. Print/Check if a pair equal to given sum exists in BST
             27. Count pairs whose sum is equal to given sum in BST
+            28. Print/Count the number of pairs from two BSTs whose sum is equal to given sum
             
   2. Algorithm techniques
      1. Divide and Conquer
