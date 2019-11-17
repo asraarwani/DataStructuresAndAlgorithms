@@ -67,7 +67,7 @@ public class PairWithGivenSumExistsInBST {
             System.out.println("Pair exists");
         else
             System.out.println("Pair doesn't exist");
-        System.out.println("Time and space complexity for this approach is O(N) and O(LogN)");
+        System.out.println("Time and space complexity for this approach is O(N) and O(LogN) respectively");
         System.out.println("Space complexity : 2 * O(LogN) which is equal to O(LogN), constants are ignored. Means at any point of time, maximum there will be logN elements in stack");
     }
 
