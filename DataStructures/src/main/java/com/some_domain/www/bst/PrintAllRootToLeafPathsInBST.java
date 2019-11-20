@@ -64,11 +64,12 @@ public class PrintAllRootToLeafPathsInBST {
         if (rootReference == null)
             return;
 
+        printAllPathsFromRootToLeafNodesAlternate(rootReference.getLeftChild(), path + " " + rootReference.getData());
+
         if (rootReference.getLeftChild() == null && rootReference.getRightChild() == null) {
             System.out.println(path + " " + rootReference.getData());
             return;
         }
-        printAllPathsFromRootToLeafNodesAlternate(rootReference.getLeftChild(), path + " " + rootReference.getData());
 
         printAllPathsFromRootToLeafNodesAlternate(rootReference.getRightChild(), path + " " + rootReference.getData());
     }
