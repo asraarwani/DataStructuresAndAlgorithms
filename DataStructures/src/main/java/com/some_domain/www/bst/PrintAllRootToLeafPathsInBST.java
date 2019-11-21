@@ -64,14 +64,15 @@ public class PrintAllRootToLeafPathsInBST {
         if (rootReference == null)
             return;
 
-        printAllPathsFromRootToLeafNodesAlternate(rootReference.getLeftChild(), path + " " + rootReference.getData());
+        path = path + " " + rootReference.getData();
+
+        printAllPathsFromRootToLeafNodesAlternate(rootReference.getLeftChild(), path);
 
         if (rootReference.getLeftChild() == null && rootReference.getRightChild() == null) {
-            System.out.println(path + " " + rootReference.getData());
-            return;
+            System.out.println(path);
         }
 
-        printAllPathsFromRootToLeafNodesAlternate(rootReference.getRightChild(), path + " " + rootReference.getData());
+        printAllPathsFromRootToLeafNodesAlternate(rootReference.getRightChild(), path);
     }
 
     public void printAllPathsFromRootToLeafNodes(Node rootReference, Stack<Node> stack) {
