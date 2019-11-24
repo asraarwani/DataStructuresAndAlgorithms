@@ -48,16 +48,20 @@
             15. Diagonal order traversal of BST
             16. Diagonal sum in  BST
             17. Left and Right view of the BST
-            19. Left and Right view of the BST alternate approach
-            20. Check if a BST is Isomorphic
-            21. Lowest common ancestor of a node in BST
-            22. Leaf node count of BST
-            23. Print path from root to any node in BST
+            18. Left and Right view of the BST alternate approach
+            19. Check if a BST is Isomorphic
+            20. Lowest common ancestor of a node in BST
+            21. Leaf node count of BST
+            22. Print path from root to any node in BST
+            23. Print path from root to all nodes in BST
             24. Check if two BSTs are Identical
             25. BST contains dead-end check
             26. Print/Check if a pair equal to given sum exists in BST
             27. Print/Count pairs whose sum is equal to given sum in BST
             28. Print/Count the number of pairs from two BSTs whose sum is equal to given sum
+            29. Print all the k sum paths starting from root node and ending at any node
+            30. Print all the k sum paths starting from root node and ending at the leaf node in BST
+            31. Print all the k sum paths starting  and ending at any node of the BST
             
   2. Algorithm techniques
      1. Divide and Conquer
