@@ -11,7 +11,7 @@ import java.util.Set;
 public class CountPairsEqualToGivenSumInBST {
 
     private Node root;
-    private static int nodeCount;
+    private static int pairCount;
 
     public CountPairsEqualToGivenSumInBST() {
         this.root = null;
@@ -47,7 +47,7 @@ public class CountPairsEqualToGivenSumInBST {
 
         int givenSum = 40;
         bst.countNumberOfPairsEqualToGivenSum(bst.getRoot(), givenSum);
-        System.out.println("Number of pairs whose sum is equal to " + givenSum + " are : " + nodeCount);
+        System.out.println("Number of pairs whose sum is equal to " + givenSum + " are : " + pairCount);
         System.out.println("Time and space complexity is O(N)");
     }
 
@@ -57,10 +57,9 @@ public class CountPairsEqualToGivenSumInBST {
     }
 
     /*
-    Traverse the tree in any order (pre / post / in).
-    Create an empty hash and keep adding difference between current node’s value and givenSum to it.
-    At each node, check if it’s value is in the hash, if yes then increment the count by 1 and
-    DO NOT add this node’s value difference with givenSum to the hash to avoid duplicate counting for a single pair.
+    Traverse the tree in any order (pre / post / in) .
+    Create an empty hash and keep checking if difference between node's data and given sum exists in hash, if yes then increment the pairCount
+    else add the node's data  to the hash.
     */
     private int countNumberOfPairsEqualToGivenSumHelper(Node rootReference, int givenSum, Set<Integer> set) {
         if (rootReference == null)
@@ -68,14 +67,14 @@ public class CountPairsEqualToGivenSumInBST {
 
         countNumberOfPairsEqualToGivenSumHelper(rootReference.getLeftChild(), givenSum, set);
 
-        if (set.contains(rootReference.getData())) {
-            nodeCount++;
+        if (set.contains(givenSum - rootReference.getData())) {
+            pairCount++;
         } else {
-            set.add(givenSum - rootReference.getData());
+            set.add(rootReference.getData());
         }
 
         countNumberOfPairsEqualToGivenSumHelper(rootReference.getRightChild(), givenSum, set);
-        return nodeCount;
+        return pairCount;
     }
 
     public void insertNodeIntoBSTIteratively(int data) {
