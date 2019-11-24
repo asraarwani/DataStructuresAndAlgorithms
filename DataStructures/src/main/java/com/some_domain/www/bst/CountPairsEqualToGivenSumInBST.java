@@ -68,6 +68,7 @@ public class CountPairsEqualToGivenSumInBST {
         countNumberOfPairsEqualToGivenSumHelper(rootReference.getLeftChild(), givenSum, set);
 
         if (set.contains(givenSum - rootReference.getData())) {
+            System.out.println(givenSum - rootReference.getData() + " , " + rootReference.getData());
             pairCount++;
         } else {
             set.add(rootReference.getData());
