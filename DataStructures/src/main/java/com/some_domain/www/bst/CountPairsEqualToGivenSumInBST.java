@@ -52,8 +52,8 @@ public class CountPairsEqualToGivenSumInBST {
     }
 
 
-    public int countNumberOfPairsEqualToGivenSum(Node rootReference, int givenSum) {
-        return countNumberOfPairsEqualToGivenSumHelper(rootReference, givenSum, new HashSet<>());
+    public void countNumberOfPairsEqualToGivenSum(Node rootReference, int givenSum) {
+        countNumberOfPairsEqualToGivenSumHelper(rootReference, givenSum, new HashSet<>());
     }
 
     /*
