@@ -1,7 +1,7 @@
 package com.some_domain.www.bst;
 
-import java.util.List;
 import java.util.Stack;
+import java.util.stream.IntStream;
 
 /**
  * @author : waniasra
@@ -48,7 +48,7 @@ public class PrintAllKSumPathsInBST {
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 30);
         bst.setRoot(rootReference);
 
-        int kSum = 31;
+        int kSum = 69;
         bst.printAllKSumPathsFromBST(bst.getRoot(), new Stack<>(), kSum);
         System.out.println("\nTime complexity is O(NlogN) for balanced BST and O(N^2) for BST/skewed BST");
     }
@@ -59,21 +59,24 @@ public class PrintAllKSumPathsInBST {
 
         stack.push(rootReference);
 
-        printAllKSumPathsFromBST(rootReference.getLeftChild(), stack, kSum);
-
-        printAllKSumPathsFromBST(rootReference.getRightChild(), stack, kSum);
-
         int sumSoFar = 0;
         for (int i = stack.size() - 1; i >= 0; i--) {
             sumSoFar = sumSoFar + stack.get(i).getData();
             if (sumSoFar == kSum) {
                 System.out.println("We are looking for kSum [ " + kSum + " ]");
-                for (int j = i; j < stack.size(); j++) {
+              /*  for (int j = i; j < stack.size(); j++) {
                     System.out.print(stack.get(j).getData() + " ");
-                }
+                }*/
+                IntStream.range(i, stack.size()).forEach(index -> {
+                    System.out.print(stack.get(index).getData() + " ");
+                });
             }
         }
-        stack.remove(stack.size() - 1);
+        printAllKSumPathsFromBST(rootReference.getLeftChild(), stack, kSum);
+
+        printAllKSumPathsFromBST(rootReference.getRightChild(), stack, kSum);
+
+        stack.pop();
     }
 
     public Node insertNodeIntoBSTRecursively(Node rootReference, int data) {

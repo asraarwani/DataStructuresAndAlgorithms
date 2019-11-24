@@ -66,7 +66,6 @@ public class PrintAllKSumPathsFromRootToLeafInBST {
 
         printAllKSumPathsFromBST(rootReference.getRightChild(), kSum, stack, sumSoFar);
 
-        sumSoFar = sumSoFar - rootReference.getData();
         stack.pop();
     }
 

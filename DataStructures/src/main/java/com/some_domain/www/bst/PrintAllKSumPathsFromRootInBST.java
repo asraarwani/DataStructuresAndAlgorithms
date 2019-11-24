@@ -47,9 +47,9 @@ public class PrintAllKSumPathsFromRootInBST {
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 30);
         bst.setRoot(rootReference);
 
-        int kSum = 51;
+        int kSum = 45;
         bst.printAllKSumPathsFromBST(bst.getRoot(), kSum, new Stack(), 0);
-        System.out.println("Time complexity is O(N), as we are using pre-order traversal of BST approach");
+        System.out.println("\nTime complexity is O(N), as we are using pre-order traversal of BST approach");
     }
 
     public void printAllKSumPathsFromBST(Node rootReference, int kSum, Stack<Node> stack, int sumSoFar) {
@@ -61,15 +61,13 @@ public class PrintAllKSumPathsFromRootInBST {
 
         if (sumSoFar == kSum) {
             System.out.println("We are looking for kSum [ " + kSum + " ]");
-
-            System.out.println(stack);
+            stack.stream().forEach(node -> System.out.print(node.getData() + " "));
             sumSoFar = 0;
         }
         printAllKSumPathsFromBST(rootReference.getLeftChild(), kSum, stack, sumSoFar);
 
         printAllKSumPathsFromBST(rootReference.getRightChild(), kSum, stack, sumSoFar);
 
-        sumSoFar = sumSoFar - rootReference.getData();
         stack.pop();
     }
 
@@ -118,11 +116,6 @@ public class PrintAllKSumPathsFromRootInBST {
 
         public void setRightChild(Node righChild) {
             this.rightChild = righChild;
-        }
-
-        @Override
-        public String toString() {
-            return "" + data;
         }
     }
 }
