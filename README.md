@@ -63,6 +63,11 @@
             30. Print all the k sum paths starting from root node and ending at the leaf node in BST
             31. Print all the k sum paths starting  and ending at any node of the BST
             
+            32. Print odd and even nodes of the BST
+            33. Find maximum width of BST
+            34. Find maximum sum level of BST
+            35. Find horizontal sum of all levels of BST
+            
   2. Algorithm techniques
      1. Divide and Conquer
      2. Dynamic Programming
