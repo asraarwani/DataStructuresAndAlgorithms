@@ -67,7 +67,7 @@
             33. Find maximum width of BST
             34. Find maximum sum level of BST
             35. Find horizontal sum of all levels of BST
-            36. Print all full nodse of BST
+            36. Print all full nodes of BST
             
   2. Algorithm techniques
      1. Divide and Conquer
