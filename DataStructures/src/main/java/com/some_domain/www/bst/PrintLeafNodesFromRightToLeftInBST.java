@@ -47,7 +47,7 @@ public class PrintLeafNodesFromRightToLeftInBST {
         bst.insertNodeIntoBSTIteratively(30);
         bst.insertNodeIntoBSTIteratively(100);
 
-        System.out.println("Leafr nodes from right to left are given as follows");
+        System.out.println("Leaf nodes from right to left are given as follows");
         bst.printLeafNodesFromRightToLeft(bst.getRoot());
         System.out.println("\nTime complexity is O(N) where N is the number of nodes in BST");
     }
