@@ -72,6 +72,7 @@
             37. Remove all leaf nodes from BST
             38. Print common nodes in two BSTs
             39. Print all internal nodes of BST
+            40. Print leaf nodes from right to left in BST
             
   2. Algorithm techniques
      1. Divide and Conquer
