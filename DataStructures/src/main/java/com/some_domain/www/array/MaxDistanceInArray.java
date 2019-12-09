@@ -1,4 +1,4 @@
-package com.some_domain.www.arrays;
+package com.some_domain.www.array;
 
 /**
  * @author : waniasra
