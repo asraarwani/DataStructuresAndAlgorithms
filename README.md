@@ -74,6 +74,10 @@
             39. Print all internal nodes of BST
             40. Print leaf nodes from right to left in BST
             41. Print leaf nodes from left to right in BST
+           
+     6. Array
+            
+            1. Find maximum distance (maximum j – i such that arr[j] > arr[i])
             
   2. Algorithm techniques
      1. Divide and Conquer
