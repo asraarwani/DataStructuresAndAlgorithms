@@ -76,6 +76,7 @@
             41. Print leaf nodes from left to right in BST
             42. Print sum and product of all non-leaf nodes in BST
             43. Print all the nodes between two given levels in BST
+            44. Print nodes of BST in min max fashion
            
      6. Array
             
