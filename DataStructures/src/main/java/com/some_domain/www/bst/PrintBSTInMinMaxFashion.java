@@ -52,18 +52,26 @@ public class PrintBSTInMinMaxFashion {
         System.out.println("\nTime and space complexity is O(N)");
     }
 
+    /*
+        Approach:
+        Create a list and store the in-order traversal of the given binary search tree.
+        Since the in-order traversal of the binary search tree is sorted in ascending order, initialise i = 0 and j = n – 1.
+        Print list.get(i) and update i = i + 1.
+        Print list.get(j) and update j = j – 1.
+        Repeat steps 3 and 4 until all the elements have been printed.
+     */
     public void printBSTInMinMaxFashion(Node rootReference) {
         List<Node> list = new ArrayList<>();
         inOrderTraversalOfBST(rootReference, list);
 
-        int startingIndex = 0;
-        int endingIndex = list.size() - 1;
-        while (startingIndex < endingIndex) {
-            System.out.print(list.get(startingIndex++).getData() + " " + list.get(endingIndex--).getData() + " ");
+        int i = 0;
+        int j = list.size() - 1;
+        while (i < j) {
+            System.out.print(list.get(i++).getData() + " " + list.get(j--).getData() + " ");
         }
         //In case we've odd number of nodes in BST
-        if (startingIndex == endingIndex) {
-            System.out.print(list.get(startingIndex).getData());
+        if (i == j) {
+            System.out.print(list.get(i).getData());
         }
     }
 
