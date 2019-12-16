@@ -79,7 +79,7 @@
             44. Print nodes of BST in min max fashion
             45. Flatten BST into singly linked list without using any auxiliary data structure
             46. Flatten BST into singly linked list using stack
-            47. FlattenBST into singly linked list using queue
+            47. Flatten BST into singly linked list using queue
            
      6. Array
             
