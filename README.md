@@ -77,6 +77,7 @@
             42. Print sum and product of all non-leaf nodes in BST
             43. Print all the nodes between two given levels in BST
             44. Print nodes of BST in min max fashion
+            45. Flatten BST into Singly Linked List without using any auxiliary data structure
            
      6. Array
             
