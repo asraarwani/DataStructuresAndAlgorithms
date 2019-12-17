@@ -80,6 +80,7 @@
             45. Flatten BST into singly linked list without using any auxiliary data structure
             46. Flatten BST into singly linked list using stack
             47. Flatten BST into singly linked list using queue
+            48. Convert a BST into doubly linked list
            
      6. Array
             
