@@ -43,7 +43,7 @@ public class ConvertBSTToDoublyLinkedList {
         System.out.println("In order traversal of BST is given as follows");
         bst.inOrderTraversalOfBST(bst.getRoot());
 
-        //In order to avoid the use static fields for previous, head and tail, type DLL is used
+        //In order to avoid the use of static fields for previous, head and tail, type DLL is used
         DLL list = new DLL();
         bst.convertBSTToDoublyLinkedList(bst.getRoot(), list);
 
