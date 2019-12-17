@@ -47,10 +47,10 @@ public class ConvertBSTToDoublyLinkedList {
         DLL list = new DLL();
         bst.convertBSTToDoublyLinkedList(bst.getRoot(), list);
 
-        System.out.println("\n\nContents of converted doubly linked list using forward are given as follows");
+        System.out.println("\n\nContents of converted doubly linked list using forward traversal are given as follows");
         bst.printDLLUsingForwardTraversal(list.getHead());
 
-        System.out.println("\n\nContents of converted doubly linked list using backward are given as follows");
+        System.out.println("\n\nContents of converted doubly linked list using backward traversal are given as follows");
         bst.printDLLUsingBackwardTraversal(list.getTail());
 
         System.out.println("\n\nTime complexity is O(N) as we are using in-order traversal of BST for conversion");
