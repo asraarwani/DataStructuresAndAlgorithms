@@ -9,7 +9,6 @@ package com.some_domain.www.bst;
 public class FlattenBSTToSinglyLLWithoutAuxSpace {
 
     private Node root;
-    private Node previousNode = null;
 
     public FlattenBSTToSinglyLLWithoutAuxSpace() {
         this.root = null;
@@ -44,8 +43,9 @@ public class FlattenBSTToSinglyLLWithoutAuxSpace {
         bst.insertNodeIntoBSTIteratively(24);
         bst.insertNodeIntoBSTIteratively(30);
 
-        System.out.println("Falattened BST is given as follows");
-        bst.flattenBSTIntoSinglyLinkedList(bst.getRoot());
+        System.out.println("Flattened BST is given as follows");
+        SLL list = new SLL();
+        bst.flattenBSTIntoSinglyLinkedList(bst.getRoot(), list);
         bst.inOrderTraversalOfBST(bst.getRoot());
         System.out.println("\nTime complexity is O(N)");
     }
@@ -53,14 +53,14 @@ public class FlattenBSTToSinglyLLWithoutAuxSpace {
     /*
         The idea is not to use any auxiliary data structure
      */
-    public void flattenBSTIntoSinglyLinkedList(Node rootReference) {
+    public void flattenBSTIntoSinglyLinkedList(Node rootReference, SLL list) {
         if (rootReference == null)
             return;
-        flattenBSTIntoSinglyLinkedList(rootReference.getRightChild());
-        flattenBSTIntoSinglyLinkedList(rootReference.getLeftChild());
+        flattenBSTIntoSinglyLinkedList(rootReference.getRightChild(), list);
+        flattenBSTIntoSinglyLinkedList(rootReference.getLeftChild(), list);
         rootReference.setLeftChild(null);
-        rootReference.setRightChild(previousNode);
-        previousNode = rootReference;
+        rootReference.setRightChild(list.getPrevious());
+        list.setPrevious(rootReference);
     }
 
     public void inOrderTraversalOfBST(Node rootReference) {
@@ -95,6 +95,19 @@ public class FlattenBSTToSinglyLLWithoutAuxSpace {
                     }
                 }
             }
+        }
+    }
+
+    private static class SLL {
+
+        private Node previous;
+
+        public Node getPrevious() {
+            return previous;
+        }
+
+        public void setPrevious(Node previous) {
+            this.previous = previous;
         }
     }
 
