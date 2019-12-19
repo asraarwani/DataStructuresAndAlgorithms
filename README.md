@@ -82,6 +82,7 @@
             47. Flatten BST into singly linked list using queue
             48. Convert a BST into doubly linked list
             49. Check if leaf order traversal of two BSTs is same or not
+            50. Convert a given binary tree to binary search tree
            
      6. Array
             
