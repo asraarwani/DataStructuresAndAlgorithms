@@ -84,6 +84,7 @@
             49. Check if leaf order traversal of two BSTs is same or not
             50. Convert a given binary tree to binary search tree
             51. Convert BST to balanced BST
+            52. Merge two balanced BSTs
            
      6. Array
             
