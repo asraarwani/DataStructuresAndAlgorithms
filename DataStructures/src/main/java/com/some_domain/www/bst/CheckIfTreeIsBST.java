@@ -8,7 +8,7 @@ package com.some_domain.www.bst;
 
 /**
  * A tree is a BST if it has following three properties:
- * 1. Root has value greater than all the nodes on its left subtree
+ * 1. Root has value greater than or equal to all the nodes on its left subtree
  * 2. Root has value less than all the nodes on its right subtree
  * 3. Left subtree and right subtree are also binary search trees
  */

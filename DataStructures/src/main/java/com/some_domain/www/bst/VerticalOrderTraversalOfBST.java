@@ -96,27 +96,25 @@ public class VerticalOrderTraversalOfBST {
             //If the polledNode has a left child
             if (polledNode.getLeftChild() != null) {
                 Node leftChildNode = polledNode.getLeftChild();
-                queue.offer(leftChildNode);
                 int horizontalDistance = parentHorizontalDistance.get(polledNode) - 1;
-                parentHorizontalDistance.put(leftChildNode, horizontalDistance);
-                if (resultMap.containsKey(horizontalDistance)) {
-                    resultMap.get(horizontalDistance).add(leftChildNode);
-                } else {
-                    resultMap.put(horizontalDistance, new ArrayList<>(Arrays.asList(leftChildNode)));
+                if (!resultMap.containsKey(horizontalDistance)) {
+                    resultMap.put(horizontalDistance, new ArrayList<>());
                 }
+                resultMap.get(horizontalDistance).add(leftChildNode);
+                parentHorizontalDistance.put(leftChildNode, horizontalDistance);
+                queue.offer(leftChildNode);
             }
 
             //If the polledNode has a right child
             if (polledNode.getRightChild() != null) {
                 Node rightChildNode = polledNode.getRightChild();
-                queue.offer(rightChildNode);
                 int horizontalDistance = parentHorizontalDistance.get(polledNode) + 1;
-                parentHorizontalDistance.put(rightChildNode, horizontalDistance);
-                if (resultMap.containsKey(horizontalDistance)) {
-                    resultMap.get(horizontalDistance).add(rightChildNode);
-                } else {
-                    resultMap.put(horizontalDistance, new ArrayList<>(Arrays.asList(rightChildNode)));
+                if (!resultMap.containsKey(horizontalDistance)) {
+                    resultMap.put(horizontalDistance, new ArrayList<>());
                 }
+                resultMap.get(horizontalDistance).add(rightChildNode);
+                parentHorizontalDistance.put(rightChildNode, horizontalDistance);
+                queue.offer(rightChildNode);
             }
         }
         return resultMap;

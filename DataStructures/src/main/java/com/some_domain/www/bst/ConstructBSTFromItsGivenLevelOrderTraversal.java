@@ -30,9 +30,9 @@ public class ConstructBSTFromItsGivenLevelOrderTraversal {
 
         ConstructBSTFromItsGivenLevelOrderTraversal bst = new ConstructBSTFromItsGivenLevelOrderTraversal();
         int n = 9;
-        int arrary[] = {7, 4, 12, 3, 6, 8, 1, 5, 10};
+        int array[] = {7, 4, 12, 3, 6, 8, 1, 5, 10};
 
-        Node rootReference = bst.constructBSTFromGivenLevelOrderTraversal(arrary, n);
+        Node rootReference = bst.constructBSTFromGivenLevelOrderTraversal(array, n);
         bst.setRoot(rootReference);
 
         System.out.println("In-order traversal of BST constructed from given array is given as follows");

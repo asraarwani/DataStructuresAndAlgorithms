@@ -66,19 +66,15 @@ public class HeightOfBST {
     }
 
     public int findHeightOfBSTIteratively(Node rootReference) {
-        if (rootReference == null) {
+        if (rootReference == null)
             return 0;
-        } else {
-            int height = 0;
-            int nodeCount = 0;
+        else {
             Queue<Node> queue = new LinkedList<>();
-            queue.add(rootReference);
-            while (true) {
-                nodeCount = queue.size();
-                if (nodeCount == 0)
-                    return height;
-                height++;
-                while (nodeCount > 0) {
+            queue.offer(rootReference);
+            int height = 0;
+            while (!queue.isEmpty()) {
+                int currentSizeOfQueue = queue.size();
+                while (currentSizeOfQueue > 0) {
                     Node polledNode = queue.poll();
 
                     //If polled node has a left child
@@ -90,9 +86,11 @@ public class HeightOfBST {
                     if (polledNode.getRightChild() != null) {
                         queue.offer(polledNode.getRightChild());
                     }
-                    nodeCount--;
+                    currentSizeOfQueue--;
                 }
+                height++;
             }
+            return height;
         }
     }
 
