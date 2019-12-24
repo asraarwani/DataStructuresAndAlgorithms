@@ -58,9 +58,10 @@ public class ConvertBSTToSortedCircularDoublyLinkedList {
                 nodeDetails.getPrevious().setRightChild(rootReference); // Setting the forward link (right)
             }
 
+            //Store the reference to the right subtree for further processing
             Node rightChildRef = rootReference.getRightChild();
 
-            //Setting the circular links
+            //Setting the circular links from head to currently processing node and back to head
             nodeDetails.getHead().setLeftChild(rootReference);
             rootReference.setRightChild(nodeDetails.getHead());
 
