@@ -36,10 +36,10 @@ public class ConvertBSTToSortedCircularDoublyLinkedList {
         NodeDetails nodeDetails = new NodeDetails();
         bst.convertBSTToSortedCircularDoublyLinkedList(bst.getRoot(), nodeDetails);
 
-        System.out.println("Forward traversal of converted doubly linked list ");
+        System.out.println("Forward traversal of converted sorted doubly linked list ");
         bst.printCircularDoublyLinkedListUsingForwardTraversal(nodeDetails.getHead());
 
-        System.out.println("\n\nBackward traversal of converted doubly linked list");
+        System.out.println("\n\nBackward traversal of converted sorted doubly linked list");
         bst.printCircularDoublyLinkedListUsingBackwardTraversal(nodeDetails.getTail());
 
         System.out.println("\nTime complexity is O(N)");
@@ -74,7 +74,7 @@ public class ConvertBSTToSortedCircularDoublyLinkedList {
 
     public void printCircularDoublyLinkedListUsingBackwardTraversal(Node tailReference) {
         if (tailReference == null) {
-            System.out.println("Converted circular doubly linked list is empty");
+            System.out.println("Converted sorted circular doubly linked list is empty");
             return;
         } else {
             Node traversalNode = tailReference;
@@ -87,7 +87,7 @@ public class ConvertBSTToSortedCircularDoublyLinkedList {
 
     public void printCircularDoublyLinkedListUsingForwardTraversal(Node headReference) {
         if (headReference == null) {
-            System.out.println("Converted circular doubly linked list is empty");
+            System.out.println("Converted sorted circular doubly linked list is empty");
             return;
         } else {
             Node traversalNode = headReference;
