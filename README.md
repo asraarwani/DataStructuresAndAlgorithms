@@ -88,6 +88,8 @@
             53. Second largest node in BST
             54. Construct a BST from its given level order traversal
             55. Convert BST to sorted circular doubly linked list
+            56. Largest number greater than or equal to a given number 
+            57. Largest number less than or equal to a given number
            
      6. Array
             
