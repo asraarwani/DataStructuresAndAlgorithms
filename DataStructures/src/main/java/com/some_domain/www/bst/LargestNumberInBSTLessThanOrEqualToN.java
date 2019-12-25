@@ -45,6 +45,10 @@ public class LargestNumberInBSTLessThanOrEqualToN {
         int givenNumber = 26;
         int largestNumberSmallerThanOrEualToGivenNumber = bst.findLargestNumberSmallerThanOrEqualToGivenNumber(bst.getRoot(), givenNumber);
         System.out.println("Number is  : " + largestNumberSmallerThanOrEualToGivenNumber);
+
+        largestNumberSmallerThanOrEualToGivenNumber = bst.findFloor(bst.getRoot(), givenNumber);
+        System.out.println("\nNumber is  : " + largestNumberSmallerThanOrEualToGivenNumber);
+
         System.out.println("Time complexity is O(H) where H is the height of the BST");
     }
 
@@ -62,6 +66,23 @@ public class LargestNumberInBSTLessThanOrEqualToN {
             else
                 return number;
         }
+        return -1;
+    }
+
+    public int findFloor(Node rootReference, int givenNumber) {
+        Node resultNode = null;
+        Node currentNode = rootReference;
+        while (currentNode != null) {
+
+            if (givenNumber >= currentNode.getData()) {
+                resultNode = currentNode;
+                currentNode = currentNode.getRightChild();
+            } else {
+                currentNode = currentNode.getLeftChild();
+            }
+        }
+        if (resultNode != null)
+            return resultNode.getData();
         return -1;
     }
 

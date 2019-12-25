@@ -41,9 +41,13 @@ public class LargestNumberInBSTGreaterThanOrEqualToN {
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 30);
         bst.setRoot(rootReference);
 
-        int givenNumber = 19;
+        int givenNumber = 14;
         int largestNumberGreaterThanOrEqualToGivenNumber = bst.findLargestNumberGreaterThanOrEqualToGivenNumber(bst.getRoot(), givenNumber);
         System.out.println("Number is  : " + largestNumberGreaterThanOrEqualToGivenNumber);
+
+        largestNumberGreaterThanOrEqualToGivenNumber = bst.findCeil(bst.getRoot(), givenNumber);
+        System.out.println("Number is  : " + largestNumberGreaterThanOrEqualToGivenNumber);
+
         System.out.println("Time complexity is O(H) where H is the height of the BST");
     }
 
@@ -61,6 +65,22 @@ public class LargestNumberInBSTGreaterThanOrEqualToN {
         } else if (givenNumber > rootReference.getData()) {
             return findLargestNumberGreaterThanOrEqualToGivenNumber(rootReference.getRightChild(), givenNumber);
         }
+        return -1;
+    }
+
+    public int findCeil(Node rootReference, int givenNumber) {
+        Node resultNode = null;
+        Node currentNode = rootReference;
+        while (currentNode != null) {
+            if (givenNumber <= currentNode.getData()) {
+                resultNode = currentNode;
+                currentNode = currentNode.getLeftChild();
+            } else {
+                currentNode = currentNode.getRightChild();
+            }
+        }
+        if (resultNode != null)
+            return resultNode.getData();
         return -1;
     }
 
