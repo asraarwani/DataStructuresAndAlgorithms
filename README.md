@@ -29,6 +29,7 @@
                 
                 1. Minimum and maximum data from a binary tree
                 2. Convert binary tree to mirror binary tree
+                3. Isomorphic check on two binary trees
                 
      5. Binary Search Tree
             
@@ -50,7 +51,7 @@
             16. Diagonal sum in  BST
             17. Left and Right view of the BST
             18. Left and Right view of the BST alternate approach
-            19. Check if a BST is Isomorphic
+            19. Merge two balanced BSTs
             20. Lowest common ancestor of a node in BST
             21. Leaf node count of BST
             22. Print path from root to any node in BST
@@ -84,12 +85,11 @@
             49. Check if leaf order traversal of two BSTs is same or not
             50. Convert a given binary tree to binary search tree
             51. Convert BST to balanced BST
-            52. Merge two balanced BSTs
-            53. Second largest node in BST
-            54. Construct a BST from its given level order traversal
-            55. Convert BST to sorted circular doubly linked list
-            56. Largest number greater than or equal to a given number 
-            57. Largest number less than or equal to a given number
+            52. Second largest node in BST
+            53. Construct a BST from its given level order traversal
+            54. Convert BST to sorted circular doubly linked list
+            55. Largest number greater than or equal to a given number 
+            56. Largest number less than or equal to a given number
            
      6. Array
             

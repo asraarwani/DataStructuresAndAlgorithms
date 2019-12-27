@@ -1,9 +1,9 @@
-package com.some_domain.www.bst;
+package com.some_domain.www.binarytree;
 
 /**
  * @author : waniasra
  * @date : 10/31/2019 12:22 PM
- * This class demonstrates how to check if two BSTs are isomorphic
+ * This class demonstrates how to check if two binary trees are isomorphic
  */
 
 /**
@@ -21,11 +21,11 @@ package com.some_domain.www.bst;
 
 //Reference : https://www.youtube.com/watch?v=9Eo42meRcrY
 //Reference : https://www.geeksforgeeks.org/tree-isomorphism-problem/
-public class IsomorphicCheckOnBST {
+public class IsomorphicCheckOnBinaryTrees {
 
     private Node root;
 
-    public IsomorphicCheckOnBST() {
+    public IsomorphicCheckOnBinaryTrees() {
         this.root = null;
     }
 
@@ -48,51 +48,55 @@ public class IsomorphicCheckOnBST {
                                 8    16   24   30
          */
 
-        IsomorphicCheckOnBST firstBST = new IsomorphicCheckOnBST();
-        firstBST.insertNodeIntoBSTIteratively(20);
-        firstBST.insertNodeIntoBSTIteratively(15);
-        firstBST.insertNodeIntoBSTIteratively(25);
-        firstBST.insertNodeIntoBSTIteratively(8);
-        firstBST.insertNodeIntoBSTIteratively(16);
-        firstBST.insertNodeIntoBSTIteratively(24);
-        firstBST.insertNodeIntoBSTIteratively(30);
+        //Note : For simplicity, I  am going to create two BSTs
+        IsomorphicCheckOnBinaryTrees firstBinaryTree = new IsomorphicCheckOnBinaryTrees();
+        firstBinaryTree.insertNodeIntoBinaryTreeIteratively(20);
+        firstBinaryTree.insertNodeIntoBinaryTreeIteratively(15);
+        firstBinaryTree.insertNodeIntoBinaryTreeIteratively(25);
+        firstBinaryTree.insertNodeIntoBinaryTreeIteratively(8);
+        firstBinaryTree.insertNodeIntoBinaryTreeIteratively(16);
+        firstBinaryTree.insertNodeIntoBinaryTreeIteratively(24);
+        firstBinaryTree.insertNodeIntoBinaryTreeIteratively(30);
 
-        IsomorphicCheckOnBST secondBST = new IsomorphicCheckOnBST();
-        secondBST.insertNodeIntoBSTIteratively(20);
-        secondBST.insertNodeIntoBSTIteratively(15);
-        secondBST.insertNodeIntoBSTIteratively(25);
-        secondBST.insertNodeIntoBSTIteratively(8);
-        secondBST.insertNodeIntoBSTIteratively(16);
-        secondBST.insertNodeIntoBSTIteratively(24);
-        secondBST.insertNodeIntoBSTIteratively(30);
+        IsomorphicCheckOnBinaryTrees secondBinaryTree = new IsomorphicCheckOnBinaryTrees();
+        secondBinaryTree.insertNodeIntoBinaryTreeIteratively(20);
+        secondBinaryTree.insertNodeIntoBinaryTreeIteratively(15);
+        secondBinaryTree.insertNodeIntoBinaryTreeIteratively(25);
+        secondBinaryTree.insertNodeIntoBinaryTreeIteratively(8);
+        secondBinaryTree.insertNodeIntoBinaryTreeIteratively(16);
+        secondBinaryTree.insertNodeIntoBinaryTreeIteratively(24);
+        secondBinaryTree.insertNodeIntoBinaryTreeIteratively(30);
 
-        boolean areTwoBSTsIsomorphic = new IsomorphicCheckOnBST().areTwoBSTsIsomorphic(firstBST.getRoot(), secondBST.getRoot());
-        if (areTwoBSTsIsomorphic) {
-            System.out.println("Two BSTs are isomorphic");
+        boolean areTwoBTsIsomorphic = new IsomorphicCheckOnBinaryTrees().areTwoBinaryTreesIsomorphic(firstBinaryTree.getRoot(), secondBinaryTree.getRoot());
+        if (areTwoBTsIsomorphic) {
+            System.out.println("Two Binary trees are isomorphic");
         } else {
-            System.out.println("Two BSTs aren't isomorphic");
+            System.out.println("Two Binary trees aren't isomorphic");
         }
 
-        System.out.println("\nTime complexity is O(M + N) where N and M are the number of nodes in two BSTs");
+        System.out.println("\nTime complexity is O(M + N) where N and M are the number of nodes in two Binary trees");
         System.out.println("Since every node is visited at most two times, complexity is going to be O(M + N)");
     }
 
-    public boolean areTwoBSTsIsomorphic(Node firstBSTRootReference, Node secondBSTRootReference) {
-        if (firstBSTRootReference == null && secondBSTRootReference == null)
+    public boolean areTwoBinaryTreesIsomorphic(Node firstBTRootReference, Node secondBTRootReference) {
+        if (firstBTRootReference == null && secondBTRootReference == null)
             return true;
-        if (firstBSTRootReference == null || secondBSTRootReference == null)
+        if (firstBTRootReference == null || secondBTRootReference == null)
             return false;
-        if (firstBSTRootReference.getData() != secondBSTRootReference.getData())
+        if (firstBTRootReference.getData() != secondBTRootReference.getData())
             return false;
-        if ((areTwoBSTsIsomorphic(firstBSTRootReference.getLeftChild(), secondBSTRootReference.getLeftChild())
-                && areTwoBSTsIsomorphic(firstBSTRootReference.getRightChild(), secondBSTRootReference.getRightChild()))
-                || (areTwoBSTsIsomorphic(firstBSTRootReference.getLeftChild(), secondBSTRootReference.getRightChild())
-                && areTwoBSTsIsomorphic(firstBSTRootReference.getRightChild(), secondBSTRootReference.getLeftChild())))
+        if ((areTwoBinaryTreesIsomorphic(firstBTRootReference.getLeftChild(), secondBTRootReference.getLeftChild())
+                && areTwoBinaryTreesIsomorphic(firstBTRootReference.getRightChild(), secondBTRootReference.getRightChild()))
+                || (areTwoBinaryTreesIsomorphic(firstBTRootReference.getLeftChild(), secondBTRootReference.getRightChild())
+                && areTwoBinaryTreesIsomorphic(firstBTRootReference.getRightChild(), secondBTRootReference.getLeftChild())))
             return true;
         return false;
     }
 
-    public void insertNodeIntoBSTIteratively(int data) {
+    /*
+        Creating a BST
+     */
+    public void insertNodeIntoBinaryTreeIteratively(int data) {
         Node newNode = new Node(data, null, null);
         if (root == null) {
             root = newNode;
