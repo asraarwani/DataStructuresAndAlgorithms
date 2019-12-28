@@ -85,9 +85,9 @@ public class MergeTwoBalancedBSTs {
         List<Node> mergedInOrderTraversal = mergeTwoInOrderTraversalOfTwoBalancedBSTs(firstBSTInOrderTraversal, secondBSTInOrderTraversal);
 
         // Step 4
-        int stargingIndex = 0;
+        int startingIndex = 0;
         int endingIndex = mergedInOrderTraversal.size() - 1;
-        Node rootReference = constructBalancedBSTFromMergedInOrderTraversalOfTwoBalancedBSTs(mergedInOrderTraversal, stargingIndex, endingIndex);
+        Node rootReference = constructBalancedBSTFromMergedInOrderTraversalOfTwoBalancedBSTs(mergedInOrderTraversal, startingIndex, endingIndex);
 
         inOrderTraversalOfBalancedBST(rootReference);
     }

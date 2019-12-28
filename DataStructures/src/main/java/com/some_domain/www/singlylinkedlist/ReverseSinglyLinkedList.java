@@ -1,4 +1,4 @@
-package com.some_domain.www.singlylinkedlist.problems;
+package com.some_domain.www.singlylinkedlist;
 
 /**
  * @author : waniasra
