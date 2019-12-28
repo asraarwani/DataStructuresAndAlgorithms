@@ -11,6 +11,7 @@
                 3.  Sorted singly linked list
                 4.  Sorted circular singly linked list
                 5.  Reverse singly linked list
+                6.  Merge two sorted singly linked lists
             
          1. Doubly linked list
                 
