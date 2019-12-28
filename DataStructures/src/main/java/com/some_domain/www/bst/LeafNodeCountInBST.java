@@ -52,9 +52,32 @@ public class LeafNodeCountInBST {
         numberOfLeafNodes = bst.countNumberOfLeafNodesInBSTIteratively(bst.getRoot());
         System.out.println("Number of leaf nodes in BST : " + numberOfLeafNodes);
 
-        System.out.println("Time complexity for above two approaches is O(N)");
+        NodeCountDetails nodeCountDetails = new NodeCountDetails();
+        bst.countNumberOfLeafNodesRecursivelyAlternate(bst.getRoot(), nodeCountDetails);
+        System.out.println("Number of leaf nodes in BST : " + nodeCountDetails.getNodeCount());
+
+        System.out.println("Time complexity for above three approaches is O(N)");
     }
 
+
+    /*
+        The idea is to use in-order traversal technique of BST
+     */
+    public void countNumberOfLeafNodesRecursivelyAlternate(Node rootReference, NodeCountDetails nodeCountDetails) {
+        if (rootReference != null) {
+            countNumberOfLeafNodesRecursivelyAlternate(rootReference.getLeftChild(), nodeCountDetails);
+
+            //Increment the leaf node count if currently being processed node is a leaf node
+            if (rootReference.getLeftChild() == null && rootReference.getRightChild() == null)
+                nodeCountDetails.setNodeCount(nodeCountDetails.getNodeCount() + 1);
+
+            countNumberOfLeafNodesRecursivelyAlternate(rootReference.getRightChild(), nodeCountDetails);
+        }
+    }
+
+    /*
+        The idea is to use a level order traversal of BST
+     */
     public int countNumberOfLeafNodesInBSTIteratively(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty");
@@ -119,6 +142,18 @@ public class LeafNodeCountInBST {
                     }
                 }
             }
+        }
+    }
+
+    private static class NodeCountDetails {
+        private int nodeCount;
+
+        public int getNodeCount() {
+            return nodeCount;
+        }
+
+        public void setNodeCount(int nodeCount) {
+            this.nodeCount = nodeCount;
         }
     }
 
