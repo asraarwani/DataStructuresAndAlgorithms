@@ -2,6 +2,7 @@ package com.some_domain.www.bst;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -10,6 +11,7 @@ import java.util.List;
  * This class demonstrates how to print the path from root node to any node in BST
  */
 //Reference : https://www.geeksforgeeks.org/print-path-root-given-node-binary-tree/
+//Reference : https://algorithms.tutorialhorizon.com/print-a-path-from-root-to-node-in-binary-tree/    -> Alternate approach
 public class PrintPathFromRootToGivenNode {
 
     private Node root;
@@ -48,6 +50,33 @@ public class PrintPathFromRootToGivenNode {
 
         int node = 16;
         bst.printPathFromRootToGivenNode(bst.getRoot(), node);
+
+        System.out.println();
+        Node givenNode = bst.getRoot().getLeftChild().getRightChild();
+        bst.printPathFromRootToGivenNodeAlternate(bst.getRoot(), givenNode);
+    }
+
+    public void printPathFromRootToGivenNodeAlternate(Node rootReference, Node givenNode) {
+        List<Node> path = new ArrayList<>();
+        System.out.println("You are looking for node [" + givenNode.getData() + " ]");
+        if (printPathFromRootToGivenNodeAlternateHelper(rootReference, givenNode, path)) {
+            Collections.reverse(path);
+            path.stream().forEach(node -> System.out.print(node.getData() + " "));
+            System.out.println("\nTime complexity is O(N) where N is the number of nodes in BST");
+        } else {
+            System.out.println("Path doesn't exist, make sure you are looking for the node which is actually present in the BST");
+        }
+    }
+
+    private boolean printPathFromRootToGivenNodeAlternateHelper(Node rootReference, Node givenNode, List<Node> path) {
+        if (rootReference == null)
+            return false;
+        if (rootReference == givenNode || printPathFromRootToGivenNodeAlternateHelper(rootReference.getLeftChild(), givenNode, path)
+                || printPathFromRootToGivenNodeAlternateHelper(rootReference.getRightChild(), givenNode, path)) {
+            path.add(rootReference);
+            return true;
+        }
+        return false;
     }
 
     public void printPathFromRootToGivenNode(Node rootReference, int node) {
