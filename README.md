@@ -93,6 +93,7 @@
             56. Largest number less than or equal to a given number
             57. In-order successor of node in BST using parent node link
             58. In-order successor of node in BST without parent link
+            59. In-order successor and predecessor of node in BST
            
      6. Array
             
