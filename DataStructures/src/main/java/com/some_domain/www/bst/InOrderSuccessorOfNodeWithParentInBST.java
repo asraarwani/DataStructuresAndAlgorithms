@@ -51,23 +51,25 @@ public class InOrderSuccessorOfNodeWithParentInBST {
         Node inOrderSuccessorNode = bst.findInOrderSuccessorOfNode(bst.getRoot(), givenNode);
         if (inOrderSuccessorNode != null) {
             System.out.println("In-Order successor node of given node is : " + inOrderSuccessorNode.getData());
+            System.out.println("\nTime complexity is O(H) where H is the height of the BST");
         } else {
             System.out.println("In-Order successor of given node doesn't exist");
         }
     }
 
-    public Node findInOrderSuccessorOfNode(Node rootReference, Node node) {
+    public Node findInOrderSuccessorOfNode(Node rootReference, Node givenNode) {
+
         //Case 1 : If the NODE has a right child then its in-order successor will the left most element in the right sub tree of NODE.
-        if (node.getRightChild() != null) {
-            return findMinimumNodeOnLeftOfNode(node.getRightChild());
+        if (givenNode.getRightChild() != null) {
+            return findMinimumNodeOnLeftOfNode(givenNode.getRightChild());
         }
 
         //Case 2: If the NODE doesn’t have a right child then its in-order successor will the one of its ancestors,
         //using parent link keep traveling up till you get the node which is the left child of its parent.
         //Then this parent node will be the in-order successor.
-        Node parentNode = node.getParentNode();
-        while (parentNode != null && node == parentNode.getRightChild()) {
-            node = parentNode;
+        Node parentNode = givenNode.getParentNode();
+        while (parentNode != null && givenNode == parentNode.getRightChild()) {
+            givenNode = parentNode;
             parentNode = parentNode.getParentNode();
         }
         return parentNode;

@@ -107,6 +107,7 @@ public class MergeTwoSortedSinglyLinkedLists {
                     nextNode = nextNode.getNext();
                 }
             }
+            //In case node doesn't fit in between the nodes, we append it at the end
             if (!nodeInserted) {
                 currentNode.setNext(newNode);
             }
