@@ -91,6 +91,8 @@
             54. Convert BST to sorted circular doubly linked list
             55. Largest number greater than or equal to a given number 
             56. Largest number less than or equal to a given number
+            57. In-order successor of node in BST using parent node link
+            58. In-order successor of node in BST without parent link
            
      6. Array
             
