@@ -9,11 +9,11 @@ import java.util.Stack;
  */
 //Reference : https://www.youtube.com/watch?v=zIkDfgFAg60
 //Reference : https://ide.geeksforgeeks.org/RhEpoc
-public class PrintAllRootToLeafPathsInBST {
+public class PrintPathFromRootToAllLeafNodesOfBST {
 
     private Node root;
 
-    public PrintAllRootToLeafPathsInBST() {
+    public PrintPathFromRootToAllLeafNodesOfBST() {
         this.root = null;
     }
 
@@ -38,7 +38,7 @@ public class PrintAllRootToLeafPathsInBST {
                               4                  35
          */
 
-        PrintAllRootToLeafPathsInBST bst = new PrintAllRootToLeafPathsInBST();
+        PrintPathFromRootToAllLeafNodesOfBST bst = new PrintPathFromRootToAllLeafNodesOfBST();
 
         bst.insertNodeIntoBSTIteratively(20);
         bst.insertNodeIntoBSTIteratively(15);
