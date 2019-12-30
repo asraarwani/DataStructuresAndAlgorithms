@@ -37,6 +37,7 @@ public class BSTContainsDeadEndCheck {
                  /      /   \
                 2      9     13
 
+        Approach 2 : For lead node 9, we have both 9+1 and 9-1 present in the BST, hence there exists a dead-end
         */
 
         BSTContainsDeadEndCheck bst = new BSTContainsDeadEndCheck();
