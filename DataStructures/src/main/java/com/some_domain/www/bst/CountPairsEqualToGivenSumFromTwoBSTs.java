@@ -5,6 +5,7 @@ import java.util.Stack;
 /**
  * @author : waniasra
  * @date : 11/16/2019 1:02 PM
+ * This class demonstrates how to print/count the number of pairs of nodes from two BSTs whose sum is equal to given sum
  */
 //Reference : https://www.geeksforgeeks.org/count-pairs-from-two-bsts-whose-sum-is-equal-to-a-given-value-x/
 public class CountPairsEqualToGivenSumFromTwoBSTs {
@@ -108,18 +109,18 @@ public class CountPairsEqualToGivenSumFromTwoBSTs {
         Stack<Node> secondStack = new Stack<>();
 
         int pairCount = 0;
-        Node firstStackTraversalNode = null;
-        Node secondStackTraversalNode = null;
+        Node firstStackTraversalNode = firstRoot;
+        Node secondStackTraversalNode = secondRoot;
         while (true) {
 
-            while (firstRoot != null) {
-                firstStack.push(firstRoot);
-                firstRoot = firstRoot.getLeftChild();
+            while (firstStackTraversalNode != null) {
+                firstStack.push(firstStackTraversalNode);
+                firstStackTraversalNode = firstStackTraversalNode.getLeftChild();
             }
 
-            while (secondRoot != null) {
-                secondStack.push(secondRoot);
-                secondRoot = secondRoot.getRightChild();
+            while (secondStackTraversalNode != null) {
+                secondStack.push(secondStackTraversalNode);
+                secondStackTraversalNode = secondStackTraversalNode.getRightChild();
             }
 
             if (firstStack.isEmpty() || secondStack.isEmpty())
@@ -128,22 +129,24 @@ public class CountPairsEqualToGivenSumFromTwoBSTs {
             firstStackTraversalNode = firstStack.peek();
             secondStackTraversalNode = secondStack.peek();
             if (firstStackTraversalNode.getData() + secondStackTraversalNode.getData() == givenSum) {
-                System.out.println(firstStackTraversalNode.getData() + " , " + secondStackTraversalNode.getData());
                 pairCount++;
+                System.out.println(firstStackTraversalNode.getData() + " , " + secondStackTraversalNode.getData());
+                // Moving to the right child in case of in-order traversal for picking the next smallest node
+                firstStackTraversalNode = firstStackTraversalNode.getRightChild();
+                // Moving to the left child in case of reverse in-order traversal for picking the next largest node
+                secondStackTraversalNode = secondStackTraversalNode.getLeftChild();
                 firstStack.pop();
                 secondStack.pop();
-                // Moving to the right child in case of in-order traversal for picking the next smallest node
-                firstRoot = firstStackTraversalNode.getRightChild();
-                // Moving to the left child in case of reverse in-order traversal for picking the next largest node
-                secondRoot = secondStackTraversalNode.getLeftChild();
             } else if (firstStackTraversalNode.getData() + secondStackTraversalNode.getData() < givenSum) {
-                firstStack.pop();
                 // Moving to the right child in case of in-order traversal for picking the next smallest node
-                firstRoot = firstStackTraversalNode.getRightChild();
+                firstStackTraversalNode = firstStackTraversalNode.getRightChild();
+                secondStackTraversalNode = null;
+                firstStack.pop();
             } else {
-                secondStack.pop();
                 // Moving to the left child in case of reverse in-order traversal for picking the next largest node
-                secondRoot = secondStackTraversalNode.getLeftChild();
+                secondStackTraversalNode = secondStackTraversalNode.getLeftChild();
+                firstStackTraversalNode = null;
+                secondStack.pop();
             }
         }
         return pairCount;
