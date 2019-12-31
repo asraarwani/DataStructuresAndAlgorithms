@@ -6,12 +6,12 @@ import java.util.Set;
 /**
  * @author : waniasra
  * @date : 11/16/2019 1:02 PM
+ * This class demonstrates how to count/print the number of pairs of nodes whose sum is equal to a given sum
  */
 //Reference : https://www.geeksforgeeks.org/count-pairs-in-a-binary-tree-whose-sum-is-equal-to-a-given-value-x/
 public class CountPairsEqualToGivenSumInBST {
 
     private Node root;
-    private static int pairCount;
 
     public CountPairsEqualToGivenSumInBST() {
         this.root = null;
@@ -46,14 +46,16 @@ public class CountPairsEqualToGivenSumInBST {
         bst.insertNodeIntoBSTIteratively(30);
 
         int givenSum = 40;
-        bst.countNumberOfPairsEqualToGivenSum(bst.getRoot(), givenSum);
+        int pairCount = bst.countNumberOfPairsEqualToGivenSum(bst.getRoot(), givenSum);
         System.out.println("Number of pairs whose sum is equal to " + givenSum + " are : " + pairCount);
         System.out.println("Time and space complexity is O(N)");
     }
 
 
-    public void countNumberOfPairsEqualToGivenSum(Node rootReference, int givenSum) {
-        countNumberOfPairsEqualToGivenSumHelper(rootReference, givenSum, new HashSet<>());
+    public int countNumberOfPairsEqualToGivenSum(Node rootReference, int givenSum) {
+        PairDetails pairDetails = new PairDetails();
+        countNumberOfPairsEqualToGivenSumHelper(rootReference, givenSum, new HashSet<>(), pairDetails);
+        return pairDetails.getPairCount();
     }
 
     /*
@@ -61,21 +63,20 @@ public class CountPairsEqualToGivenSumInBST {
     Create an empty hash and keep checking if difference between node's data and given sum exists in hash, if yes then increment the pairCount
     else add the node's data  to the hash.
     */
-    private int countNumberOfPairsEqualToGivenSumHelper(Node rootReference, int givenSum, Set<Integer> set) {
+    private void countNumberOfPairsEqualToGivenSumHelper(Node rootReference, int givenSum, Set<Integer> set, PairDetails pairDetails) {
         if (rootReference == null)
-            return 0;
+            return;
 
-        countNumberOfPairsEqualToGivenSumHelper(rootReference.getLeftChild(), givenSum, set);
+        countNumberOfPairsEqualToGivenSumHelper(rootReference.getLeftChild(), givenSum, set, pairDetails);
 
         if (set.contains(givenSum - rootReference.getData())) {
             System.out.println(givenSum - rootReference.getData() + " , " + rootReference.getData());
-            pairCount++;
+            pairDetails.setPairCount(pairDetails.getPairCount() + 1);
         } else {
             set.add(rootReference.getData());
         }
 
-        countNumberOfPairsEqualToGivenSumHelper(rootReference.getRightChild(), givenSum, set);
-        return pairCount;
+        countNumberOfPairsEqualToGivenSumHelper(rootReference.getRightChild(), givenSum, set, pairDetails);
     }
 
     public void insertNodeIntoBSTIteratively(int data) {
@@ -101,6 +102,19 @@ public class CountPairsEqualToGivenSumInBST {
                     }
                 }
             }
+        }
+    }
+
+    private class PairDetails {
+
+        private int pairCount;
+
+        public int getPairCount() {
+            return pairCount;
+        }
+
+        public void setPairCount(int pairCount) {
+            this.pairCount = pairCount;
         }
     }
 
