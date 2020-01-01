@@ -41,13 +41,14 @@ public class PrintAllKSumPathsFromRootInBST {
         Node rootReference = bst.insertNodeIntoBSTRecursively(null, 20);
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 15);
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 25);
-        rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 8);
+        rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 10);
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 16);
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 24);
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 30);
         bst.setRoot(rootReference);
 
         int kSum = 45;
+        System.out.println("We are looking for kSum [ " + kSum + " ]");
         bst.printAllKSumPathsFromBST(bst.getRoot(), kSum, new Stack(), 0);
         System.out.println("\nTime complexity is O(N), as we are using pre-order traversal of BST approach");
     }
@@ -60,9 +61,9 @@ public class PrintAllKSumPathsFromRootInBST {
         stack.push(rootReference);
 
         if (sumSoFar == kSum) {
-            System.out.println("We are looking for kSum [ " + kSum + " ]");
             stack.stream().forEach(node -> System.out.print(node.getData() + " "));
-            sumSoFar = 0;
+            sumSoFar = sumSoFar - rootReference.getData();
+            System.out.println();
         }
         printAllKSumPathsFromBST(rootReference.getLeftChild(), kSum, stack, sumSoFar);
 

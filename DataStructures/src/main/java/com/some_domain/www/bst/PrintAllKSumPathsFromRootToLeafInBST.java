@@ -47,6 +47,7 @@ public class PrintAllKSumPathsFromRootToLeafInBST {
 
         int kSum = 51;
         bst.printAllKSumPathsFromBST(bst.getRoot(), kSum, new Stack(), 0);
+        System.out.println("We are looking for kSum [ " + kSum + " ]");
         System.out.println("Time complexity is O(N), as we are using pre-order traversal of BST approach");
     }
 
@@ -58,9 +59,9 @@ public class PrintAllKSumPathsFromRootToLeafInBST {
         stack.push(rootReference);
 
         if (sumSoFar == kSum && rootReference.getLeftChild() == null && rootReference.getRightChild() == null) {
-            System.out.println("We are looking for kSum [ " + kSum + " ]");
             System.out.println(stack);
-            sumSoFar = 0;
+            sumSoFar = sumSoFar - rootReference.getData();
+            System.out.println();
         }
         printAllKSumPathsFromBST(rootReference.getLeftChild(), kSum, stack, sumSoFar);
 
