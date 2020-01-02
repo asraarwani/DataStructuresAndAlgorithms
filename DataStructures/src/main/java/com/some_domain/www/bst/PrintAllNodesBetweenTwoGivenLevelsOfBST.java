@@ -50,6 +50,27 @@ public class PrintAllNodesBetweenTwoGivenLevelsOfBST {
         System.out.println("Nodes between levels " + startingLevel + "  and " + endingLevel + "  are given as follows");
         bst.printAllNodesBetweenTwoLevels(bst.getRoot(), startingLevel, endingLevel);
         System.out.println("Time and space complexity is O(N)");
+
+        System.out.println("\nNodes between levels " + startingLevel + "  and " + endingLevel + " using alternate approach are given as follows");
+        bst.printNodesBetweenTwoGivenLevels(bst.getRoot(), startingLevel, endingLevel, 1);
+        System.out.println("\nTime and complexity is O(N)");
+    }
+
+    /*
+        The idea is to use in-order traversal technique of BST
+     */
+    public void printNodesBetweenTwoGivenLevels(Node rootReference, int lowerLevel, int higherLevel, int currentLevel) {
+
+        if (rootReference != null) {
+
+            if (currentLevel > lowerLevel && currentLevel < higherLevel) {
+                System.out.print(rootReference.getData() + " ");
+            }
+
+            printNodesBetweenTwoGivenLevels(rootReference.getLeftChild(), lowerLevel, higherLevel, currentLevel + 1);
+
+            printNodesBetweenTwoGivenLevels(rootReference.getRightChild(), lowerLevel, higherLevel, currentLevel + 1);
+        }
     }
 
     public void printAllNodesBetweenTwoLevels(Node rootReference, int startingLevel, int endingLevel) {
