@@ -66,9 +66,6 @@ public class FindMaximumSumLevelOfBST {
                 for (int i = 0; i < currentSize; i++) {
                     Node polledNode = queue.poll();
                     currentLevelSum = currentLevelSum + polledNode.getData();
-                    if (currentLevelSum > maximumLevelSum) {
-                        maximumLevelSum = currentLevelSum;
-                    }
 
                     //If the polled node has a left child
                     if (polledNode.getLeftChild() != null) {
@@ -80,6 +77,8 @@ public class FindMaximumSumLevelOfBST {
                         queue.offer(polledNode.getRightChild());
                     }
                 }
+                //Updating the maximumLevelSum
+                maximumLevelSum = Math.max(maximumLevelSum, currentLevelSum);
             }
             System.out.println("Maximum level sum is : " + maximumLevelSum);
         }
