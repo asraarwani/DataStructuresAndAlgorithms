@@ -68,7 +68,7 @@ public class PrintCommonNodesInTwoBSTs {
     }
 
     /*
-        The idea is to use in-order traversal and two auxiliary stacks for two BSTs
+        The idea is to use in-order traversal simultaneously on both the BSTs
      */
     public void printCommonNodesFromTwoBSTs(Node firstBSTRootRef, Node secondBSTRootRef) {
         if (firstBSTRootRef == null || secondBSTRootRef == null) {
