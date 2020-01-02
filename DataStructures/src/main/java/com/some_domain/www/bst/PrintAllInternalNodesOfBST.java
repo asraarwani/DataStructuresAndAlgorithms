@@ -51,11 +51,15 @@ public class PrintAllInternalNodesOfBST {
 
         System.out.println("Internal nodes of the BST are given as follows");
         bst.printInternalNodesOfBST(bst.getRoot());
-        System.out.println("Time and space complexity is O(N) where N is the number of nodes in the BST");
+        System.out.println("\nTime and space complexity is O(N) where N is the number of nodes in the BST");
+
+        System.out.println();
+        bst.printAllInternalNodesOfBST(bst.getRoot());
+        System.out.println("\nTime complexity for this approach is O(N) where N is the number of nodes in the BST");
     }
 
     /*
-        The idea is to use the level order traversal of the BST. If a node has either left or right child, we print it
+        The idea is to use the level order traversal of the BST. If a node has either left or right child or both, we print it
      */
     public void printInternalNodesOfBST(Node rootReference) {
         if (rootReference == null) {
@@ -85,6 +89,23 @@ public class PrintAllInternalNodesOfBST {
                     System.out.print(polledNode.getData() + " ");
                 }
             }
+        }
+    }
+
+    /*
+        The idea is to use the in-order traversal technique of BST
+     */
+    public void printAllInternalNodesOfBST(Node rootReference) {
+        if (rootReference != null) {
+
+            printAllInternalNodesOfBST(rootReference.getLeftChild());
+
+            //If node has either left or right or both child nodes, we print it
+            if (rootReference.getLeftChild() != null || rootReference.getRightChild() != null) {
+                System.out.print(rootReference.getData() + " ");
+            }
+
+            printAllInternalNodesOfBST(rootReference.getRightChild());
         }
     }
 
