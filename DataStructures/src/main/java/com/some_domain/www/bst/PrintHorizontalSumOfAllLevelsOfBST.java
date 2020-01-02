@@ -1,8 +1,6 @@
 package com.some_domain.www.bst;
 
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author : waniasra
@@ -55,6 +53,10 @@ public class PrintHorizontalSumOfAllLevelsOfBST {
         bst.printHorizontalSumOfEachLevelOfBSTAlternate(bst.getRoot());
 
         System.out.println("Time and space complexity for above two approaches is O(N) and O(LogN) respectively.");
+
+        System.out.println();
+        bst.printHorizontalSumOfAllLevelsAlternateApproach(bst.getRoot());
+        System.out.println("\nTime and space complexity for this approache is O(N).");
     }
 
 
@@ -109,6 +111,37 @@ public class PrintHorizontalSumOfAllLevelsOfBST {
         }
     }
 
+    /*
+        The idea is to use level order traversal of BST
+     */
+    public void printHorizontalSumOfAllLevelsAlternateApproach(Node rootReference) {
+        if (rootReference == null) {
+            System.out.println("BST is empty");
+            return;
+        } else {
+            Queue<Node> queue = new LinkedList<>();
+            queue.offer(rootReference);
+            while (!queue.isEmpty()) {
+                int currentLevelSize = queue.size();
+                int currentLevelSum = 0;
+                for (int i = 0; i < currentLevelSize; i++) {
+                    rootReference = queue.poll();
+                    currentLevelSum = currentLevelSum + rootReference.getData();
+
+                    //If polled node has a left child
+                    if (rootReference.getLeftChild() != null) {
+                        queue.offer(rootReference.getLeftChild());
+                    }
+
+                    //If polled node has a right child
+                    if (rootReference.getRightChild() != null) {
+                        queue.offer(rootReference.getRightChild());
+                    }
+                }
+                System.out.print(currentLevelSum + "  ");
+            }
+        }
+    }
 
     public void insertNodeIntoBSTIteratively(int data) {
         Node newNode = new Node(data, null, null);
