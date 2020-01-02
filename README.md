@@ -12,6 +12,7 @@
                 4.  Sorted circular singly linked list
                 5.  Reverse singly linked list
                 6.  Merge two sorted singly linked lists
+                7.  Pair-wise swap of nodes without swapping data
             
          1. Doubly linked list
                 
