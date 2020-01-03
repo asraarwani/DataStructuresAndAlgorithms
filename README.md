@@ -66,7 +66,6 @@
             29. Print all the k sum paths starting from root node and ending at any node
             30. Print all the k sum paths starting from root node and ending at the leaf node in BST
             31. Print all the k sum paths starting  and ending at any node of the BST
-            
             32. Print odd and even nodes of the BST
             33. Find maximum width of BST
             34. Find maximum sum level of BST
@@ -81,20 +80,21 @@
             43. Print all the nodes between two given levels in BST
             44. Print nodes of BST in min max fashion
             45. Flatten BST into singly linked list without using any auxiliary data structure
-            46. Flatten BST into singly linked list using stack
-            47. Flatten BST into singly linked list using queue
-            48. Convert a BST into doubly linked list
-            49. Check if leaf order traversal of two BSTs is same or not
-            50. Convert a given binary tree to binary search tree
-            51. Convert BST to balanced BST
-            52. Second largest node in BST
-            53. Construct a BST from its given level order traversal
-            54. Convert BST to sorted circular doubly linked list
-            55. Largest number greater than or equal to a given number 
-            56. Largest number less than or equal to a given number
-            57. In-order successor of node in BST using parent node link
-            58. In-order successor of node in BST without parent link
-            59. In-order successor and predecessor of node in BST
+            46. Flatten BST into singly linked list using stack iterative
+            47. Flatten BST into singly linked list using stack recursive 
+            48. Flatten BST into singly linked list using queue
+            49. Convert a BST into doubly linked list
+            50. Check if leaf order traversal of two BSTs is same or not
+            51. Convert a given binary tree to binary search tree
+            52. Convert BST to balanced BST
+            53. Second largest node in BST
+            54. Construct a BST from its given level order traversal
+            55. Convert BST to sorted circular doubly linked list
+            56. Largest number greater than or equal to a given number 
+            57. Largest number less than or equal to a given number
+            58. In-order successor of node in BST using parent node link
+            59. In-order successor of node in BST without parent link
+            60. In-order successor and predecessor of node in BST
            
      6. Array
             
