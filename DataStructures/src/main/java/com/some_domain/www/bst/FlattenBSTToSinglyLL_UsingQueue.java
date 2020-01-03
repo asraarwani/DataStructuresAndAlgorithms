@@ -67,8 +67,8 @@ public class FlattenBSTToSinglyLL_UsingQueue {
                     queue.offer(polledNode.getRightChild());
                 }
 
+                polledNode.setLeftChild(null);
                 previousNode.setRightChild(polledNode);
-                previousNode.setLeftChild(null);
                 previousNode = polledNode;
 
                 if (queue.isEmpty())
