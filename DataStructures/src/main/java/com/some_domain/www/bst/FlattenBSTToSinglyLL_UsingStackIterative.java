@@ -5,14 +5,14 @@ import java.util.Stack;
 /**
  * @author : waniasra
  * @date : 12/16/2019 10:27 PM
- * This class demonstrates how to convert a given BST into Singly Linked List
+ * This class demonstrates how to convert a given BST into Singly Linked List using Stack (Iterative)
  */
 //Reference : https://www.youtube.com/watch?v=vssbwPkarPQ
-public class FlattenBSTToSinglyLL_UsingStack {
+public class FlattenBSTToSinglyLL_UsingStackIterative {
 
     private Node root;
 
-    public FlattenBSTToSinglyLL_UsingStack() {
+    public FlattenBSTToSinglyLL_UsingStackIterative() {
         this.root = null;
     }
 
@@ -34,7 +34,7 @@ public class FlattenBSTToSinglyLL_UsingStack {
                                 8    16   24   30
          */
 
-        FlattenBSTToSinglyLL_UsingStack bst = new FlattenBSTToSinglyLL_UsingStack();
+        FlattenBSTToSinglyLL_UsingStackIterative bst = new FlattenBSTToSinglyLL_UsingStackIterative();
         bst.insertNodeIntoBSTIteratively(20);
         bst.insertNodeIntoBSTIteratively(15);
         bst.insertNodeIntoBSTIteratively(25);
@@ -43,13 +43,13 @@ public class FlattenBSTToSinglyLL_UsingStack {
         bst.insertNodeIntoBSTIteratively(24);
         bst.insertNodeIntoBSTIteratively(30);
 
-        bst.flattenBSTToSinglyLinkedListUsingStack(bst.getRoot());
+        bst.flattenBSTToSinglyLinkedListUsingStackIterative(bst.getRoot());
         bst.inOrderTraversalOfBST(bst.getRoot());
         System.out.println("\nTime and space complexity is O(N)");
 
     }
 
-    public void flattenBSTToSinglyLinkedListUsingStack(Node rootReference) {
+    public void flattenBSTToSinglyLinkedListUsingStackIterative(Node rootReference) {
         if (rootReference == null) {
             return;
         } else {
