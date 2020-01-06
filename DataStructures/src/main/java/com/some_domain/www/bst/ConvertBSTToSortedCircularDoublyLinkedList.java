@@ -36,10 +36,10 @@ public class ConvertBSTToSortedCircularDoublyLinkedList {
         NodeDetails nodeDetails = new NodeDetails();
         bst.convertBSTToSortedCircularDoublyLinkedList(bst.getRoot(), nodeDetails);
 
-        System.out.println("Forward traversal of converted sorted doubly linked list ");
+        System.out.println("Forward traversal of converted circular sorted doubly linked list ");
         bst.printCircularDoublyLinkedListUsingForwardTraversal(nodeDetails.getHead());
 
-        System.out.println("\n\nBackward traversal of converted sorted doubly linked list");
+        System.out.println("\n\nBackward traversal of converted circular sorted doubly linked list");
         bst.printCircularDoublyLinkedListUsingBackwardTraversal(nodeDetails.getTail());
 
         System.out.println("\nTime complexity is O(N)");
