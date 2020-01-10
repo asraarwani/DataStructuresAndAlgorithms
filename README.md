@@ -96,6 +96,8 @@
             59. In-order successor of node in BST without parent link
             60. In-order successor and predecessor of node in BST
             61. Print BST in zig-zag level order traversal (Spiral)
+            62. Convert a sorted array to balanced BST
+            63. Check if a BST is skewed BST
            
      6. Array
             
