@@ -98,6 +98,7 @@
             61. Print BST in zig-zag level order traversal (Spiral)
             62. Convert a sorted array to balanced BST
             63. Check if a BST is skewed BST
+            64. Moris in-order traversal of BST
            
      6. Array
             
