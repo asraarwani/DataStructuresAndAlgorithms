@@ -99,6 +99,8 @@
             62. Convert a sorted array to balanced BST
             63. Check if a BST is skewed BST
             64. Moris in-order traversal of BST
+            65. Moris pre-order traversal of BST
+            
            
      6. Array
             
