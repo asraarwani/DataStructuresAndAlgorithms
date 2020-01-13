@@ -40,7 +40,7 @@ public class PairwiseSwap {
 
         singlyLinkedList.displayContentsOfSinglyLinkedList(singlyLinkedList.getHead());
 
-        Node newHead = singlyLinkedList.pairwiseSwapWithoutSwappingDataRecursively(singlyLinkedList.getHead());
+        Node newHead = singlyLinkedList.pairwiseSwapWithoutSwappingDataIteratively(singlyLinkedList.getHead());
         singlyLinkedList.setHead(newHead);
 
         System.out.println();
