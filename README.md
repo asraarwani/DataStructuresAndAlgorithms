@@ -13,6 +13,7 @@
                 5.  Reverse singly linked list
                 6.  Merge two sorted singly linked lists
                 7.  Pair-wise swap of nodes without swapping data
+                8.  Find middle node in singly linked list
             
          1. Doubly linked list
                 
