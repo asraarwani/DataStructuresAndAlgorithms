@@ -3,7 +3,7 @@ package com.some_domain.www.singlylinkedlist;
 /**
  * @author : waniasra
  * @date : 1/14/2020 9:46 PM
- * This class demonstrates hwo to do a merge sort on a singly linked list
+ * This class demonstrates how to do a merge sort on a singly linked list
  */
 public class MergeSortSinglyLinkedList {
 
