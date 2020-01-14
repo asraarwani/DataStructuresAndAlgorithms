@@ -14,6 +14,7 @@
                 6.  Merge two sorted singly linked lists
                 7.  Pair-wise swap of nodes without swapping data
                 8.  Find middle node in singly linked list
+                9.  Merge sort singly linked list
             
          1. Doubly linked list
                 
@@ -21,6 +22,7 @@
                 2. Sorted doubly linked list
                 3. Circular doubly linked list
                 4. Sorted circular doubly linked list
+                5  Merge sort doubly linked list
      2. Stack
                 
                 1. Stack

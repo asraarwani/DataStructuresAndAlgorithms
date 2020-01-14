@@ -60,7 +60,6 @@ public class MergeSortDoublyLinkedList {
         System.out.println();
         list.displayContentsUsingBackwardTraversal(list.getTail());
 
-
         System.out.println("\nAfter sorting");
         Node newHead = list.mergeSort(list.getHead());
         list.setHead(newHead);
@@ -101,7 +100,6 @@ public class MergeSortDoublyLinkedList {
             resultNode.setNext(merge(firstPartHead.getNext(), secondPartHead));
             resultNode.getNext().setPrevious(firstPartHead);
             resultNode.setPrevious(null);
-
         } else {
             resultNode = secondPartHead;
             resultNode.setNext(merge(firstPartHead, secondPartHead.getNext()));
