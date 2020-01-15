@@ -59,6 +59,7 @@ public class MergeSortDoublyLinkedList {
         list.displayContentsUsingForwardTraversal(list.getHead());
         System.out.println();
         list.displayContentsUsingBackwardTraversal(list.getTail());
+        System.out.println("\nHead : " + list.getHead().getData() + " , Tail : " + list.getTail().getData());
 
         System.out.println("\nAfter sorting");
         Node newHead = list.mergeSort(list.getHead());
@@ -67,6 +68,7 @@ public class MergeSortDoublyLinkedList {
         list.displayContentsUsingForwardTraversal(list.getHead());
         System.out.println();
         list.displayContentsUsingBackwardTraversal(list.getTail());
+        System.out.println("\nHead : " + list.getHead().getData() + " , Tail : " + list.getTail().getData());
         System.out.println("\nTime complexity is O(NlogN)");
     }
 
@@ -92,19 +94,17 @@ public class MergeSortDoublyLinkedList {
     private Node merge(Node firstPartHead, Node secondPartHead) {
         Node resultNode = null;
         if (firstPartHead == null)
-            return secondPartHead;
+            resultNode = secondPartHead;
         else if (secondPartHead == null)
-            return firstPartHead;
+            resultNode = firstPartHead;
         else if (firstPartHead.getData() <= secondPartHead.getData()) {
             resultNode = firstPartHead;
             resultNode.setNext(merge(firstPartHead.getNext(), secondPartHead));
             resultNode.getNext().setPrevious(firstPartHead);
-            resultNode.setPrevious(null);
         } else {
             resultNode = secondPartHead;
             resultNode.setNext(merge(firstPartHead, secondPartHead.getNext()));
             resultNode.getNext().setPrevious(secondPartHead);
-            resultNode.setPrevious(null);
 
             //Setting the new tail node for doubly linked list
             Node temporaryNode = secondPartHead;
