@@ -15,6 +15,7 @@
                 7.  Pair-wise swap of nodes without swapping data
                 8.  Find middle node in singly linked list
                 9.  Merge sort singly linked list
+                10. Insert nodes of second singly linked list into first singly linked list at alternate positions
             
          1. Doubly linked list
                 
