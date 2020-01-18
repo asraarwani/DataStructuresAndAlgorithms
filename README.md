@@ -18,6 +18,8 @@
                 10. Insert nodes of second singly linked list into first singly linked list at alternate positions
                 11. Add two numbers represented by two singly linked lists
                 12. Segregate odd and even nodes in singly linked list
+                13. Compare two string represented by two singly linked lists
+                
             
          1. Doubly linked list
                 
