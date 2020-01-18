@@ -19,6 +19,8 @@
                 11. Add two numbers represented by two singly linked lists
                 12. Segregate odd and even nodes in singly linked list
                 13. Compare two string represented by two singly linked lists
+                14. Delete N nodes after every M number of nodes in singly linked lsit
+                15. Delete alternate nodes in singly linked list
                 
             
          1. Doubly linked list
