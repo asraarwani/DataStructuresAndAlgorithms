@@ -16,6 +16,8 @@
                 8.  Find middle node in singly linked list
                 9.  Merge sort singly linked list
                 10. Insert nodes of second singly linked list into first singly linked list at alternate positions
+                11. Add two numbers represented by two singly linked lists
+                12. Segregate odd and even nodes in singly linked list
             
          1. Doubly linked list
                 
