@@ -21,6 +21,9 @@
                 13. Compare two string represented by two singly linked lists
                 14. Delete N nodes after every M number of nodes in singly linked lsit
                 15. Delete alternate nodes in singly linked list
+                16. Delete all nodes greater than X
+                17. Delete all nodes smaller than X
+                18. Delete first occurrence of a given node
                 
             
          1. Doubly linked list
