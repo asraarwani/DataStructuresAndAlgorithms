@@ -2,6 +2,11 @@ package com.some_domain.www.dividenconquer;
 
 import java.util.Arrays;
 
+/**
+ * @author : waniasra
+ * @date : 1/26/2020 9:49 PM
+ * This class demonstrates quick sort algorithm
+ */
 public class QuickSort {
 
     public static void main(String[] args) {
