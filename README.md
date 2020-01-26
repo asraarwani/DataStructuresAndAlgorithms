@@ -125,6 +125,7 @@
             1. Closest pair of points on a plane
             2. Merge sort
             3. Maximum sum sub array
+            4. Quick sort
             
      2. Dynamic Programming
             
