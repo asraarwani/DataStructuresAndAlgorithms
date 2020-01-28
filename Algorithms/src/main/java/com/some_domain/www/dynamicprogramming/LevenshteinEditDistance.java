@@ -1,14 +1,12 @@
 package com.some_domain.www.dynamicprogramming;
 
-import com.sun.media.sound.SF2InstrumentRegion;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
  * @author : waniasra
  * @date : 1/28/2020 9:20 PM
- * This class demonstrates Lavenstein's distance or edit distance problem
+ * This class demonstrates Levenshtein's distance or edit distance problem
  */
 
 /*
@@ -17,23 +15,23 @@ import java.util.Map;
 
 //Reference : https://www.geeksforgeeks.org/edit-distance-dp-5/
 //Reference : https://www.techiedelight.com/levenshtein-distance-edit-distance-problem/
-public class LavensteinEditDistance {
+public class LevenshteinEditDistance {
 
     public static void main(String[] args) {
 
         String firstString = "Sunday";
         String secondString = "Saturday";
 
-        LavensteinEditDistance instance = new LavensteinEditDistance();
+        LevenshteinEditDistance instance = new LevenshteinEditDistance();
 
         int editDistance = instance.getEditDistanceRecursively(firstString, secondString, firstString.length(), secondString.length());
-        System.out.println("Lavenstein's distance or edit distance is : " + editDistance + ". Time complexity is exponential ( O(3^N))");
+        System.out.println("Levenshtein's distance or edit distance is : " + editDistance + ". Time complexity is exponential ( O(3^N))");
 
         editDistance = instance.getEditDistance_DP_TopDown(firstString, secondString, firstString.length(), secondString.length(), new LinkedHashMap<>());
-        System.out.println("Lavenstein's distance or edit distance is : " + editDistance + ". Time complexity is O(M*N) where M and N are the lengths of the first and second string resp.");
+        System.out.println("Levenshtein's distance or edit distance is : " + editDistance + ". Time complexity is O(M*N) where M and N are the lengths of the first and second string resp.");
 
         editDistance = instance.getEditDistance_DP_BottomUp(firstString, secondString, firstString.length(), secondString.length());
-        System.out.println("Lavenstein's distance or edit distance is : " + editDistance + " .Time complexity is O(M*N) where M and N are the lenghts of the first and second string resp.");
+        System.out.println("Levenshtein's distance or edit distance is : " + editDistance + " .Time complexity is O(M*N) where M and N are the lenghts of the first and second string resp.");
     }
 
     public int getEditDistanceRecursively(String firstString, String secondString, int firstStringLength, int secondStringLength) {
