@@ -132,7 +132,9 @@
             1. Longest common sub sequenece length
             2. Print longest common sub sequence
             3. Print all longest common sub sequences 
-            
+            4. Shortest common super sequence length
+            5. Print shortest common super sequence
+            6. Print all shortest common super sequences
   3. Java concepts and Programs
   
          
