@@ -113,6 +113,7 @@
             63. Check if a BST is skewed BST
             64. Moris in-order traversal of BST
             65. Moris pre-order traversal of BST
+            66. Check if a BST is a balanced BST
             
            
      6. Array
@@ -136,6 +137,8 @@
             5. Print shortest common super sequence
             6. Print all shortest common super sequences
             7. Levenshtein's distance / Edit distance problem
+            8. Subset sum problem
+            9. Print subset whose sum is equal to given sum
   3. Java concepts and Programs
   
          
