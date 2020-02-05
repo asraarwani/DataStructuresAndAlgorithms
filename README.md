@@ -33,6 +33,7 @@
                 3. Circular doubly linked list
                 4. Sorted circular doubly linked list
                 5  Merge sort doubly linked list
+                6. Reverse doubly linked list
      2. Stack
                 
                 1. Stack
