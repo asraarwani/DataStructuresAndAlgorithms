@@ -140,6 +140,7 @@
             7. Levenshtein's distance / Edit distance problem
             8. Subset sum problem
             9. Print subset whose sum is equal to given sum
+            10. Knapsack problem
   3. Java concepts and Programs
   
          
