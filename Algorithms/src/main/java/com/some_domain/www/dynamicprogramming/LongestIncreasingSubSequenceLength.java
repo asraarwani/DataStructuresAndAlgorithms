@@ -20,8 +20,8 @@ public class LongestIncreasingSubSequenceLength {
         int lisLength = instance.findLengthOfLongestIncreasingSubsequenceRecursive(array, 0, array.length, Integer.MIN_VALUE);
         System.out.println("Length of longest increasing sub-sequence is " + lisLength + ". Time complexity is exponential");
 
-        //lisLength = instance.findLengthOfLongestIncreasingSubSequenceDPBottomUpApproach(array);
-        //System.out.println("Length of longest increasing sub-sequence is " + lisLength + ". Time complexity is O(N^2)");
+        lisLength = instance.findLengthOfLongestIncreasingSubSequenceDPBottomUpApproach(array);
+        System.out.println("Length of longest increasing sub-sequence is " + lisLength + ". Time complexity is O(N^2)");
 
         lisLength = instance.findLengthOfLongestIncreasingSubSequenceEnhanced(array);
         System.out.println("Length of longest increasing sub-sequence is " + lisLength + ". Time complexity is O(NLogN)");
