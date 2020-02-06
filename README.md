@@ -141,6 +141,7 @@
             8. Subset sum problem
             9. Print subset whose sum is equal to given sum
             10. Knapsack problem
+            11. Longest increasing sub sequence length
   3. Java concepts and Programs
   
          
