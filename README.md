@@ -143,6 +143,8 @@
             10. Knapsack problem
             11. Longest increasing sub-sequence length
             12. Increasing sub-sequence with maximum sum
+            13. Print longest increasing sub-sequence
+            
   3. Java concepts and Programs
   
          
