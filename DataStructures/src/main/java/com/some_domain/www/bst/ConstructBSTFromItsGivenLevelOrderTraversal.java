@@ -36,7 +36,7 @@ public class ConstructBSTFromItsGivenLevelOrderTraversal {
         bst.setRoot(rootReference);
 
         System.out.println("In-order traversal of BST constructed from given array is given as follows");
-        bst.printPreOrderTraversalOfConstructedBSTIteratively(bst.getRoot());
+        bst.printInOrderTraversalOfConstructedBSTIteratively(bst.getRoot());
         System.out.println("\nTime complexity is O(N)");
     }
 
@@ -77,7 +77,7 @@ public class ConstructBSTFromItsGivenLevelOrderTraversal {
         return root;
     }
 
-    public void printPreOrderTraversalOfConstructedBSTIteratively(Node rootReference) {
+    public void printInOrderTraversalOfConstructedBSTIteratively(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST constructed from given array is empty.");
             return;
@@ -86,12 +86,13 @@ public class ConstructBSTFromItsGivenLevelOrderTraversal {
             while (true) {
                 while (rootReference != null) {
                     stack.push(rootReference);
-                    System.out.print(rootReference.getData() + " ");
                     rootReference = rootReference.getLeftChild();
                 }
-                if (stack.isEmpty())
+                if (stack.isEmpty()) {
                     break;
+                }
                 rootReference = stack.pop();
+                System.out.print(rootReference.getData() + " ");
                 rootReference = rootReference.getRightChild();
             }
         }
@@ -99,8 +100,8 @@ public class ConstructBSTFromItsGivenLevelOrderTraversal {
 
     private class NodeDetails {
         private Node node;
-        private int minValue = Integer.MIN_VALUE;
-        private int maxValue = Integer.MAX_VALUE;
+        private int minValue;
+        private int maxValue;
 
         public NodeDetails(Node node, int minValue, int maxValue) {
             this.node = node;
