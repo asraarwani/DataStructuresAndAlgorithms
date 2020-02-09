@@ -144,6 +144,8 @@
             11. Longest increasing sub-sequence length
             12. Increasing sub-sequence with maximum sum
             13. Print longest increasing sub-sequence
+            14. Coin chnage problem
+            15. Partition problem
             
   3. Java concepts and Programs
   
