@@ -34,6 +34,8 @@
                 4. Sorted circular doubly linked list
                 5  Merge sort doubly linked list
                 6. Reverse doubly linked list
+                7. Clone doubly linked list with random links
+                8. Clone doubly linked list with random links using hashing
      2. Stack
                 
                 1. Stack
