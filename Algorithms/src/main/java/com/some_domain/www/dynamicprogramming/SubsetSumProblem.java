@@ -24,25 +24,19 @@ public class SubsetSumProblem {
         subsetExists = instance.checkIfSubSetExists_DP_TopDown(array, array.length, sum, new LinkedHashMap<>());
         System.out.println("Subset equal to given sum " + sum + " exists?  " + subsetExists + ". TC is O(N*Sum)");
 
-        subsetExists = instance.checkIfSubSetExists_DP_BittomUp(array, array.length, sum);
+        subsetExists = instance.checkIfSubSetExists_DP_BottomUp(array, array.length, sum);
         System.out.println("Subset equal to given sum " + sum + " exists?  " + subsetExists + ". TC is O(N*Sum)");
     }
 
-    public boolean checkIfSubSetExists_DP_BittomUp(int[] array, int n, int sum) {
-        int col = sum + 1;
-        int row = array.length + 1;
-        boolean[][] dp = new boolean[row][col];
+    public boolean checkIfSubSetExists_DP_BottomUp(int[] array, int n, int sum) {
+        boolean[][] dp = new boolean[n + 1][sum + 1];
 
-        for (int i = 0; i < row; i++) {
+        for (int i = 0; i <= n; i++) {
             dp[i][0] = true;
         }
 
-        for (int i = 1; i < col; i++) {
-            dp[0][i] = false;
-        }
-
-        for (int i = 1; i < row; i++) {
-            for (int j = 1; j < col; j++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= sum; j++) {
                 if (array[i - 1] > j)
                     dp[i][j] = dp[i - 1][j];
                 else
@@ -50,7 +44,7 @@ public class SubsetSumProblem {
 
             }
         }
-        return dp[row - 1][col - 1];
+        return dp[n][sum];
     }
 
     public boolean checkIfSubSetExists_DP_TopDown(int[] array, int n, int sum, Map<String, Boolean> map) {

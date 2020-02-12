@@ -19,20 +19,14 @@ public class PrintSubsetEqualToGivenSum {
     }
 
     public void printSubsetEqualToGivenSum(int[] array, int n, int sum) {
-        int rows = n + 1;
-        int columns = sum + 1;
-        boolean[][] dp = new boolean[rows][columns];
+        boolean[][] dp = new boolean[n + 1][sum + 1];
 
-        for (int i = 0; i < rows; i++) {
+        for (int i = 0; i <= n; i++) {
             dp[i][0] = true;
         }
 
-        for (int j = 1; j < columns; j++) {
-            dp[0][j] = false;
-        }
-
-        for (int i = 1; i < rows; i++) {
-            for (int j = 1; j < columns; j++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= sum; j++) {
                 if (array[i - 1] > j) {
                     dp[i][j] = dp[i - 1][j];
                 } else {
@@ -40,12 +34,12 @@ public class PrintSubsetEqualToGivenSum {
                 }
             }
         }
-        printElements(dp, array, rows, columns);
+        printElements(dp, array, n, sum);
     }
 
     private void printElements(boolean[][] dp, int[] array, int rows, int columns) {
-        int i = rows - 1;
-        int j = columns - 1;
+        int i = rows;
+        int j = columns;
         while (i > 0 && j > 0) {
             int value = array[i - 1];
             if (j - array[i - 1] >= 0 && dp[i - 1][j - array[i - 1]]) {
