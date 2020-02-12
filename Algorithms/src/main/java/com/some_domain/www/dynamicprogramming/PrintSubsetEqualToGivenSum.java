@@ -46,14 +46,13 @@ public class PrintSubsetEqualToGivenSum {
     private void printElements(boolean[][] dp, int[] array, int rows, int columns) {
         int i = rows - 1;
         int j = columns - 1;
-        while (i > 0 && j >= 0) {
+        while (i > 0 && j > 0) {
             int value = array[i - 1];
-            if (j - value >= 0 && dp[i - 1][j - value]) {
-                i = i - 1;
-                j = j - value;
+            if (j - array[i - 1] >= 0 && dp[i - 1][j - array[i - 1]]) {
+                j = j - array[i - 1];
                 System.out.print(value + " ");
-            } else
-                i = i - 1;
+            }
+            i--;
         }
     }
 }
