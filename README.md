@@ -144,10 +144,11 @@
             9. Print subset whose sum is equal to given sum
             10. Knapsack problem
             11. Longest increasing sub-sequence length
-            12. Increasing sub-sequence with maximum sum
-            13. Print longest increasing sub-sequence
+            12. Print longest increasing sub-sequence
+            13. Increasing sub-sequence with maximum sum
             14. Coin change problem (Number of ways)
             15. Partition problem (Partitions of equal sum)
+            16. Print Nth Fibonacii number
             
   3. Java concepts and Programs
   
