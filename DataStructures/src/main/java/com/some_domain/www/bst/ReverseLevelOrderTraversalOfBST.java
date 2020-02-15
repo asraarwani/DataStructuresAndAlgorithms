@@ -72,10 +72,9 @@ public class ReverseLevelOrderTraversalOfBST {
             return;
         if (levelNumber == 1) {
             System.out.print(rootReference.getData() + " ");
-        } else {
-            printNodesOfAGivenLevelNumber(levelNumber - 1, rootReference.getLeftChild());
-            printNodesOfAGivenLevelNumber(levelNumber - 1, rootReference.getRightChild());
         }
+        printNodesOfAGivenLevelNumber(levelNumber - 1, rootReference.getLeftChild());
+        printNodesOfAGivenLevelNumber(levelNumber - 1, rootReference.getRightChild());
     }
 
     /**
