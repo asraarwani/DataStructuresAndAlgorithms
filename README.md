@@ -24,6 +24,7 @@
                 16. Delete all nodes greater than X
                 17. Delete all nodes smaller than X
                 18. Delete first occurrence of a given node
+                19. Swap k-th node from begining with k-th node from end in singly linked list
                 
             
          1. Doubly linked list
@@ -36,6 +37,7 @@
                 6. Reverse doubly linked list
                 7. Clone doubly linked list with random links
                 8. Clone doubly linked list with random links using hashing
+                9. Swap k-th node from begining with k-th node from end in doubly linked list
      2. Stack
                 
                 1. Stack
