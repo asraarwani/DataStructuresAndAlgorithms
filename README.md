@@ -25,6 +25,8 @@
                 17. Delete all nodes smaller than X
                 18. Delete first occurrence of a given node
                 19. Swap k-th node from begining with k-th node from end in singly linked list
+                20. Detect a loop in singly linked list
+                21. Detect and remove a loop in singly linked list
                 
             
          1. Doubly linked list
