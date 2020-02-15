@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 /**
  * @author : waniasra
@@ -49,7 +50,7 @@ public class LevelOrderTraversalOfBST {
 
         System.out.println("\nList of nodes at each level of  the BST is given as follows");
         List<List<Integer>> list = bst.getListOfNodesAtEachLevel(rootReference);
-        System.out.println(list);
+        System.out.println(list.stream().flatMap(l -> l.stream()).collect(Collectors.toList()));
     }
 
     public List<List<Integer>> getListOfNodesAtEachLevel(Node rootReference) {
@@ -113,10 +114,10 @@ public class LevelOrderTraversalOfBST {
             return;
         if (levelNumber == 1) {
             System.out.print(rootReference.getData() + " ");
-        } else {
-            printNodesAtGivenLevel(rootReference.getLeftChild(), levelNumber - 1);
-            printNodesAtGivenLevel(rootReference.getRightChild(), levelNumber - 1);
         }
+        printNodesAtGivenLevel(rootReference.getLeftChild(), levelNumber - 1);
+
+        printNodesAtGivenLevel(rootReference.getRightChild(), levelNumber - 1);
     }
 
     private int calculateHeightOfBST(Node rootReference) {
@@ -125,10 +126,7 @@ public class LevelOrderTraversalOfBST {
         else {
             int leftSubtreeHeight = calculateHeightOfBST(rootReference.getLeftChild());
             int rightSubtreeHeight = calculateHeightOfBST(rootReference.getRightChild());
-            if (leftSubtreeHeight > rightSubtreeHeight)
-                return leftSubtreeHeight + 1;
-            else
-                return rightSubtreeHeight + 1;
+            return Math.max(leftSubtreeHeight, rightSubtreeHeight) + 1;
         }
     }
 
