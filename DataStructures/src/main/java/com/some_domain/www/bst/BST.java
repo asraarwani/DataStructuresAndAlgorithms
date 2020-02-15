@@ -178,7 +178,7 @@ public class BST {
         } else {
             Node traversingNode = rootReference;
             while (traversingNode.getData() != searchKey) {
-                if (searchKey < traversingNode.getData()) {
+                if (searchKey <= traversingNode.getData()) {
                     traversingNode = traversingNode.getLeftChild();
                 } else {
                     traversingNode = traversingNode.getRightChild();
