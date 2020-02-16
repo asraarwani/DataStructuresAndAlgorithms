@@ -66,6 +66,30 @@ public class LowestCommonAncestorOfNodeInBST {
             System.out.println("Lowest common ancestor of the two nodes [ " + firstNode.getData() + " , " + secondNode.getData() + " ] is : " + lowestCommonAncestor.getData());
             System.out.println("Time complexity of this approach is O(H) where H is the height of the BST");
         }
+
+        System.out.println();
+        lowestCommonAncestor = bst.getLowestCommonAncestorOptimized(bst.getRoot(), firstNode, secondNode);
+        if (lowestCommonAncestor != null) {
+            System.out.println("Lowest common ancestor of the two nodes [ " + firstNode.getData() + " , " + secondNode.getData() + " ] is : " + lowestCommonAncestor.getData());
+            System.out.println("Time complexity of this approach is O(H) where H is the height of the BST");
+        }
+    }
+
+    public Node getLowestCommonAncestorOptimized(Node rootReference, Node firstNode, Node secondNode) {
+        if (rootReference == null) {
+            System.out.println("BST is empty");
+            return null;
+        } else {
+            while (rootReference != null) {
+                if (rootReference.getData() < firstNode.getData() && rootReference.getData() < secondNode.getData()) {
+                    rootReference = rootReference.getRightChild();
+                } else if (rootReference.getData() > firstNode.getData() && rootReference.getData() > secondNode.getData()) {
+                    rootReference = rootReference.getLeftChild();
+                } else
+                    break;
+            }
+            return rootReference;
+        }
     }
 
     //Reference : https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
