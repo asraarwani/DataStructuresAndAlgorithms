@@ -70,7 +70,7 @@ public class DiagonalSumInBST {
         System.out.println("\nTime complexity is O(N)");
 
         System.out.println();
-        System.out.println("Diagonal sum for the BST using alternate approach where we need to add one modify the Node class by adding one more filed 'diagonalDistance'");
+        System.out.println("Diagonal sum for the BST using alternate approach where we need to modify the Node class by adding one more filed 'diagonalDistance'");
         bst.printDiagonalSumInBSTAlternate2(bst.getRoot());
         System.out.println("\nTime complexity is O(N)");
     }
