@@ -74,6 +74,12 @@ public class LeftAndRightViewOfBST {
         System.out.println("\nRight view of the BST using recursive approach is given as follows");
         bst.printRightViewOfBSTRecursively(bst.getRoot(), 1);
         System.out.println("\nTime complexity for this approach is O(N)");
+
+        System.out.println("\nLeft view");
+        bst.printLeftViewOfBSTAlternateApproach(bst.getRoot(), new NodeDetails(), 1);
+        System.out.println("\nRight view");
+        bst.printRightViewOfBSTAlternateApproach(bst.getRoot(), new NodeDetails(), 1);
+        System.out.println("\nTime complexity for above two approaches is also O(N)");
     }
 
     public List<List<Node>> printLeftAndRightViewOfBSTIteratively(Node rootReference) {
@@ -164,6 +170,52 @@ public class LeftAndRightViewOfBST {
             rootReference.setRightChild(insertNodeIntoBSTIteratively(dataOfNodeToBeInserted, rootReference.getRightChild()));
         }
         return rootReference;
+    }
+
+    /*
+        For left view,left sub tree is being processed before right sub tree
+     */
+    public void printLeftViewOfBSTAlternateApproach(Node rootReference, NodeDetails nodeDetails, int currentLevelNumber) {
+        if (rootReference == null)
+            return;
+
+        if (nodeDetails.getGlobalMaxLevel() < currentLevelNumber) {
+            System.out.print(rootReference.getData() + " ");
+            nodeDetails.setGlobalMaxLevel(currentLevelNumber);
+        }
+
+        printLeftViewOfBSTAlternateApproach(rootReference.getLeftChild(), nodeDetails, currentLevelNumber + 1);
+
+        printLeftViewOfBSTAlternateApproach(rootReference.getRightChild(), nodeDetails, currentLevelNumber + 1);
+    }
+
+    /*
+       For right view, right sub tree is being processed before left sub tree
+    */
+    public void printRightViewOfBSTAlternateApproach(Node rootReference, NodeDetails nodeDetails, int currentLevelNumber) {
+        if (rootReference == null)
+            return;
+
+        if (nodeDetails.getGlobalMaxLevel() < currentLevelNumber) {
+            System.out.print(rootReference.getData() + " ");
+            nodeDetails.setGlobalMaxLevel(currentLevelNumber);
+        }
+
+        printRightViewOfBSTAlternateApproach(rootReference.getRightChild(), nodeDetails, currentLevelNumber + 1);
+
+        printRightViewOfBSTAlternateApproach(rootReference.getLeftChild(), nodeDetails, currentLevelNumber + 1);
+    }
+
+    private static class NodeDetails {
+        private int globalMaxLevel;
+
+        public int getGlobalMaxLevel() {
+            return globalMaxLevel;
+        }
+
+        public void setGlobalMaxLevel(int globalMaxLevel) {
+            this.globalMaxLevel = globalMaxLevel;
+        }
     }
 
     private class Node {
