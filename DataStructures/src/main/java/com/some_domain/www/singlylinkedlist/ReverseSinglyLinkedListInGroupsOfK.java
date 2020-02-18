@@ -69,7 +69,7 @@ public class ReverseSinglyLinkedListInGroupsOfK {
         System.out.println("\nTime and space complexity is O(N)");
 
         list.reverseSinglyLinkedListInGroupsOfK_UsingDeQueue(list.getHead(), k);
-        System.out.println("\nAfter reversing the singly linked list in groups of " + k + " using iterative approach using Dequeue");
+        System.out.println("\nAfter reversing the singly linked list in groups of " + k + " using iterative approach using Deque");
         list.displayContentsOfSinglyLinkedList(list.getHead());
         System.out.println("\nTime and space complexity is O(N)");
     }
