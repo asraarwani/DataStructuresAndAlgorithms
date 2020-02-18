@@ -95,13 +95,11 @@ public class ReverseSinglyLinkedListInGroupsOfK {
                 while (stack.size() > 0) {
 
                     if (previousNode == null) {
-                        previousNode = stack.peek();
+                        previousNode = stack.pop();
                         headReference = previousNode;
-                        stack.pop();
                     } else {
-                        previousNode.setNext(stack.peek());
+                        previousNode.setNext(stack.pop());
                         previousNode = previousNode.getNext();
-                        stack.pop();
                     }
                 }
             }
