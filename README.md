@@ -154,6 +154,8 @@
             14. Coin change problem (Number of ways)
             15. Partition problem (Partitions of equal sum)
             16. Print Nth Fibonacii number
+            17. Print longest palindromic sub sequence (Using LCS)
+            18. Print length of longest palindromic sub sequence (Using LCS)
             
   3. Java concepts and Programs
   
