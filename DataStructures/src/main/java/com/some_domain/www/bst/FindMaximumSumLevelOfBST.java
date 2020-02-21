@@ -1,7 +1,7 @@
 package com.some_domain.www.bst;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author : waniasra
@@ -60,11 +60,14 @@ public class FindMaximumSumLevelOfBST {
             Queue<Node> queue = new LinkedList<>();
             queue.offer(rootReference);
             int maximumLevelSum = 0;
+            Map<Integer, List<Node>> maxSumLevel = new LinkedHashMap<>();
             while (!queue.isEmpty()) {
                 int currentSize = queue.size();
                 int currentLevelSum = 0;
+                List<Node> maxNodeList = new ArrayList<>();
                 for (int i = 0; i < currentSize; i++) {
                     Node polledNode = queue.poll();
+                    maxNodeList.add(polledNode);
                     currentLevelSum = currentLevelSum + polledNode.getData();
 
                     //If the polled node has a left child
@@ -78,9 +81,13 @@ public class FindMaximumSumLevelOfBST {
                     }
                 }
                 //Updating the maximumLevelSum
-                maximumLevelSum = Math.max(maximumLevelSum, currentLevelSum);
+                if (maximumLevelSum < currentLevelSum) {
+                    maximumLevelSum = currentLevelSum;
+                    maxSumLevel.put(maximumLevelSum, maxNodeList);
+                }
             }
             System.out.println("Maximum level sum is : " + maximumLevelSum);
+            System.out.println("Nodes " + maxSumLevel.get(maximumLevelSum).stream().map(node->node.getData()).collect(Collectors.toList()));
         }
     }
 
