@@ -1,4 +1,4 @@
-package com.some_domain.www.multithreasingproblem_2;
+package com.some_domain.www.multithreadingproblem_2;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

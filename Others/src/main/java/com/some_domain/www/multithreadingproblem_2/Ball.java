@@ -1,4 +1,4 @@
-package com.some_domain.www.multithreasingproblem_2;
+package com.some_domain.www.multithreadingproblem_2;
 
 public class Ball {
     private String id;
