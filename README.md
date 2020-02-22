@@ -122,6 +122,7 @@
             64. Moris in-order traversal of BST
             65. Moris pre-order traversal of BST
             66. Check if a BST is a balanced BST
+            67. Delete last leaf node from the BST
             
            
      6. Array
