@@ -56,7 +56,7 @@ public class PrintHorizontalSumOfAllLevelsOfBST {
 
         System.out.println();
         bst.printHorizontalSumOfAllLevelsAlternateApproach(bst.getRoot());
-        System.out.println("\nTime and space complexity for this approache is O(N).");
+        System.out.println("\nTime and space complexity for this approach is O(N).");
     }
 
 
