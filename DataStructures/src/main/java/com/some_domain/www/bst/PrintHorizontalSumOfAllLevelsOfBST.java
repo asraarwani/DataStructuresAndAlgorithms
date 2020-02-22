@@ -52,7 +52,7 @@ public class PrintHorizontalSumOfAllLevelsOfBST {
         System.out.println("Alternate approach using a map");
         bst.printHorizontalSumOfEachLevelOfBSTAlternate(bst.getRoot());
 
-        System.out.println("Time and space complexity for above two approaches is O(N) and O(LogN) respectively.");
+        System.out.println("Time and space complexity for above two approaches is O(N).");
 
         System.out.println();
         bst.printHorizontalSumOfAllLevelsAlternateApproach(bst.getRoot());

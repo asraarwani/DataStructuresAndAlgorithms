@@ -32,6 +32,8 @@ public class RemoveAllLeafNodesFromBST {
                                    15      25
                                  /  \      /  \
                                 8    16   24   30
+                               /
+                              4
          */
 
 
@@ -43,6 +45,7 @@ public class RemoveAllLeafNodesFromBST {
         bst.insertNodeIntoBSTIteratively(16);
         bst.insertNodeIntoBSTIteratively(24);
         bst.insertNodeIntoBSTIteratively(30);
+        bst.insertNodeIntoBSTIteratively(4);
 
         System.out.println("In order traversal of BST before leaf nodes are deleted");
         bst.printInOrderTraversalOfBST(bst.getRoot());
@@ -57,17 +60,17 @@ public class RemoveAllLeafNodesFromBST {
     }
 
     /*
-        The idea is to use in-order traversal of  BST.
+        The idea is to use pre-order traversal of  BST.
         During traversal we check if a node is leaf node, we delete it else we recur for left and right sub trees
      */
     public Node deleteLeafNodes(Node rootReference) {
         if (rootReference == null)
             return null;
 
-        rootReference.setLeftChild(deleteLeafNodes(rootReference.getLeftChild()));
-
         if (rootReference.getLeftChild() == null && rootReference.getRightChild() == null)
             return null;
+
+        rootReference.setLeftChild(deleteLeafNodes(rootReference.getLeftChild()));
 
         rootReference.setRightChild(deleteLeafNodes(rootReference.getRightChild()));
 
