@@ -56,7 +56,7 @@ public class FlattenBSTToSinglyLL_UsingQueue {
             Queue<Node> queue = new LinkedList<>();
             Node previousNode = rootReference;
             queue.offer(rootReference);
-            while (true) {
+            while (!queue.isEmpty()) {
                 Node polledNode = queue.poll();
 
                 if (polledNode.getLeftChild() != null) {
@@ -70,9 +70,6 @@ public class FlattenBSTToSinglyLL_UsingQueue {
                 polledNode.setLeftChild(null);
                 previousNode.setRightChild(polledNode);
                 previousNode = polledNode;
-
-                if (queue.isEmpty())
-                    break;
             }
         }
     }
