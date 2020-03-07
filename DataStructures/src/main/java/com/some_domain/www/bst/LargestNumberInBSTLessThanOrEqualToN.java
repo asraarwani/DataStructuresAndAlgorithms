@@ -44,47 +44,46 @@ public class LargestNumberInBSTLessThanOrEqualToN {
         bst.setRoot(rootReference);
 
         int givenNumber = 26;
-        int largestNumberSmallerThanOrEualToGivenNumber = bst.findLargestNumberSmallerThanOrEqualToGivenNumber(bst.getRoot(), givenNumber);
-        System.out.println("Number is  : " + largestNumberSmallerThanOrEualToGivenNumber);
+        Node floorNode = bst.findLargestNumberSmallerThanOrEqualToGivenNumber(bst.getRoot(), givenNumber);
+        if (floorNode != null)
+            System.out.println("Number is  : " + floorNode.getData());
 
-        largestNumberSmallerThanOrEualToGivenNumber = bst.findFloor(bst.getRoot(), givenNumber);
-        System.out.println("\nNumber is  : " + largestNumberSmallerThanOrEualToGivenNumber);
+        floorNode = bst.findFloor(bst.getRoot(), givenNumber);
+        if (floorNode != null)
+            System.out.println("\nNumber is  : " + floorNode.getData());
 
         System.out.println("Time complexity is O(H) where H is the height of the BST");
     }
 
-    public int findLargestNumberSmallerThanOrEqualToGivenNumber(Node rootReference, int givenNumber) {
+    public Node findLargestNumberSmallerThanOrEqualToGivenNumber(Node rootReference, int givenNumber) {
         if (rootReference == null)
-            return -1;
+            return null;
         if (rootReference.getData() == givenNumber)
-            return rootReference.getData();
+            return rootReference;
         else if (givenNumber < rootReference.getData()) {
             return findLargestNumberSmallerThanOrEqualToGivenNumber(rootReference.getLeftChild(), givenNumber);
         } else if (givenNumber > rootReference.getData()) {
-            int number = findLargestNumberSmallerThanOrEqualToGivenNumber(rootReference.getRightChild(), givenNumber);
-            if (number == -1)
-                return rootReference.getData();
+            Node floorNode = findLargestNumberSmallerThanOrEqualToGivenNumber(rootReference.getRightChild(), givenNumber);
+            if (floorNode == null)
+                return rootReference;
             else
-                return number;
+                return floorNode;
         }
-        return -1;
+        return null;
     }
 
-    public int findFloor(Node rootReference, int givenNumber) {
+    public Node findFloor(Node rootReference, int givenNumber) {
         Node resultNode = null;
         Node currentNode = rootReference;
         while (currentNode != null) {
-
-            if (givenNumber >= currentNode.getData()) {
+            if (givenNumber < currentNode.getData()) {
+                currentNode = currentNode.getLeftChild();
+            } else {
                 resultNode = currentNode;
                 currentNode = currentNode.getRightChild();
-            } else {
-                currentNode = currentNode.getLeftChild();
             }
         }
-        if (resultNode != null)
-            return resultNode.getData();
-        return -1;
+        return resultNode;
     }
 
     public Node insertNodeIntoBSTRecursively(Node rootReference, int data) {

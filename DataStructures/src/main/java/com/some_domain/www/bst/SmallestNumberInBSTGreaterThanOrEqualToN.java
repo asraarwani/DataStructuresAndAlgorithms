@@ -5,11 +5,11 @@ package com.some_domain.www.bst;
  * @date : 12/25/2019 11:58 AM
  * This class demonstrates how to find a largest number which is greater than or equal to a given number in a BST
  */
-public class LargestNumberInBSTGreaterThanOrEqualToN {
+public class SmallestNumberInBSTGreaterThanOrEqualToN {
 
     private Node root;
 
-    public LargestNumberInBSTGreaterThanOrEqualToN() {
+    public SmallestNumberInBSTGreaterThanOrEqualToN() {
         this.root = null;
     }
 
@@ -31,7 +31,7 @@ public class LargestNumberInBSTGreaterThanOrEqualToN {
                                 8    16   24   30
          */
 
-        LargestNumberInBSTGreaterThanOrEqualToN bst = new LargestNumberInBSTGreaterThanOrEqualToN();
+        SmallestNumberInBSTGreaterThanOrEqualToN bst = new SmallestNumberInBSTGreaterThanOrEqualToN();
         Node rootReference = bst.insertNodeIntoBSTRecursively(null, 20);
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 15);
         rootReference = bst.insertNodeIntoBSTRecursively(rootReference, 25);
@@ -42,33 +42,35 @@ public class LargestNumberInBSTGreaterThanOrEqualToN {
         bst.setRoot(rootReference);
 
         int givenNumber = 14;
-        int largestNumberGreaterThanOrEqualToGivenNumber = bst.findLargestNumberGreaterThanOrEqualToGivenNumber(bst.getRoot(), givenNumber);
-        System.out.println("Number is  : " + largestNumberGreaterThanOrEqualToGivenNumber);
+        Node ceilNode = bst.findLargestNumberGreaterThanOrEqualToGivenNumber(bst.getRoot(), givenNumber);
+        if (ceilNode != null)
+            System.out.println("Number is  : " + ceilNode.getData());
 
-        largestNumberGreaterThanOrEqualToGivenNumber = bst.findCeil(bst.getRoot(), givenNumber);
-        System.out.println("Number is  : " + largestNumberGreaterThanOrEqualToGivenNumber);
+        ceilNode = bst.findCeil(bst.getRoot(), givenNumber);
+        if (ceilNode != null)
+            System.out.println("Number is  : " + ceilNode.getData());
 
         System.out.println("Time complexity is O(H) where H is the height of the BST");
     }
 
-    public int findLargestNumberGreaterThanOrEqualToGivenNumber(Node rootReference, int givenNumber) {
+    public Node findLargestNumberGreaterThanOrEqualToGivenNumber(Node rootReference, int givenNumber) {
         if (rootReference == null)
-            return -1;
+            return null;
         if (rootReference.getData() == givenNumber)
-            return rootReference.getData();
+            return rootReference;
         else if (givenNumber < rootReference.getData()) {
-            int number = findLargestNumberGreaterThanOrEqualToGivenNumber(rootReference.getLeftChild(), givenNumber);
-            if (number == -1)
-                return rootReference.getData();
+            Node ceilNode = findLargestNumberGreaterThanOrEqualToGivenNumber(rootReference.getLeftChild(), givenNumber);
+            if (ceilNode == null)
+                return rootReference;
             else
-                return number;
+                return ceilNode;
         } else if (givenNumber > rootReference.getData()) {
             return findLargestNumberGreaterThanOrEqualToGivenNumber(rootReference.getRightChild(), givenNumber);
         }
-        return -1;
+        return null;
     }
 
-    public int findCeil(Node rootReference, int givenNumber) {
+    public Node findCeil(Node rootReference, int givenNumber) {
         Node resultNode = null;
         Node currentNode = rootReference;
         while (currentNode != null) {
@@ -79,9 +81,7 @@ public class LargestNumberInBSTGreaterThanOrEqualToN {
                 currentNode = currentNode.getRightChild();
             }
         }
-        if (resultNode != null)
-            return resultNode.getData();
-        return -1;
+        return resultNode;
     }
 
     public Node insertNodeIntoBSTRecursively(Node rootReference, int data) {
