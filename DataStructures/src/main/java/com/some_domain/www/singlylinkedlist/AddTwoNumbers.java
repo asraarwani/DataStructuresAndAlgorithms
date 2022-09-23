@@ -50,8 +50,11 @@ public class AddTwoNumbers {
 
         System.out.println();
         AddTwoNumbers resultList = new AddTwoNumbers();
+        firstNumber.reverseSinglyLinkedList(firstNumber.getHead());
+        secondNumber.reverseSinglyLinkedList(secondNumber.getHead());
         Node resultListHeadNode = resultList.addTwoNumbers(firstNumber.getHead(), secondNumber.getHead());
         resultList.setHead(resultListHeadNode);
+        resultList.reverseSinglyLinkedList(resultList.getHead());
         resultList.displayContentsOfSinglyLinkedList(resultList.getHead());
         System.out.println("\nTime complexity is O(max(N, M)) where N and M are the number of nodes in the two singly linked lists");
     }
@@ -114,6 +117,23 @@ public class AddTwoNumbers {
             traversalNode.setNext(newNode);
         }
         size++;
+    }
+
+    private void reverseSinglyLinkedList(Node headReference) {
+        if (headReference == null) {
+            System.out.println("Singly linked list is empty.");
+        } else {
+            Node currentNode = headReference;
+            Node nextNode = null;
+            Node previousNode = null;
+            while (currentNode != null) {
+                nextNode = currentNode.getNext();
+                currentNode.setNext(previousNode);
+                previousNode = currentNode;
+                currentNode = nextNode;
+            }
+            this.setHead(previousNode);
+        }
     }
 
     private class Node {
