@@ -53,7 +53,7 @@ public class DeleteAlternateNodes {
         list.displayContentsOfSinglyLinkedList(list.getHead());
         System.out.println();
         System.out.println("\nAfter deleting alternate nodes from singly linked list (Recursive)");
-        list.deleteAlternateNodesFromSinglyLinkedListRecursive(list.getHead());
+        list.deleteAlternateNodesFromSinglyLinkedListRecursiveAlt(list.getHead());
         list.displayContentsOfSinglyLinkedList(list.getHead());
 
         System.out.println();
@@ -71,6 +71,14 @@ public class DeleteAlternateNodes {
 
         headReference.setNext(nextNode.getNext());
         deleteAlternateNodesFromSinglyLinkedListRecursive(nextNode.getNext());
+    }
+
+    public void deleteAlternateNodesFromSinglyLinkedListRecursiveAlt(Node headReference) {
+        if (headReference == null || headReference.getNext() == null)
+            return;
+        Node nextNode = headReference.getNext();
+        headReference.setNext(nextNode.getNext());
+        deleteAlternateNodesFromSinglyLinkedListRecursiveAlt(headReference.getNext());
     }
 
     public void deleteAlternateNodesFromSinglyLinkedListIterative(Node headReference) {
