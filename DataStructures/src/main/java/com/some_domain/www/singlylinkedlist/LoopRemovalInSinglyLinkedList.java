@@ -75,7 +75,6 @@ public class LoopRemovalInSinglyLinkedList {
     public void detectAndRemoveLoopUsingFloydsAlgorithm(Node headReference) {
         if (headReference == null) {
             System.out.println("Singly linked list is empty");
-            return;
         } else {
             Node slowPointer = headReference;
             Node fastPointer = headReference.getNext();
@@ -101,12 +100,10 @@ public class LoopRemovalInSinglyLinkedList {
     public void detectAndRemoveLoopUsingHashing(Node headReference) {
         if (headReference == null) {
             System.out.println("Singly linked list is empty");
-            return;
         } else {
             Set<Node> set = new HashSet<>();
             Node previousNode = null;
             while (headReference != null) {
-
                 if (set.contains(headReference)) {
                     previousNode.setNext(null);
                     return;
@@ -122,7 +119,6 @@ public class LoopRemovalInSinglyLinkedList {
     private void createLoopInSinglyLinkedList(Node headReference) {
         if (headReference == null) {
             System.out.println("Singly linked list is empty");
-            return;
         } else {
             while (headReference.getNext() != null)
                 headReference = headReference.getNext();
