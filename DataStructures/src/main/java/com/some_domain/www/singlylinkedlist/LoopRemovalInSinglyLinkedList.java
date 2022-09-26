@@ -89,7 +89,7 @@ public class LoopRemovalInSinglyLinkedList {
 
             if (slowPointer == fastPointer) {
                 slowPointer = headReference;
-                while (fastPointer.getNext() != null && slowPointer != fastPointer.getNext()) {
+                while (fastPointer.getNext() != null && fastPointer.getNext() != slowPointer) {
                     slowPointer = slowPointer.getNext();
                     fastPointer = fastPointer.getNext();
                 }
