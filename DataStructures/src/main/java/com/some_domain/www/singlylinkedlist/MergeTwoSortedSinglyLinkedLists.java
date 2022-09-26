@@ -114,6 +114,25 @@ public class MergeTwoSortedSinglyLinkedLists {
         }
     }
 
+    private Node mergeTwoSortedSinglyLinkedListsRecursively(Node firstListHead, Node secondListHead) {
+        if (firstListHead == null)
+            return secondListHead;
+
+        if (secondListHead == null)
+            return firstListHead;
+
+        if (firstListHead.getData() < secondListHead.getData()) {
+            Node temporaryNode = mergeTwoSortedSinglyLinkedListsRecursively(firstListHead.getNext(), secondListHead);
+            firstListHead.setNext(temporaryNode);
+            return firstListHead;
+        } else {
+            Node temporaryNode = mergeTwoSortedSinglyLinkedListsRecursively(firstListHead, secondListHead.getNext());
+            secondListHead.setNext(temporaryNode);
+            return secondListHead;
+        }
+    }
+
+
     public void printContentsOfSinglyLinkedList(Node headReference) {
         if (headReference == null) {
             System.out.println("Sorted singly linked list is empty");
