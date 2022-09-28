@@ -29,6 +29,7 @@
                 21. Detect and remove a loop in singly linked list
                 22. Reverse singly linked list in groups of size K
                 23. Reverse circular singly linked list
+                24. Remove Nth node from end of singly linked list 
                 
             
          1. Doubly linked list
