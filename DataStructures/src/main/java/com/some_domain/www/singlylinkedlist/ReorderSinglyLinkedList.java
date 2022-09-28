@@ -26,16 +26,14 @@ public class ReorderSinglyLinkedList {
         list.displayContentsOfSinglyLinkedList(list.getHead());
 
         System.out.println("\nAfter rearranging the singly linked list");
-        Node newHead = list.reorderSinglyLinkedList(list.getHead());
-        list.setHead(newHead);
+        list.reorderSinglyLinkedList(list.getHead());
         list.displayContentsOfSinglyLinkedList(list.getHead());
         System.out.println("\nTime complexity is O(N)");
     }
 
-    public Node reorderSinglyLinkedList(Node headReference) {
+    public void reorderSinglyLinkedList(Node headReference) {
         if (headReference == null) {
             System.out.println("Singly linked list is empty.");
-            return null;
         } else {
             //Find the middle node and then split the list into two halves
             Node slowPointer = headReference;
@@ -69,7 +67,6 @@ public class ReorderSinglyLinkedList {
                     currentNode = currentNode.getNext();
                 }
             }
-            return temporaryHead.getNext();
         }
     }
 
