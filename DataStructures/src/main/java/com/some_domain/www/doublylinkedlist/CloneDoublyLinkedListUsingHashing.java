@@ -97,7 +97,6 @@ public class CloneDoublyLinkedListUsingHashing {
     public void displayContents(Node headReference) {
         if (headReference == null) {
             System.out.println("Doubly linked list is empty");
-            return;
         } else {
             while (headReference != null) {
                 if (headReference.getRandom() != null) {
