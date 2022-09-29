@@ -32,6 +32,7 @@
                 24. Remove Nth node from end of singly linked list
                 25. Reorder/Rearrange singly linked list 
                 26. Clone singly linked list with random links 
+                27. Find duplicate element in singly linked list 
                 
             
          1. Doubly linked list
