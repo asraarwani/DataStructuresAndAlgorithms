@@ -53,13 +53,13 @@ public class MergeKSortedSinglyLinkedLists {
         Node newHead = mergedList.mergeKSortedSinglyLinkedLists(lists);
         mergedList.setHead(newHead);
         mergedList.displayContents(mergedList.getHead());
+        System.out.println("\nTime Complexity: O(NlogN), Auxiliary Space: O(N*K)");
 
         System.out.println("\nEnhanced approach");
         newHead = mergedList.mergeKSortedSinglyLinkedListsOptimized(lists);
         mergedList.setHead(newHead);
         mergedList.displayContents(mergedList.getHead());
-
-        System.out.println("\nTime Complexity: O(N * K * log K),, Auxiliary Space: O(K)");
+        System.out.println("\nTime Complexity: O(NlogK), Auxiliary Space: O(K)");
 
     }
 
