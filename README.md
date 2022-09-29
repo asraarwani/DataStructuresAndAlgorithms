@@ -33,7 +33,7 @@
                 25. Reorder/Rearrange singly linked list 
                 26. Clone singly linked list with random links 
                 27. Find duplicate element in singly linked list 
-                
+                28. Count duplicate nodes in singly linked list
             
          1. Doubly linked list
                 
