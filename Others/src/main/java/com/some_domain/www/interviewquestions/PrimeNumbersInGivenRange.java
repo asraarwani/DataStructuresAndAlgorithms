@@ -1,5 +1,9 @@
 package com.some_domain.www.interviewquestions;
 
+/**
+ * @author : asraar
+ * @date : 30-09-2022 08:59 pm
+ */
 public class PrimeNumbersInGivenRange {
 
     public static void main(String[] args) {

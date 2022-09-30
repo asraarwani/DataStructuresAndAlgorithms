@@ -3,6 +3,10 @@ package com.some_domain.www.interviewquestions;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @author : asraar
+ * @date : 30-09-2022 08:59 pm
+ */
 public class CheckArrayContainsDuplicates {
 
     public static void main(String[] args) {

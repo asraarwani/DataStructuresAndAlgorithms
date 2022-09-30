@@ -173,6 +173,7 @@
             5. Prime number check 
             6. Generate prime numbers between given range 
             7. Generate prime numbers upto given limit 
+            8. Armstrong number check 
   
          
          
