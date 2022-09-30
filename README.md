@@ -166,14 +166,16 @@
             
   3. Java concepts and Programs
 
-            1. Balanced brackets/parenthesis check 
-            2. Check if array contains duplicates 
-            3. Find duplicates from array
-            4. Anagram check 
-            5. Prime number check 
-            6. Generate prime numbers between given range 
-            7. Generate prime numbers upto given limit 
-            8. Armstrong number check 
+            1.  Balanced brackets/parenthesis check 
+            2.  Check if array contains duplicates 
+            3.  Find duplicates from array
+            4.  Anagram check 
+            5.  Prime number check 
+            6.  Generate prime numbers between given range 
+            7.  Generate prime numbers upto given limit 
+            8.  Armstrong number check
+            9.  Linear search
+            10. Binary search
   
          
          
