@@ -41,6 +41,8 @@ public class AnagramCheck {
         Arrays.sort(firstStringAsArray);
         Arrays.sort(secondStringAsArray);
 
+        //return Arrays.equals(firstStringAsArray, secondStringAsArray);
+
         for (int i = 0; i < firstStringAsArray.length; i++) {
             if (firstStringAsArray[i] != secondStringAsArray[i])
                 return false;
