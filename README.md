@@ -166,7 +166,10 @@
             
   3. Java concepts and Programs
 
-            1.Balanced Brackets check 
+            1. Balanced Brackets check 
+            2. Check if array contains duplicates 
+            3. Find duplicates from array
+            4. Anagram check 
   
          
          
