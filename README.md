@@ -180,6 +180,8 @@
             12. Fibonacii Series  
             13. Print Floyds Trinage 
             14. Logest palindromic sub-string 
+            15. Middle Index where left and right sum matches
+            16. Minimum number of coins for that make a given value 
   
          
          
