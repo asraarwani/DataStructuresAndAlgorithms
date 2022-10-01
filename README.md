@@ -176,6 +176,10 @@
             8.  Armstrong number check
             9.  Linear search
             10. Binary search
+            11. Sum of digits of a given number 
+            12. Fibonacii Series  
+            13. Print Floyds Trinage 
+            14. Logest palindromic sub-string 
   
          
          
