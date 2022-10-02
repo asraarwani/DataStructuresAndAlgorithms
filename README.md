@@ -190,7 +190,7 @@
             22. Producer cosumer problem alternate
             23. Merge Sort
             24. Selection Sort 
-            25. Selection sort
+            25. Bubble sort
          
         
         
