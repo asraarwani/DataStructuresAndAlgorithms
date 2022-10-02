@@ -8,7 +8,7 @@ public class PrimeNumber {
 
     public static void main(String[] args) {
 
-        int number = 4;
+        int number = 7;
         PrimeNumber instance = new PrimeNumber();
         boolean isPrime = instance.isPrime(number);
         if (isPrime) {
@@ -24,8 +24,7 @@ public class PrimeNumber {
         boolean isPrime = true;
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
-                isPrime = false;
-                break;
+                return false;
             }
         }
         return isPrime;
