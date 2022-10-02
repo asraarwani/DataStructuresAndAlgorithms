@@ -184,8 +184,13 @@
             16. Minimum number of coins for that make a given value
             17. Palindrome check 
             18. Permutations of a given string 
-  
-         
+            19. Remove duplicates from an array
+            20. Reverese a given number
+            21. Producer consumer problem
+            22. Producer cosumer problem alternate
+            23. Merge Sort
+            24. Selection Sort 
+            25. Selection sort
          
         
         
