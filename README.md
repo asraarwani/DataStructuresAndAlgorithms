@@ -138,8 +138,7 @@
             66. Delete last leaf node from the BST
             67. Serializing and de-serializing a BST
             68. Find kth smallest node in BST 
-            
-           
+
      6. Array
             
             1. Find maximum distance (maximum j – i such that arr[j] > arr[i])
