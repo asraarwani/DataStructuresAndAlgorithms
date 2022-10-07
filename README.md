@@ -37,8 +37,8 @@
                 29. Merge K sorted singly linked lists 
                 30. Move last node to front of singly linked list
                 31. Alternate split of singly linked list
-                32.
-                31.
+                32. Delete nodes with greater value on right
+                31. Identical linked list check
                 32.
                 32.
                 32.
