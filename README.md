@@ -129,6 +129,7 @@
             65. Check if a BST is a balanced BST
             66. Delete last leaf node from the BST
             67. Serializing and de-serializing a BST
+            68. Find kth smallest node in BST 
             
            
      6. Array
