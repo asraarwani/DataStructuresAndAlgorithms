@@ -35,7 +35,14 @@
                 27. Find duplicate element in singly linked list 
                 28. Count duplicate nodes in singly linked list
                 29. Merge K sorted singly linked lists 
-                30. Move last node to front of singly linked list 
+                30. Move last node to front of singly linked list
+                31. Alternate split of singly linked list
+                32.
+                31.
+                32.
+                32.
+                32.
+                32. 
             
          1. Doubly linked list
                 
