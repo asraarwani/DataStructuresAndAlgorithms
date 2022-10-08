@@ -14,11 +14,24 @@ package com.some_domain.www.bst;
  */
 public class CheckIfTreeIsBST {
 
+    private Node root;
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
+    }
+
     public static void main(String[] args) {
 
         CheckIfTreeIsBST bst = new CheckIfTreeIsBST();
 
         Node treeNode = bst.createTree();
+        bst.setRoot(treeNode);
+        bst.inOrderTraversalOfBST(bst.getRoot());
+        System.out.println();
         boolean isBST = bst.isBST(treeNode, Integer.MIN_VALUE, Integer.MAX_VALUE);
         System.out.println("Given tree is a BST : " + isBST);
         System.out.println("Time complexity is O(N)");
@@ -44,7 +57,7 @@ public class CheckIfTreeIsBST {
                                  /  \      /  \
                                 8    16   24   30
          */
-        //Creating the above given given tree
+        //Creating the above given tree
         Node rootNode = new Node(20, null, null);
         rootNode.setLeftChild(new Node(15,
                 new Node(8, null, null),
@@ -53,6 +66,14 @@ public class CheckIfTreeIsBST {
                 new Node(24, null, null),
                 new Node(30, null, null)));
         return rootNode;
+    }
+
+    private void inOrderTraversalOfBST(Node rootReference) {
+        if (rootReference != null) {
+            inOrderTraversalOfBST(rootReference.getLeftChild());
+            System.out.print(rootReference.getData() + " ");
+            inOrderTraversalOfBST(rootReference.getRightChild());
+        }
     }
 
     private class Node {
