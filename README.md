@@ -202,6 +202,7 @@
             24. Selection Sort 
             25. Bubble sort
             26. Kth largest element from an array 
+            27. Sum of array elements without a loop 
          
         
         
