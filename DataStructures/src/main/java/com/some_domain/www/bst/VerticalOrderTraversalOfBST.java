@@ -74,9 +74,9 @@ public class VerticalOrderTraversalOfBST {
     public void printVerticalOrderTraversalOfBST(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty");
-            return;
         } else {
             Map<Integer, List<Node>> map = printVerticalOrderTraversalOfBSTHelper(rootReference);
+            System.out.println("Using level-order traversal and hashing");
             map.entrySet().stream().forEach(entry -> {
                 System.out.println(entry.getKey() + " " + entry.getValue().stream().map(node -> node.getData()).collect(Collectors.toList()));
             });
@@ -84,40 +84,40 @@ public class VerticalOrderTraversalOfBST {
     }
 
     private Map<Integer, List<Node>> printVerticalOrderTraversalOfBSTHelper(Node rootReference) {
-        Map<Integer, List<Node>> resultMap = new LinkedHashMap<>();
+        Map<Integer, List<Node>> responseMap = new LinkedHashMap<>();
+        responseMap.put(0, new ArrayList<>(Arrays.asList(rootReference)));
         Queue<Node> queue = new LinkedList<>();
-        Map<Node, Integer> parentHorizontalDistance = new LinkedHashMap<>();
-        Node traversalNode = rootReference;
-        queue.offer(traversalNode);
-        parentHorizontalDistance.put(traversalNode, 0);
-        resultMap.put(0, new ArrayList<>(Arrays.asList(traversalNode)));
+        queue.offer(rootReference);
+        Map<Node, Integer> horizontalDistanceMap = new LinkedHashMap<>();
+        horizontalDistanceMap.put(rootReference, 0);
         while (!queue.isEmpty()) {
             Node polledNode = queue.poll();
-            //If the polledNode has a left child
             if (polledNode.getLeftChild() != null) {
-                Node leftChildNode = polledNode.getLeftChild();
-                int horizontalDistance = parentHorizontalDistance.get(polledNode) - 1;
-                if (!resultMap.containsKey(horizontalDistance)) {
-                    resultMap.put(horizontalDistance, new ArrayList<>());
+                Node polledNodeLeft = polledNode.getLeftChild();
+                int horizontalDistance = horizontalDistanceMap.get(polledNode) - 1;
+                if (responseMap.containsKey(horizontalDistance)) {
+                    responseMap.get(horizontalDistance).add(polledNodeLeft);
+                    horizontalDistanceMap.put(polledNodeLeft, horizontalDistance);
+                } else {
+                    responseMap.put(horizontalDistance, new ArrayList<>(Arrays.asList(polledNodeLeft)));
+                    horizontalDistanceMap.put(polledNodeLeft, horizontalDistance);
                 }
-                resultMap.get(horizontalDistance).add(leftChildNode);
-                parentHorizontalDistance.put(leftChildNode, horizontalDistance);
-                queue.offer(leftChildNode);
+                queue.offer(polledNodeLeft);
             }
 
-            //If the polledNode has a right child
             if (polledNode.getRightChild() != null) {
-                Node rightChildNode = polledNode.getRightChild();
-                int horizontalDistance = parentHorizontalDistance.get(polledNode) + 1;
-                if (!resultMap.containsKey(horizontalDistance)) {
-                    resultMap.put(horizontalDistance, new ArrayList<>());
+                Node polledNodeRight = polledNode.getRightChild();
+                int horizontalDistance = horizontalDistanceMap.get(polledNode) + 1;
+                if (responseMap.containsKey(horizontalDistance)) {
+                    responseMap.get(horizontalDistance).add(polledNodeRight);
+                } else {
+                    responseMap.put(horizontalDistance, new ArrayList<>(Arrays.asList(polledNodeRight)));
+                    horizontalDistanceMap.put(polledNodeRight, horizontalDistance);
                 }
-                resultMap.get(horizontalDistance).add(rightChildNode);
-                parentHorizontalDistance.put(rightChildNode, horizontalDistance);
-                queue.offer(rightChildNode);
+                queue.offer(polledNodeRight);
             }
         }
-        return resultMap;
+        return responseMap;
     }
 
     public Node insertNodeIntoBSTRecursivelyBST(int data, Node rootReference) {
