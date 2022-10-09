@@ -49,7 +49,6 @@ public class BoundaryTraversalOfBST {
     public void printBoundaryOfBST(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty");
-            return;
         } else {
             System.out.print(rootReference.getData() + " ");
             printLeftBoundaryOfBST(rootReference.getLeftChild());   // Top to bottom for the left boundary

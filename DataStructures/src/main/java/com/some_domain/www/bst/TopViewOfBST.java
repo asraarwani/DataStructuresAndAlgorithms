@@ -65,7 +65,6 @@ public class TopViewOfBST {
     public void printTopViewOfBST(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty.");
-            return;
         } else {
             Map<Integer, Node> map = new TreeMap<>();
             Queue<QueueObject> queue = new LinkedList<>();
