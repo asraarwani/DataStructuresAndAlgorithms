@@ -36,7 +36,7 @@ public class ReverseArrayInGroupsOfGivenSize {
         System.out.println("Time complexity is O(N)");
     }
 
-    void reverseInGroups(int[] array, int n, int k) {
+    private void reverseInGroups(int[] array, int n, int k) {
         for (int i = 0; i < n; i += k) {
             int left = i;
             int right = Math.min(i + k - 1, n - 1); //To handle case when k is not multiple of n
@@ -50,8 +50,7 @@ public class ReverseArrayInGroupsOfGivenSize {
         }
     }
 
-
-    void reverseInGroupsUsingList(ArrayList<Integer> arr, int n, int k) {
+    private void reverseInGroupsUsingList(ArrayList<Integer> arr, int n, int k) {
         for (int i = 0; i < n; i = i + k) {
             int left = i;
             int right = Math.min(i + k - 1, n - 1);
@@ -67,4 +66,5 @@ public class ReverseArrayInGroupsOfGivenSize {
             System.out.print(arr.get(i) + " ");
         }
     }
+
 }
