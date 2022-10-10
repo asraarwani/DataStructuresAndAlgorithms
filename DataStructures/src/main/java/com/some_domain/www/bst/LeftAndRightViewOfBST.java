@@ -47,7 +47,6 @@ public class LeftAndRightViewOfBST {
         rootReference = bst.insertNodeIntoBSTIteratively(16, rootReference);
         rootReference = bst.insertNodeIntoBSTIteratively(24, rootReference);
         rootReference = bst.insertNodeIntoBSTIteratively(30, rootReference);
-
         bst.setRoot(rootReference);
 
         System.out.println("Left view of the BST using iterative approach is given as follows");
@@ -173,7 +172,7 @@ public class LeftAndRightViewOfBST {
     }
 
     /*
-        For left view,left sub tree is being processed before right sub tree
+        For left view,left sub-tree is being processed before right sub-tree
      */
     public void printLeftViewOfBSTAlternateApproach(Node rootReference, NodeDetails nodeDetails, int currentLevelNumber) {
         if (rootReference == null)
