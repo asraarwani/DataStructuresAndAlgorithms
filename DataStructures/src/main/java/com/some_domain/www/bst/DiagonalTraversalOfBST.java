@@ -67,7 +67,6 @@ public class DiagonalTraversalOfBST {
     public void printDiagonalTraversalOfBST(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty.");
-            return;
         } else {
             Node traversingNode = rootReference;
             Queue<Node> queue = new LinkedList<>();

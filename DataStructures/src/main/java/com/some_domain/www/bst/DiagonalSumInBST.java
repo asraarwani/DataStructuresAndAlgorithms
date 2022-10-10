@@ -76,27 +76,26 @@ public class DiagonalSumInBST {
     }
 
     public void printDiagonalSumInBSTAlternate(Node rootReference) {
-        Map<Integer, Integer> map = new LinkedHashMap<>();
-        printDiagonalSumInBSTAlternateHelper(rootReference, map, 0);
-        map.entrySet().stream().forEach(entry -> {
+        Map<Integer, Integer> diagonalSumMap = new LinkedHashMap<>();
+        printDiagonalSumInBSTAlternateHelper(rootReference, diagonalSumMap, 0);
+        diagonalSumMap.entrySet().stream().forEach(entry -> {
             System.out.print(entry.getValue() + " ");
         });
     }
 
-    private void printDiagonalSumInBSTAlternateHelper(Node rootReference, Map<Integer, Integer> map, int diagonalDistance) {
+    private void printDiagonalSumInBSTAlternateHelper(Node rootReference, Map<Integer, Integer> diagonalSumMap, int diagonalDistance) {
         if (rootReference == null)
             return;
-        Integer sum = map.get(diagonalDistance);
-        if (sum == null) {
-            sum = 0;
+
+        if (diagonalSumMap.containsKey(diagonalDistance)) {
+            diagonalSumMap.put(diagonalDistance, diagonalSumMap.get(diagonalDistance) + rootReference.getData());
+        } else {
+            diagonalSumMap.put(diagonalDistance, rootReference.getData());
         }
 
-        sum = sum + rootReference.getData();
-        map.put(diagonalDistance, sum);
+        printDiagonalSumInBSTAlternateHelper(rootReference.getLeftChild(), diagonalSumMap, diagonalDistance + 1);
 
-        printDiagonalSumInBSTAlternateHelper(rootReference.getLeftChild(), map, diagonalDistance + 1);
-
-        printDiagonalSumInBSTAlternateHelper(rootReference.getRightChild(), map, diagonalDistance);
+        printDiagonalSumInBSTAlternateHelper(rootReference.getRightChild(), diagonalSumMap, diagonalDistance);
     }
 
     /**
@@ -140,7 +139,6 @@ public class DiagonalSumInBST {
     public void printDiagonalSumInBST(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty.");
-            return;
         } else {
             int sum = 0;
             Node traversingNode = rootReference;
