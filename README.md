@@ -204,7 +204,8 @@
             26. Kth largest element from an array 
             27. Sum of array elements without a loop 
             28. Reverse a given array in groups of given size K 
-            29. Check if two given arrays are equal or not 
+            29. Check if two given arrays are equal or not
+            30. First element to occur K times 
          
         
         
