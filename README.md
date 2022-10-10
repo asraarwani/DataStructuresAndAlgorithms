@@ -196,13 +196,14 @@
             18. Permutations of a given string 
             19. Remove duplicates from an array
             20. Reverese a given number
-            21. Producer consumer problem
-            22. Producer cosumer problem alternate
-            23. Merge Sort
-            24. Selection Sort 
-            25. Bubble sort
+            21. Producer consumer problem - Pending
+            22. Producer cosumer problem alternate - Pending
+            23. Merge Sort - Pending
+            24. Selection Sort  - Pending
+            25. Bubble sort - Pending
             26. Kth largest element from an array 
             27. Sum of array elements without a loop 
+            28. Reverse a given array in groups of given size K 
          
         
         
