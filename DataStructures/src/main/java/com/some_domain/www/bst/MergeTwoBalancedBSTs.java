@@ -30,7 +30,7 @@ public class MergeTwoBalancedBSTs {
         // Step 1: Store in-order traversal of first balanced BST in a list or an array                O(N)
         // Step 2: Store in-order traversal of second balanced BST in a list or an array               O(N)
         // Step 3: Merge two in-order traversals created in step 1 and 2                               O(M+N)
-        // Step 4: Construct a balanced BST from the the merged list or array                          O(M+N)
+        // Step 4: Construct a balanced BST from the merged list or array                              O(M+N)
         //                                                                                           = O(M+N)
 
           /* Balanced BST 1:-
