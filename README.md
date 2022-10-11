@@ -206,6 +206,7 @@
             28. Reverse a given array in groups of given size K 
             29. Check if two given arrays are equal or not
             30. First element to occur K times 
+            31. Convert array into zig-zag fashion 
          
         
         
