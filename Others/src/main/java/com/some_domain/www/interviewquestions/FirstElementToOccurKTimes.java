@@ -44,31 +44,19 @@ public class FirstElementToOccurKTimes {
         return -1;
     }
 
-    private int findFirstElementToOccurKTimesWithTweaks(int[] array, int n, int k) {
+    private int findFirstElementToOccurKTimes(int[] array, int kTimes) {
         Map<Integer, Integer> map = new LinkedHashMap<>();
         for (int num : array) {
             if (map.containsKey(num)) {
-                int currentCount = map.get(num);
-                if (currentCount == k)
+                if (map.get(num) + 1 == kTimes)
                     return num;
-                else {
-                    currentCount = currentCount + 1;
-                    if (currentCount == k)
-                        return num;
-                    else {
-                        map.put(num, currentCount);
-                    }
-                }
+                map.put(num, map.get(num) + 1);
             } else {
-                map.put(num, 1);
-                if (1 == k)
+                int count = map.get(num) == null ? 0 : map.get(num);
+                if (count + 1 == kTimes)
                     return num;
+                map.put(num, 1);
             }
-        }
-
-        for (int i = 0; i < n; i++) {
-            if (map.get(array[i]) == k)
-                return array[i];
         }
         return -1;
     }

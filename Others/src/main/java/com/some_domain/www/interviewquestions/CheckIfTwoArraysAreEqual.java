@@ -3,6 +3,7 @@ package com.some_domain.www.interviewquestions;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author : asraar
@@ -60,6 +61,18 @@ public class CheckIfTwoArraysAreEqual {
             count--;
             map.put(num, count);
         }
+
+       /* for (int num : secondArray) {
+            if (!map.containsKey(num)) {
+                return false;
+            } else {
+                map.put(num, map.get(num) - 1);
+            }
+        }
+        Optional<Integer> optionalInteger = map.values().stream().filter(i -> i > 0).findAny();
+        if (optionalInteger.isPresent())
+            equal = false;*/
+
         return equal;
     }
 
