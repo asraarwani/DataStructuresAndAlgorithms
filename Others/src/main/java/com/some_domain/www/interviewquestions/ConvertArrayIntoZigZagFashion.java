@@ -23,17 +23,18 @@ public class ConvertArrayIntoZigZagFashion {
     }
 
     private void convertArrayIntoZigZagFashionOptimized(int[] array) {
+        //a[0] < a[1] > a[2] < a[3] > ..
         boolean flag = true;
         for (int i = 0; i < array.length - 1; i++) {
             if (flag) {
-                if (array[i] > array[i + 1]) {
+                if (array[i] > array[i + 1]) { // First condition (a[0] < a[1]) is not met
                     int temp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = temp;
                 }
                 flag = false;
             } else {
-                if (array[i] < array[i + 1]) {
+                if (array[i] < array[i + 1]) { // 2nd condition (a[1] > a[2] ) is not met
                     int temp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = temp;
