@@ -12,7 +12,7 @@ public class CheckArrayContainsDuplicates {
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5, 6, 9, 2, 8};
         boolean containsDuplicate = new CheckArrayContainsDuplicates().checkIfArrayContainsDuplicate(array);
-        System.out.println("Array contains duplcates : " + containsDuplicate);
+        System.out.println("Array contains duplicates : " + containsDuplicate);
     }
 
     private boolean checkIfArrayContainsDuplicate(int[] array) {
