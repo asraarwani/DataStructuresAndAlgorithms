@@ -208,8 +208,9 @@
             30. First element to occur K times 
             31. Convert array into zig-zag fashion
             32. Find sub-array with given sum non-negative numbers only
-            33. Find sub-array with given sum including negative numbers  - https://www.geeksforgeeks.org/find-subarray-with-given-sum-in-array-of-integers/
-         
+            33. Find sub-array with given sum including negative numbers
+            34. Find missing number in given array
+            35. Merge two sorted arrays 
         
         
         
