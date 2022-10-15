@@ -214,6 +214,7 @@
           36. Sort arrays of 0's, 1's and 2's
           37. Print leaders in a given array
           38. Largest sub-array with zero sum 
+          39. Stock buy and sell problem 
         
         
         
