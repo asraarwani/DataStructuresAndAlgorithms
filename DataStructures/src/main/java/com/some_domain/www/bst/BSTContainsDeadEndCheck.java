@@ -74,8 +74,8 @@ public class BSTContainsDeadEndCheck {
      * First of all, it is given that it is a BST and nodes are greater than zero,
      * root node can be in the range [1, ∞] and if root val is say, val, then left sub-tree can have the value in the range [1, val-1]
      * and right sub-tree the value in range [val+1, ∞].
-     * We need to traverse recursively and when the the min and max value of range coincided it means that we cannot add any node further in the tree.
-     * Hence we encounter a dead end.
+     * We need to traverse recursively and when the min and max value of range coincided, it means that we cannot add any node further in the tree.
+     * Hence, we encounter a dead end.
      */
     public boolean containsDeadEnd(Node rootReference, int minimumRange, int maximumRange) {
         if (rootReference == null)
@@ -89,11 +89,12 @@ public class BSTContainsDeadEndCheck {
     }
 
     /**
-     * If we take a closer look at problem, we can notice that we basically need to check if there is leaf node with value x such that x+1 and x-1 exist in BST with exception of x = 1.
+     * If we take a closer look at problem, we can notice that we basically need to check if there
+     * is leaf node with value x such that x+1 and x-1 exist in BST with exception of x = 1.
      * For x = 1, we can’t insert 0 as problem statement says BST contains positive integers only.
-     * To implement above idea we first traverse whole BST and store all nodes in a hash_map.
+     * To implement above idea we first traverse whole BST and store all nodes in a hash.
      * We also store all leaves in a separate hash to avoid re-traversal of BST.
-     * Finally we check for every leaf node x, if x-1 and x+1 are present in hash_map or not.
+     * Finally, we check for every leaf node x, if x-1 and x+1 are present in hash or not.
      */
     public boolean containsDeadEndAlternate(Node rootReference) {
         if (rootReference == null)
@@ -101,7 +102,7 @@ public class BSTContainsDeadEndCheck {
         List<Integer> allNodes = new ArrayList<>();
         List<Integer> leafNodes = new ArrayList<>();
 
-        storeNodesInHashMap(rootReference, allNodes, leafNodes);
+        storeNodesInHas(rootReference, allNodes, leafNodes);
 
         for (int i = 0; i < leafNodes.size(); i++) {
             int leafNode = leafNodes.get(i);
@@ -113,7 +114,7 @@ public class BSTContainsDeadEndCheck {
         return false;
     }
 
-    private void storeNodesInHashMap(Node rootReference, List<Integer> allNodes, List<Integer> leafNodes) {
+    private void storeNodesInHas(Node rootReference, List<Integer> allNodes, List<Integer> leafNodes) {
         if (rootReference == null)
             return;
 
@@ -123,8 +124,8 @@ public class BSTContainsDeadEndCheck {
             leafNodes.add(rootReference.getData());
         }
 
-        storeNodesInHashMap(rootReference.getLeftChild(), allNodes, leafNodes);
-        storeNodesInHashMap(rootReference.getRightChild(), allNodes, leafNodes);
+        storeNodesInHas(rootReference.getLeftChild(), allNodes, leafNodes);
+        storeNodesInHas(rootReference.getRightChild(), allNodes, leafNodes);
     }
 
     public void insertNodeIntoBSTIteratively(int data) {
