@@ -40,7 +40,7 @@
                32. Delete nodes with greater value on right
                31. Identical linked list check
                32. Make middle node head of singly linked list
-               32.
+               32. Find sum of last N nodes in singly linked list
                32.
                32. 
 
