@@ -1,5 +1,7 @@
 package com.some_domain.www.bst;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -65,6 +67,42 @@ public class PrintCommonNodesInTwoBSTs {
         new PrintCommonNodesInTwoBSTs().printCommonNodesFromTwoBSTs(bst.getRoot(), bst2.getRoot());
 
         System.out.println("\nTime and space complexity is O(M + N) where M and N are the number of nodes in two BSTs");
+
+        System.out.println();
+        new PrintCommonNodesInTwoBSTs().printIntersectionOfBSTs(bst.getRoot(), bst2.getRoot());
+        System.out.println("\nTime complexity is O(M + N) where M and N are the number of nodes in two BSTs");
+        System.out.println("Space complexity is O(M) where M is the number of nodes in first BST");
+    }
+
+    private void printIntersectionOfBSTs(Node firstBSTRoot, Node secondBSTRoot) {
+        Set<Integer> set = new HashSet<>();
+        inOrderTraversalOfFirstBST(firstBSTRoot, set);
+
+        inOrderTraversalSecondBST(secondBSTRoot, set);
+    }
+
+    private void inOrderTraversalSecondBST(Node rootReference, Set<Integer> cache) {
+        if (rootReference != null) {
+
+            if (cache.contains(rootReference.getData())) {
+                System.out.print(rootReference.getData() + " ");
+            }
+
+            inOrderTraversalSecondBST(rootReference.getLeftChild(), cache);
+
+            inOrderTraversalSecondBST(rootReference.getRightChild(), cache);
+        }
+    }
+
+    private void inOrderTraversalOfFirstBST(Node rootReference, Set<Integer> set) {
+        if (rootReference != null) {
+
+            set.add(rootReference.getData());
+
+            inOrderTraversalOfFirstBST(rootReference.getLeftChild(), set);
+
+            inOrderTraversalOfFirstBST(rootReference.getRightChild(), set);
+        }
     }
 
     /*
