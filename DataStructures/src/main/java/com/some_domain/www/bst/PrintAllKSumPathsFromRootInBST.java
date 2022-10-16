@@ -33,7 +33,7 @@ public class PrintAllKSumPathsFromRootInBST {
                                     /    \
                                    15      25
                                  /  \      /  \
-                                8    16   24   30
+                                10    16   24   30
          */
 
         PrintAllKSumPathsFromRootInBST bst = new PrintAllKSumPathsFromRootInBST();
