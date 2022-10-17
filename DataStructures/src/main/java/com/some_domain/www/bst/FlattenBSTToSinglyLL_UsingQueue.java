@@ -47,6 +47,21 @@ public class FlattenBSTToSinglyLL_UsingQueue {
         bst.flattenBSTToSinglyLinkedListUsingQueue(bst.getRoot());
         bst.inOrderTraversalOfBST(bst.getRoot());
         System.out.println("\nTime and space complexity is O(N)");
+
+        System.out.println();
+        bst.displayContentsOfFlattenedSinglyLinkedList(bst.getRoot());
+    }
+
+    private void displayContentsOfFlattenedSinglyLinkedList(Node rootReference) {
+        if (rootReference == null) {
+            System.out.println("Flattened singly linked list is empyt");
+        } else {
+            Node traversalNode = rootReference;
+            do {
+                System.out.print(traversalNode.getData() + " ");
+                traversalNode = traversalNode.getRightChild();
+            } while (traversalNode != null);
+        }
     }
 
     public void flattenBSTToSinglyLinkedListUsingQueue(Node rootReference) {
