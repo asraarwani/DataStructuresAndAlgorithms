@@ -1,6 +1,6 @@
 package com.some_domain.www.bst;
 
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author : waniasra
@@ -64,14 +64,21 @@ public class CheckLeafOrderTraversalOfTwoBSTsIsSame {
         boolean isLeafOrderTraversalSame = new CheckLeafOrderTraversalOfTwoBSTsIsSame().isLeafOrderTraversalOfTwoBSTsSame(firstBST.getRoot(), secondBST.getRoot());
         System.out.println("Leaf order traversal of two BSTs is same : " + isLeafOrderTraversalSame);
         System.out.println("Time and space complexity is O(N) and O(H1 + H2) where H1 and H2 are the heights of the two BSTs");
+
+        System.out.println();
+        CheckLeafOrderTraversalOfTwoBSTsIsSame instance = new CheckLeafOrderTraversalOfTwoBSTsIsSame();
+        isLeafOrderTraversalSame = instance.isLeafOrderTraversalSame(firstBST.getRoot(), secondBST.getRoot());
+        System.out.println("Leaf order traversal of two BSTs is same : " + isLeafOrderTraversalSame);
+        System.out.println("Time and space complexity is O(N) and O(M + N) where M and N are the number of nodes in two BSTs");
+
     }
 
-    public boolean isLeafOrderTraversalOfTwoBSTsSame(Node firstBSTRootRef, Node seconBSTRootRef) {
+    public boolean isLeafOrderTraversalOfTwoBSTsSame(Node firstBSTRootRef, Node secondBSTRootRef) {
         Stack<Node> firstStack = new Stack<>();
         Stack<Node> secondStack = new Stack<>();
 
         firstStack.push(firstBSTRootRef);
-        secondStack.push(seconBSTRootRef);
+        secondStack.push(secondBSTRootRef);
 
         while (!firstStack.isEmpty() && !secondStack.isEmpty()) {
 
@@ -123,6 +130,44 @@ public class CheckLeafOrderTraversalOfTwoBSTsIsSame {
 
     private boolean isLeafNode(Node nodeReference) {
         return (nodeReference.getLeftChild() == null) && (nodeReference.getRightChild() == null);
+    }
+
+    private boolean isLeafOrderTraversalSame(Node firstBSTRoot, Node secondBSTRoot) {
+        List<Integer> firstBST_leaf_nodes_left_to_right = getLeafNodesFromLeftToRight(firstBSTRoot);
+        List<Integer> secondBST_leaf_nodes_left_to_right = getLeafNodesFromLeftToRight(secondBSTRoot);
+        if (firstBST_leaf_nodes_left_to_right.size() != secondBST_leaf_nodes_left_to_right.size())
+            return false;
+        for (int i = 0; i < firstBST_leaf_nodes_left_to_right.size(); i++) {
+            if (firstBST_leaf_nodes_left_to_right.get(i) != secondBST_leaf_nodes_left_to_right.get(i))
+                return false;
+        }
+        return true;
+    }
+
+    private List<Integer> getLeafNodesFromLeftToRight(Node rootReference) {
+        List<Integer> list = new ArrayList<>();
+        if (rootReference == null) {
+            System.out.println("BST is empty");
+        } else {
+            Queue<Node> queue = new LinkedList<>();
+            queue.offer(rootReference);
+            while (!queue.isEmpty()) {
+                Node polledNode = queue.poll();
+
+                if (polledNode.getLeftChild() == null && polledNode.getRightChild() == null) {
+                    list.add(polledNode.getData());
+                }
+
+                if (polledNode.getLeftChild() != null) {
+                    queue.offer(polledNode.getLeftChild());
+                }
+
+                if (polledNode.getRightChild() != null) {
+                    queue.offer(polledNode.getRightChild());
+                }
+            }
+        }
+        return list;
     }
 
     public void insertNodeIntoBSTIteratively(int data) {
