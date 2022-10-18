@@ -216,6 +216,16 @@
           38. Largest sub-array with zero sum 
           39. Stock buy and sell problem 
           40. Check if array is subset of another array
+          41. Replace a 0 from binary array to get longest continuous sequence of 1's
+          42. Replace K 0's from a binary array to get longest sub-segment of 1's length
+          43. 
+          44. 
+          45.
+          46.
+          47.
+          48.
+          49.
+          50. 
         
         
         
