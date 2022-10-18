@@ -41,8 +41,8 @@
                31. Identical linked list check
                32. Make middle node head of singly linked list
                32. Find sum of last N nodes in singly linked list
-               32.
-               32. 
+               32. Sort list containing 0's, 1's and 2's
+               32. Sort list sorted in alternating ascending and descenging order
 
         1. Doubly linked list
 
