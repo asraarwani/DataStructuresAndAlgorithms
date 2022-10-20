@@ -55,6 +55,7 @@
                7. Clone doubly linked list with random links
                8. Clone doubly linked list with random links using hashing
                9. Swap k-th node from begining with k-th node from end in doubly linked list
+               10. Pairs of numbers whose sum is equal to given sum 
     2. Stack
 
                1. Stack
