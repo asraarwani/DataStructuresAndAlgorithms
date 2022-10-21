@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * @author : waniasra
  * @date : 12/22/2019 12:48 PM
- * This class demonstrates how to construct a BST from a its given level order traversal
+ * This class demonstrates how to construct a BST from its given level order traversal
  */
 //Reference : https://www.geeksforgeeks.org/construct-bst-from-its-given-level-order-traversal-set-2/
 public class ConstructBSTFromItsGivenLevelOrderTraversal {
@@ -80,7 +80,6 @@ public class ConstructBSTFromItsGivenLevelOrderTraversal {
     public void printInOrderTraversalOfConstructedBSTIteratively(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST constructed from given array is empty.");
-            return;
         } else {
             Stack<Node> stack = new Stack<>();
             while (true) {
