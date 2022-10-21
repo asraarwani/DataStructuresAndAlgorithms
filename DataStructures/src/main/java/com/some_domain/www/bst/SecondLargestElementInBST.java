@@ -3,7 +3,7 @@ package com.some_domain.www.bst;
 /**
  * @author : waniasra
  * @date : 12/21/2019 9:59 PM
- * This class demonstrates how to find the second largest node in a given BST
+ * This class demonstrates how to find the second-largest node in a given BST
  */
 //Reference : https://www.geeksforgeeks.org/second-largest-element-in-binary-search-tree-bst/
 public class SecondLargestElementInBST {
@@ -50,7 +50,7 @@ public class SecondLargestElementInBST {
 
     /*
         The idea is to use a reverse in-order traversal of BST.
-        Second largest node is going to be the second node in reverse in-order traversal
+        Second-largest node is going to be the second node in reverse in-order traversal
      */
     public void findSecondLargestNodeInBST(Node rootReference, Counter counter) {
 

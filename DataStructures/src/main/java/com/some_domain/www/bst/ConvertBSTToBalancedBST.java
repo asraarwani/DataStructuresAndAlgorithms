@@ -30,7 +30,7 @@ public class ConvertBSTToBalancedBST {
 
         ConvertBSTToBalancedBST bst = new ConvertBSTToBalancedBST();
 
-        //Constructing a unbalanced binary search tree
+        //Constructing an unbalanced binary search tree
         bst.constructUnbalancedBST();
 
         Node balancedBSTRootReference = bst.convertNormalBSTToBalancedBST(bst.getRoot());
