@@ -55,6 +55,13 @@ public class SegregateOddEvenNodesInSinglyLinkedList {
         System.out.println("\nAfter even and odd nodes are segregated in singly linked list");
         list.displayContentsOfSinglyLinkedList(list.getHead());
         System.out.println("\nTime complexity is O(N) where N is the number of nodes in singly linked list");
+
+       /* Node newHead = list.segregateOddEvenNodesInSLL(list.getHead());
+        list.setHead(newHead);
+        System.out.println("\nAfter even and odd nodes are segregated in singly linked list");
+        list.displayContentsOfSinglyLinkedList(list.getHead());
+        System.out.println("\nTime complexity is O(N) where N is the number of nodes in singly linked list");
+       */
     }
 
     /*
@@ -90,6 +97,30 @@ public class SegregateOddEvenNodesInSinglyLinkedList {
             oddListTail.setNext(null);
             return evenListHead;
         }
+    }
+
+    private Node segregateOddEvenNodesInSLL(Node headReference) {
+        Node oddListHead = new Node(Integer.MIN_VALUE, null);
+        Node evenListHead = new Node(Integer.MIN_VALUE, null);
+        Node oddListHeadRef = oddListHead;
+        Node evenListHeadRef = evenListHead;
+
+        Node currentNode = headReference;
+        while (currentNode != null) {
+            Node nextNode = currentNode.getNext();
+            if (currentNode.getData() % 2 == 0) {
+                evenListHead.setNext(currentNode);
+                currentNode.setNext(null);
+                evenListHead = evenListHead.getNext();
+            } else {
+                oddListHead.setNext(currentNode);
+                currentNode.setNext(null);
+                oddListHead = oddListHead.getNext();
+            }
+            currentNode = nextNode;
+        }
+        evenListHead.setNext(oddListHeadRef.getNext()); // Skipping the temporary node
+        return evenListHeadRef.getNext(); // Skipping the temporary node
     }
 
     public void insertNodeAtEndOfSinglyLinkedList(int data) {
