@@ -70,8 +70,7 @@ public class PairwiseSwap {
 
                 //Terminating condition
                 if (nextNextNode == null || nextNextNode.getNext() == null) {
-                    currentNode.setNext(nextNextNode); // In case we have odd number of nodes in singly linked list
-                    // currentNode.setNext(null);         //In case we have even number of nodes in singly linked list
+                    currentNode.setNext(nextNextNode);
                     break;
                 }
 

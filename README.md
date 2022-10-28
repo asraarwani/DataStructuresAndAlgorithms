@@ -220,7 +220,7 @@
           40. Check if array is subset of another array
           41. Replace a 0 from binary array to get longest continuous sequence of 1's
           42. Replace K 0's from a binary array to get longest sub-segment of 1's length
-          43. 
+          43. Find triplets with sum equal to zero
           44. 
           45.
           46.
