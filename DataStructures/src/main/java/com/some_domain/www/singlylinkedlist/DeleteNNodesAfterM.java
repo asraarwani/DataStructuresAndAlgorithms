@@ -1,7 +1,5 @@
 package com.some_domain.www.singlylinkedlist;
 
-import javax.swing.*;
-
 /**
  * @author : waniasra
  * @date : 1/18/2020 8:26 PM
@@ -51,19 +49,21 @@ public class DeleteNNodesAfterM {
         list.displayContentsOfSinglyLinkedList(list.getHead());
 
         int n = 1;
-        int m = 4;
+        int m = 2;
         System.out.println("\n\nAfter deleting " + n + " node(s) after every " + m + " node(s)");
         list.deleteNNodesAfterM(list.getHead(), n, m);
         list.displayContentsOfSinglyLinkedList(list.getHead());
 
         System.out.println();
         System.out.println("\nTime complexity is O(N) where N is the number of nodes in singly linked list");
+
+        list.deleteNNodesAfterMNodesAlternate(list.getHead(), n, m);
+        list.displayContentsOfSinglyLinkedList(list.getHead());
     }
 
     public void deleteNNodesAfterM(Node headReference, int n, int m) {
         if (headReference == null) {
             System.out.println("Singly linked list is empty");
-            return;
         } else {
             Node currentNode = headReference;
             Node previousNode = null;
@@ -82,6 +82,27 @@ public class DeleteNNodesAfterM {
                 }
                 currentNode = currentNode.getNext();
             }
+        }
+    }
+
+    private void deleteNNodesAfterMNodesAlternate(Node headReference, int n, int m) {
+        Node currentNode = headReference;
+
+        int count = 1;
+        while (currentNode != null && count < m) {
+            currentNode = currentNode.getNext();
+            count++;
+        }
+
+        count = 1;
+        while (currentNode != null && currentNode.getNext() != null && count <= n) {
+            currentNode.setNext(currentNode.getNext().getNext());
+            count++;
+        }
+
+        //If there are nodes to be deleted from the list
+        if (currentNode != null) {
+            deleteNNodesAfterMNodesAlternate(currentNode.getNext(), n, m);
         }
     }
 
