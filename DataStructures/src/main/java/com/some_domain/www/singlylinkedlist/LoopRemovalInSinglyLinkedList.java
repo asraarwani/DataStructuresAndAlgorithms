@@ -122,7 +122,7 @@ public class LoopRemovalInSinglyLinkedList {
         } else {
             while (headReference.getNext() != null)
                 headReference = headReference.getNext();
-            headReference.setNext(head);
+            headReference.setNext(head.getNext().getNext());
         }
     }
 
