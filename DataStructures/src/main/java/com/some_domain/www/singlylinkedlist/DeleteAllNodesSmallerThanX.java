@@ -53,6 +53,8 @@ public class DeleteAllNodesSmallerThanX {
         Node newHead = list.deleteAllNodesSmallerThanX(list.getHead(), x);
         list.setHead(newHead);
 
+        //list.deleteAllNodesSmallerThanXAlternate(list.getHead(), x);
+
         System.out.println("\nAfter deleting all nodes smaller than " + x);
         list.displayContentsOfSinglyLinkedList(list.getHead());
 
@@ -90,6 +92,26 @@ public class DeleteAllNodesSmallerThanX {
             }
             return temporaryHead;
         }
+    }
+
+    public void deleteAllNodesSmallerThanXAlternate(Node headReference, int x) {
+        Node currentNode = headReference;
+        while (currentNode != null) {
+            if (currentNode.getData() < x) {
+                currentNode = currentNode.getNext();
+            } else {
+                break;
+            }
+        }
+        Node newHead = currentNode;
+        while (currentNode != null && currentNode.getNext() != null) {
+            if (currentNode.getNext().getData() > x) {
+                currentNode = currentNode.getNext();
+            } else {
+                currentNode.setNext(currentNode.getNext().getNext());
+            }
+        }
+        this.setHead(newHead);
     }
 
     public void displayContentsOfSinglyLinkedList(Node headReference) {
