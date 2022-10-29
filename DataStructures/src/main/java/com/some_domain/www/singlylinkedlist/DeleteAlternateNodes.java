@@ -84,7 +84,6 @@ public class DeleteAlternateNodes {
     public void deleteAlternateNodesFromSinglyLinkedListIterative(Node headReference) {
         if (headReference == null) {
             System.out.println("Singly linked list is empty");
-            return;
         } else {
             Node currentNode = head;
             Node nextNode = null;
