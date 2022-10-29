@@ -43,7 +43,7 @@ public class DeleteFirstOccurrenceOfNode {
         list.insertNodeIntoSinlgyLinkedListAtEnd(1);
         list.insertNodeIntoSinlgyLinkedListAtEnd(13);
         list.insertNodeIntoSinlgyLinkedListAtEnd(5);
-        list.insertNodeIntoSinlgyLinkedListAtEnd(6);
+        list.insertNodeIntoSinlgyLinkedListAtEnd(8);
 
         list.displayContentsOfSinglyLinkedList(list.getHead());
 
@@ -56,6 +56,12 @@ public class DeleteFirstOccurrenceOfNode {
         list.displayContentsOfSinglyLinkedList(list.getHead());
 
         System.out.println("\nTime complexity is O(N) where N is the number of nodes in singly linked list");
+
+        x = 8;
+        newHead = list.deleteFirstOccurrenceOfNode(list.getHead(), x);
+        list.setHead(newHead);
+        System.out.println("\nAfter deleting first occurrence of node " + x);
+        list.displayContentsOfSinglyLinkedList(list.getHead());
     }
 
     public Node deleteFirstOccurrenceOfGivenNode(Node headReference, int givenNode) {
@@ -85,6 +91,21 @@ public class DeleteFirstOccurrenceOfNode {
             }
             return temporaryHeadReference;
         }
+    }
+
+    private Node deleteFirstOccurrenceOfNode(Node headReference, int givenNode) {
+        Node currentNode = headReference;
+        if (currentNode.getData() == givenNode) {
+            currentNode = currentNode.getNext();
+            return currentNode;
+        }
+        Node previousNode = null;
+        while (currentNode != null && currentNode.getData() != givenNode) {
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+        previousNode.setNext(currentNode.getNext());
+        return headReference;
     }
 
     public void displayContentsOfSinglyLinkedList(Node headReference) {
