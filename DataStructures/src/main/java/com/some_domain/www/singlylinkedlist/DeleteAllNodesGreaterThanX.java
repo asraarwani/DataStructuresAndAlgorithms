@@ -53,6 +53,8 @@ public class DeleteAllNodesGreaterThanX {
         Node newHead = list.deleteAllNodesGreaterThanX(list.getHead(), x);
         list.setHead(newHead);
 
+        //list.deleteAllNodesGreaterThanXAlternate(list.getHead(), x);
+
         System.out.println("After deleting all the nodes greater than " + x);
         list.displayContentsOfSinglyLinkedList(list.getHead());
 
@@ -93,10 +95,30 @@ public class DeleteAllNodesGreaterThanX {
         }
     }
 
+    public void deleteAllNodesGreaterThanXAlternate(Node headReference, int x) {
+        Node currentNode = headReference;
+        while (currentNode != null) {
+            if (currentNode.getData() > x) {
+                currentNode = currentNode.getNext();
+                break;
+            } else {
+                break;
+            }
+        }
+        Node newHead = currentNode;
+        while (currentNode != null && currentNode.getNext() != null) {
+            if (currentNode.getNext().getData() < x) {
+                currentNode = currentNode.getNext();
+            } else {
+                currentNode.setNext(currentNode.getNext().getNext());
+            }
+        }
+        this.setHead(newHead);
+    }
+
     public void displayContentsOfSinglyLinkedList(Node headReference) {
         if (headReference == null) {
             System.out.println("Singly linked list is empty");
-            return;
         } else {
             while (headReference != null) {
                 System.out.print(headReference.getData() + " ");
