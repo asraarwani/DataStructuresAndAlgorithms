@@ -100,7 +100,6 @@ public class DeleteAllNodesGreaterThanX {
         while (currentNode != null) {
             if (currentNode.getData() > x) {
                 currentNode = currentNode.getNext();
-                break;
             } else {
                 break;
             }
