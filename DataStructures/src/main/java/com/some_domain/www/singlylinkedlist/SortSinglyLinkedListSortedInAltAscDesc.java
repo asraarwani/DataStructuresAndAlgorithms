@@ -34,6 +34,12 @@ public class SortSinglyLinkedListSortedInAltAscDesc {
         System.out.println("\nTime complexity is O(N)");
     }
 
+    /*
+        Approach:
+            Separate two lists.
+            Reverse the one with descending order
+            Merge both lists
+     */
     private Node sortSinglyLinkedListSortedInAlternatingAscDesc(Node headReference) {
 
         //Split into two lists
