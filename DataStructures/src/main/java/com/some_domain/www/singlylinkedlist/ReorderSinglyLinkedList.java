@@ -31,6 +31,12 @@ public class ReorderSinglyLinkedList {
         System.out.println("\nTime complexity is O(N)");
     }
 
+    /*
+        1) Find the middle point using tortoise and hare method.
+        2) Split the linked list into two halves using found middle point in step 1.
+        3) Reverse the second half.
+        4) Do alternate merge of first and second halves.
+     */
     public void reorderSinglyLinkedList(Node headReference) {
         if (headReference == null) {
             System.out.println("Singly linked list is empty.");
@@ -67,6 +73,7 @@ public class ReorderSinglyLinkedList {
                     currentNode = currentNode.getNext();
                 }
             }
+            this.setHead(temporaryHead.getNext());
         }
     }
 
