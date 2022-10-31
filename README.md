@@ -43,7 +43,7 @@
                35. Find sum of last N nodes in singly linked list
                36. Sort list containing 0's, 1's and 2's
                37. Sort list sorted in alternating ascending and descenging order
-               38. Delete occurrences of duplicates nodes from singly linked list
+               38. Delete occurrences of duplicates nodes from sorted singly linked list
 
         1. Doubly linked list
 
