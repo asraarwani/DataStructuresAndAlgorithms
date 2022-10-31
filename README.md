@@ -46,6 +46,7 @@
                38. Delete occurrences of duplicates nodes from sorted singly linked list
                39. Insert node after Nth node from end of sinlgy linked list
                40. Find triplet with given sum from three singly linked lists 
+               41. Flatten a sorted singly linked list with next and down links
 
         1. Doubly linked list
 
