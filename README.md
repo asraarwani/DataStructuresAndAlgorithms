@@ -47,6 +47,9 @@
                39. Insert node after Nth node from end of sinlgy linked list
                40. Find triplet with given sum from three singly linked lists 
                41. Flatten a sorted singly linked list with next and down links
+               42. Delete middle node from singly linked list
+               43. Delete node form given index of singly linked list
+               44. Delete last occurrence of a given node from singly linked list
 
         1. Doubly linked list
 
