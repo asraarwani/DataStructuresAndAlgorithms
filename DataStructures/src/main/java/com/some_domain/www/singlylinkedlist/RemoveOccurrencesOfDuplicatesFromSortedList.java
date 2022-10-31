@@ -6,21 +6,21 @@ package com.some_domain.www.singlylinkedlist;
  * <p>
  * Reference : https://www.geeksforgeeks.org/remove-occurrences-duplicates-sorted-linked-list/
  */
-public class RemoveOccurrencesOfDuplicates {
+public class RemoveOccurrencesOfDuplicatesFromSortedList {
 
     private Node head;
 
     public static void main(String[] args) {
 
-        RemoveOccurrencesOfDuplicates list = new RemoveOccurrencesOfDuplicates();
+        RemoveOccurrencesOfDuplicatesFromSortedList list = new RemoveOccurrencesOfDuplicatesFromSortedList();
         list.insertNodeAtEnd(1);
         list.insertNodeAtEnd(2);
+        list.insertNodeAtEnd(3);
+        list.insertNodeAtEnd(3);
         list.insertNodeAtEnd(2);
-        list.insertNodeAtEnd(3);
-        list.insertNodeAtEnd(3);
-        list.insertNodeAtEnd(3);
         list.insertNodeAtEnd(4);
         list.insertNodeAtEnd(5);
+        list.insertNodeAtEnd(3);
         list.insertNodeAtEnd(5);
         list.insertNodeAtEnd(10);
         list.displayContents(list.getHead());
@@ -56,11 +56,27 @@ public class RemoveOccurrencesOfDuplicates {
         Node newNode = new Node(data, null);
         if (head == null) {
             head = newNode;
+        } else if (newNode.getData() < head.getData()) {
+            newNode.setNext(head);
+            head = newNode;
         } else {
-            Node traversalNode = head;
-            while (traversalNode.getNext() != null)
-                traversalNode = traversalNode.getNext();
-            traversalNode.setNext(newNode);
+            Node firstNode = head;
+            Node secondNode = head.getNext();
+            boolean inserted = false;
+            Node currentNode = head;
+            while (firstNode != null && secondNode != null && !inserted) {
+                if (newNode.getData() > firstNode.getData() && newNode.getData() <= secondNode.getData()) {
+                    firstNode.setNext(newNode);
+                    newNode.setNext(secondNode);
+                    inserted = true;
+                } else {
+                    firstNode = firstNode.getNext();
+                    secondNode = secondNode.getNext();
+                }
+            }
+            if (!inserted) {
+                firstNode.setNext(newNode);
+            }
         }
     }
 
