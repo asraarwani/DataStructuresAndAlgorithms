@@ -41,7 +41,14 @@ public class BottomViewOfBST {
 
         System.out.println("\nBottom view using level-order and vertical order traversal of BST is given as follows:");
         bst.printBottomViewOfBST(bst.getRoot());
-        System.out.println("\nTime complexity is O(N)");
+
+        System.out.println();
+        System.out.println("\nUsing DFS");
+        Map<Integer, Node> map = new TreeMap<>();
+        bst.printBottomViewUsingDepthFirstSearch(bst.getRoot(), map, 0);
+        map.entrySet().stream().forEach(entry -> System.out.print(entry.getValue().getData() + " "));
+
+        System.out.println("\nTime complexity is O(N log N) , extra logN is for accessing map, space complexity is O(N)");
 
     }
 
@@ -70,6 +77,17 @@ public class BottomViewOfBST {
             bottomViewMap.entrySet().stream().forEach(entry -> {
                 System.out.print(entry.getValue().getData() + " ");
             });
+        }
+    }
+
+    private void printBottomViewUsingDepthFirstSearch(Node rootReference, Map<Integer, Node> map, int horizontalDistance) {
+        if (rootReference != null) {
+
+            printBottomViewUsingDepthFirstSearch(rootReference.getLeftChild(), map, horizontalDistance - 1);
+
+            map.put(horizontalDistance, rootReference);
+
+            printBottomViewUsingDepthFirstSearch(rootReference.getRightChild(), map, horizontalDistance + 1);
         }
     }
 
