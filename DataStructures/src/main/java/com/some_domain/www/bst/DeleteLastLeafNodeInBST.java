@@ -69,31 +69,30 @@ public class DeleteLastLeafNodeInBST {
     public void deleteLastLeafNodeIteratively_UsingLevelOrderTraversal(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty");
-            return;
         } else {
             Queue<Node> queue = new LinkedList<>();
             queue.offer(rootReference);
             NodeDetails nodeDetails = new NodeDetails();
             while (!queue.isEmpty()) {
-                rootReference = queue.poll();
+                Node polledNode = queue.poll();
 
                 //If polled node has a left child
-                if (rootReference.getLeftChild() != null) {
-                    queue.offer(rootReference.getLeftChild());
+                if (polledNode.getLeftChild() != null) {
+                    queue.offer(polledNode.getLeftChild());
                     //Store the reference to the last leaf node and its parent
-                    if (rootReference.getLeftChild().getLeftChild() == null && rootReference.getLeftChild().getRightChild() == null) {
-                        nodeDetails.setLastLeafNodeParent(rootReference);
-                        nodeDetails.setLastLeafNode(rootReference.getLeftChild());
+                    if (polledNode.getLeftChild().getLeftChild() == null && polledNode.getLeftChild().getRightChild() == null) {
+                        nodeDetails.setLastLeafNodeParent(polledNode);
+                        nodeDetails.setLastLeafNode(polledNode.getLeftChild());
                     }
                 }
 
                 //If polled node has a right child
-                if (rootReference.getRightChild() != null) {
-                    queue.offer(rootReference.getRightChild());
+                if (polledNode.getRightChild() != null) {
+                    queue.offer(polledNode.getRightChild());
                     //Store the reference to the last leaf node and its parent
-                    if (rootReference.getRightChild().getLeftChild() == null && rootReference.getRightChild().getRightChild() == null) {
-                        nodeDetails.setLastLeafNodeParent(rootReference);
-                        nodeDetails.setLastLeafNode(rootReference.getRightChild());
+                    if (polledNode.getRightChild().getLeftChild() == null && polledNode.getRightChild().getRightChild() == null) {
+                        nodeDetails.setLastLeafNodeParent(polledNode);
+                        nodeDetails.setLastLeafNode(polledNode.getRightChild());
                     }
                 }
             }
