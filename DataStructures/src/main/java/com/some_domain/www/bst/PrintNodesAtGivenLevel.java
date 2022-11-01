@@ -39,7 +39,10 @@ public class PrintNodesAtGivenLevel {
         System.out.println();
         bst.printNodesAtGivenLevelUsingLevelOrderTraversal(bst.getRoot(), levelNumber);
 
-        System.out.println("\nTime complexity is O(N) for above two approaches");
+        System.out.println();
+        bst.printNodesAtGivenLevelAlternate(bst.getRoot(), levelNumber, 1);
+
+        System.out.println("\nTime complexity is O(N) for above three approaches");
     }
 
     private void printNodesAtGivenLevel(Node rootReference, int levelNumber) {
@@ -79,6 +82,19 @@ public class PrintNodesAtGivenLevel {
                     }
                 }
             }
+        }
+    }
+
+    private void printNodesAtGivenLevelAlternate(Node rootReference, int maxLevel, int levelNumber) {
+
+        if (rootReference != null) {
+
+            printNodesAtGivenLevelAlternate(rootReference.getLeftChild(), maxLevel, levelNumber + 1);
+
+            if (levelNumber == maxLevel) {
+                System.out.print(rootReference.getData() + " ");
+            }
+            printNodesAtGivenLevelAlternate(rootReference.getRightChild(), maxLevel, levelNumber + 1);
         }
     }
 
