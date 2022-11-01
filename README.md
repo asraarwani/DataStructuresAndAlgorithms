@@ -53,7 +53,7 @@
                46. Rotate singly linked list by K nodes 
                47. Rearrange singly linked list in zig-zag fashion
 
-        1. Doubly linked list
+       2. Doubly linked list
 
                1. Doubly linked list
                2. Sorted doubly linked list
