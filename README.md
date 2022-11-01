@@ -50,6 +50,8 @@
                42. Delete middle node from singly linked list
                43. Delete node form given index of singly linked list
                44. Delete last occurrence of a given node from singly linked list
+               46. Rotate singly linked list by K nodes 
+               47. Rearrange singly linked list in zig-zag fashion
 
         1. Doubly linked list
 
