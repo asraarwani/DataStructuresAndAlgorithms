@@ -44,6 +44,10 @@ public class FindKthSmallestNodeInBST {
         System.out.println();
         System.out.println(k + "-th smallest element using Heap from BST is " + kthSmallestElement);
         System.out.println("Time and space complexity is O(N)");
+
+        System.out.println();
+        bst.findKthSmallestNodeAlternateApproach(bst.getRoot(), k, new Counter());
+        System.out.println("Time and space complexity is O(N)");
     }
 
     private int findKthSmallestNodeFromBSTUsingHeap(Node rootReference, int k) {
@@ -77,6 +81,29 @@ public class FindKthSmallestNodeInBST {
                 return;
             }
             findKthSmallestNodeFromBSTHelper(rootReference.getRightChild(), array, k);
+        }
+    }
+
+    private void findKthSmallestNodeAlternateApproach(Node rootReference, int k, Counter counter) {
+        if (rootReference != null) {
+            findKthSmallestNodeAlternateApproach(rootReference.getLeftChild(), k, counter);
+            counter.setCount(counter.getCount() + 1);
+            if (counter.getCount() == k) {
+                System.out.println(k + "th smallest node in BST is : " + rootReference.getData());
+            }
+            findKthSmallestNodeAlternateApproach(rootReference.getRightChild(), k, counter);
+        }
+    }
+
+    private static class Counter {
+        private int count;
+
+        public int getCount() {
+            return count;
+        }
+
+        public void setCount(int count) {
+            this.count = count;
         }
     }
 
