@@ -53,6 +53,12 @@ public class LargestNumberInBSTLessThanOrEqualToN {
             System.out.println("\nNumber is  : " + floorNode.getData());
 
         System.out.println("Time complexity is O(H) where H is the height of the BST");
+
+
+        System.out.println();
+        NumberDetails numberDetails = new NumberDetails();
+        bst.findLargestNumberLessThanOrEqualToGivenNumber(bst.getRoot(), givenNumber, numberDetails);
+        System.out.println("\nNumber is  : " + numberDetails.getLargestNumber());
     }
 
     public Node findLargestNumberSmallerThanOrEqualToGivenNumber(Node rootReference, int givenNumber) {
@@ -84,6 +90,32 @@ public class LargestNumberInBSTLessThanOrEqualToN {
             }
         }
         return resultNode;
+    }
+
+    private void findLargestNumberLessThanOrEqualToGivenNumber(Node rootReference, int givenNumber, NumberDetails numberDetails) {
+
+        if (rootReference != null) {
+
+            findLargestNumberLessThanOrEqualToGivenNumber(rootReference.getLeftChild(), givenNumber, numberDetails);
+
+            if (rootReference.getData() <= givenNumber) {
+                numberDetails.setLargestNumber(rootReference.getData());
+            }
+
+            findLargestNumberLessThanOrEqualToGivenNumber(rootReference.getRightChild(), givenNumber, numberDetails);
+        }
+    }
+
+    private static class NumberDetails {
+        private int largestNumber;
+
+        public int getLargestNumber() {
+            return largestNumber;
+        }
+
+        public void setLargestNumber(int largestNumber) {
+            this.largestNumber = largestNumber;
+        }
     }
 
     public Node insertNodeIntoBSTRecursively(Node rootReference, int data) {
