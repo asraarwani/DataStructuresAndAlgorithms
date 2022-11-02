@@ -1,9 +1,6 @@
 package com.some_domain.www.bst;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author : waniasra
@@ -54,6 +51,41 @@ public class ZigZagLevelOrderTraversalOfBST {
         System.out.println();
         bst.printSpiralOrderTraversalOfBST(bst.getRoot());
         System.out.println("Time and space complexity for this approach is O(N) where N is the number of nodes in BST");
+
+        System.out.println();
+        bst.printSpiralOrderTraversalOfBSTUsingDequeue(bst.getRoot());
+        System.out.println("Time and space complexity for this approach is O(N) where N is the number of nodes in BST");
+    }
+
+    private void printSpiralOrderTraversalOfBSTUsingDequeue(Node rootReference) {
+        if (rootReference == null) {
+            System.out.println("BST is empty");
+        } else {
+            Deque<Node> deque = new LinkedList<>();
+            deque.offer(rootReference);
+            boolean flag = true;
+            while (!deque.isEmpty()) {
+                int size = deque.size();
+                for (int i = 0; i < size; i++) {
+                    Node polledNode = null;
+                    if (flag) {
+                        polledNode = deque.pollLast();
+                    } else {
+                        polledNode = deque.poll();
+                    }
+                    System.out.print(polledNode.getData() + " ");
+                    if (polledNode.getLeftChild() != null) {
+                        deque.offer(polledNode.getLeftChild());
+                    }
+
+                    if (polledNode.getRightChild() != null) {
+                        deque.offer(polledNode.getRightChild());
+                    }
+                }
+                flag = !flag;
+                System.out.println();
+            }
+        }
     }
 
     /*
@@ -62,7 +94,6 @@ public class ZigZagLevelOrderTraversalOfBST {
     public void printSpiralOrderTraversalOfBST(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty");
-            return;
         } else {
             Stack<Node> firstStack = new Stack<>();
             Stack<Node> secondStack = new Stack<>();
@@ -102,7 +133,6 @@ public class ZigZagLevelOrderTraversalOfBST {
     public void printLevelOrderTraversalInZigZag(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty");
-            return;
         } else {
             List<LinkedList<Node>> resultingList = new LinkedList<>();
             Queue<Node> queue = new LinkedList<>();
@@ -114,9 +144,9 @@ public class ZigZagLevelOrderTraversalOfBST {
                 for (int i = 0; i < size; i++) {
                     rootReference = queue.poll();
                     if (zigZag) {
-                        nodesAtCurrentLevel.addFirst(rootReference);
-                    } else {
                         nodesAtCurrentLevel.addLast(rootReference);
+                    } else {
+                        nodesAtCurrentLevel.addFirst(rootReference);
                     }
 
                     //If polled node has a left child
