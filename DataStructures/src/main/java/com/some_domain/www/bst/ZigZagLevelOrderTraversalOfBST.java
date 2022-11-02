@@ -49,14 +49,21 @@ public class ZigZagLevelOrderTraversalOfBST {
         System.out.println("We're using LinkedList's addFirst and addLast methods, TC is O(N)");
 
         System.out.println();
-        bst.printSpiralOrderTraversalOfBST(bst.getRoot());
+        bst.printSpiralOrderTraversalOfBSTUsingTwoStacks(bst.getRoot());
         System.out.println("Time and space complexity for this approach is O(N) where N is the number of nodes in BST");
 
         System.out.println();
         bst.printSpiralOrderTraversalOfBSTUsingDequeue(bst.getRoot());
         System.out.println("Time and space complexity for this approach is O(N) where N is the number of nodes in BST");
+
+        System.out.println();
+        bst.printLevelOrderTraversalInZigZagFashionUsingLinkedList(bst.getRoot());
+        System.out.println("Time and space complexity for this approach is O(N) where N is the number of nodes in BST");
     }
 
+    /*
+        The idea is to use dequeue
+     */
     private void printSpiralOrderTraversalOfBSTUsingDequeue(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty");
@@ -91,7 +98,7 @@ public class ZigZagLevelOrderTraversalOfBST {
     /*
         The idea is to use two stacks
      */
-    public void printSpiralOrderTraversalOfBST(Node rootReference) {
+    public void printSpiralOrderTraversalOfBSTUsingTwoStacks(Node rootReference) {
         if (rootReference == null) {
             System.out.println("BST is empty");
         } else {
@@ -166,6 +173,39 @@ public class ZigZagLevelOrderTraversalOfBST {
                 list.stream().forEach(node -> System.out.print(node.getData() + " "));
                 System.out.println();
             });
+        }
+    }
+
+    public void printLevelOrderTraversalInZigZagFashionUsingLinkedList(Node rootReference) {
+        if (rootReference == null) {
+            System.out.println("BST is empty");
+        } else {
+            LinkedList<Node> linkedList = new LinkedList<>();
+            linkedList.add(rootReference);
+            boolean zigZag = false;
+            while (linkedList.size() > 0) {
+                int size = linkedList.size();
+                for (int i = 0; i < size; i++) {
+                    Node removedNode = null;
+                    if (zigZag) {
+                        removedNode = linkedList.removeFirst();
+                    } else {
+                        removedNode = linkedList.removeLast();
+                    }
+                    System.out.print(removedNode.getData() + " ");
+
+                    //If polled node has a left child
+                    if (removedNode.getLeftChild() != null) {
+                        linkedList.add(removedNode.getLeftChild());
+                    }
+                    //If polled node has a right child
+                    if (removedNode.getRightChild() != null) {
+                        linkedList.add(removedNode.getRightChild());
+                    }
+                }
+                zigZag = !zigZag;
+                System.out.println();
+            }
         }
     }
 
