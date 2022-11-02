@@ -6,6 +6,8 @@ import java.util.Stack;
  * @author : waniasra
  * @date : 1/10/2020 10:55 AM
  * This class demonstrates how to check if a given BST is a skewed BST
+ * <p>
+ * Reference : https://www.geeksforgeeks.org/check-whether-a-given-binary-tree-is-skewed-binary-tree-or-not/
  */
 public class CheckIfBSTIsSkewedTree {
 
