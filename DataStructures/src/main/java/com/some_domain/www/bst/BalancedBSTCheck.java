@@ -42,7 +42,7 @@ public class BalancedBSTCheck {
         bst.insertNodeIntoBSTIteratively(24);
         bst.insertNodeIntoBSTIteratively(30);
 
-        boolean isBalancedBST = bst.isBSTBalancedOptimized(bst.getRoot());
+        boolean isBalancedBST = bst.isBSTBalancedBST(bst.getRoot());
         if (isBalancedBST) {
             System.out.println("BST is balanced BST");
             System.out.println("Time complexity is O(N^2)");
@@ -81,14 +81,14 @@ public class BalancedBSTCheck {
             return isLeftSubTreeBalanced && isRightSubTreeBalanced;
     }
 
-    public boolean isBSTBalancedOptimized(Node rootReference) {
+    public boolean isBSTBalancedBST(Node rootReference) {
         if (rootReference == null) {
             return true;
         } else {
             int leftSubTreeHeight = calculateHeightOfBST(rootReference.getLeftChild());
             int rightSubTreeHeight = calculateHeightOfBST(rootReference.getRightChild());
-            if (Math.abs(leftSubTreeHeight - rightSubTreeHeight) <= 1 && isBSTBalancedOptimized(rootReference.getLeftChild())
-                    && isBSTBalancedOptimized(rootReference.getRightChild())) {
+            if (Math.abs(leftSubTreeHeight - rightSubTreeHeight) <= 1 && isBSTBalancedBST(rootReference.getLeftChild())
+                    && isBSTBalancedBST(rootReference.getRightChild())) {
                 return true;
             } else {
                 return false;
