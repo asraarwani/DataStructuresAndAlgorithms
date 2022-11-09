@@ -44,18 +44,13 @@ public class ConvertBinaryTreeToMirrorTree {
          */
 
         ConvertBinaryTreeToMirrorTree bst = new ConvertBinaryTreeToMirrorTree();
-        bst.insertNodeIntoBSTIteratively(20);
-        bst.insertNodeIntoBSTIteratively(15);
-        bst.insertNodeIntoBSTIteratively(25);
-        bst.insertNodeIntoBSTIteratively(8);
-        bst.insertNodeIntoBSTIteratively(16);
-        bst.insertNodeIntoBSTIteratively(24);
-        bst.insertNodeIntoBSTIteratively(30);
+        bst.setRoot(bst.createDummyBinaryTree());
 
         System.out.println("In order traversal of binary tree");
         bst.inOrderTraversalOfBinaryTree(bst.getRoot());
 
         bst.convertBinaryTreeToMirrorTreeRecursively(bst.getRoot());
+        System.out.println("\nTime complexity is O(N) and space complexity is O(H) where H is the height of the binary tree.");
 
         System.out.println("\nMirror of binary tree using recrusive approach");
         bst.inOrderTraversalOfBinaryTree(bst.getRoot());
@@ -64,14 +59,13 @@ public class ConvertBinaryTreeToMirrorTree {
         bst.convertBinaryTreeToMirrorTreeIteratively(bst.getRoot());
         System.out.println("\nMirror of binary tree using iterative approach");
         bst.inOrderTraversalOfBinaryTree(bst.getRoot());
+        System.out.println("\nTime and space complexity is O(N).");
 
-        System.out.println("\nTime complexity is O(N) and space complexity is O(H) where H is the height of the binary tree.");
     }
 
     public void convertBinaryTreeToMirrorTreeIteratively(Node rootReference) {
         if (rootReference == null) {
             System.out.println("Binary tree is empty.");
-            return;
         } else {
             Queue<Node> queue = new LinkedList<>();
             queue.add(rootReference);
@@ -116,30 +110,15 @@ public class ConvertBinaryTreeToMirrorTree {
         }
     }
 
-    public void insertNodeIntoBSTIteratively(int data) {
-        Node newNode = new Node(data, null, null);
-        if (root == null) {
-            root = newNode;
-        } else {
-            Node processingNodeParent = null;
-            Node processingNode = root;
-            while (true) {
-                processingNodeParent = processingNode;
-                if (data <= processingNode.getData()) {
-                    processingNode = processingNode.getLeftChild();
-                    if (processingNode == null) {
-                        processingNodeParent.setLeftChild(newNode);
-                        break;
-                    }
-                } else {
-                    processingNode = processingNode.getRightChild();
-                    if (processingNode == null) {
-                        processingNodeParent.setRightChild(newNode);
-                        break;
-                    }
-                }
-            }
-        }
+    private Node createDummyBinaryTree() {
+        Node root = new Node(20, null, null);
+        root.setLeftChild(new Node(15, null, null));
+        root.setRightChild(new Node(25, null, null));
+        root.getLeftChild().setLeftChild(new Node(8, null, null));
+        root.getLeftChild().setRightChild(new Node(16, null, null));
+        root.getRightChild().setLeftChild(new Node(24, null, null));
+        root.getRightChild().setRightChild(new Node(30, null, null));
+        return root;
     }
 
     private class Node {
