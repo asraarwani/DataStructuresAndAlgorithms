@@ -136,14 +136,14 @@
            54. Convert BST to sorted circular doubly linked list
            55. Smallest number greater than or equal to a given number 
            56. Largest number less than or equal to a given number
-           57. In-order successor of node in BST using parent node link
-           58. In-order successor of node in BST without parent link
-           59. In-order successor and predecessor of node in BST
+           57. In-order successor of node in BST using parent node link - N
+           58. In-order successor of node in BST without parent link - N
+           59. In-order successor and predecessor of node in BST - N
            60. Print BST in zig-zag level order traversal (Spiral)
            61. Convert a sorted array to balanced BST
            62. Check if a BST is skewed BST
-           63. Moris in-order traversal of BST
-           64. Moris pre-order traversal of BST
+           63. Moris in-order traversal of BST - N
+           64. Moris pre-order traversal of BST - N
            65. Check if a BST is a balanced BST
            66. Delete last leaf node from the BST
            67. Serializing and de-serializing a BST
@@ -229,7 +229,7 @@
           41. Replace a 0 from binary array to get longest continuous sequence of 1's
           42. Replace K 0's from a binary array to get longest sub-segment of 1's length
           43. Find triplets with sum equal to zero
-          44. 
+          44. LRU cache implementation 
           45.
           46.
           47.
