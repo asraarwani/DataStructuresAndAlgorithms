@@ -53,18 +53,18 @@
                46. Rotate singly linked list by K nodes 
                47. Rearrange singly linked list in zig-zag fashion
 
-       2. Doubly linked list
+        2. Doubly linked list
 
-               1. Doubly linked list
-               2. Sorted doubly linked list
-               3. Circular doubly linked list
-               4. Sorted circular doubly linked list
-               5  Merge sort doubly linked list
-               6. Reverse doubly linked list
-               7. Clone doubly linked list with random links
-               8. Clone doubly linked list with random links using hashing
-               9. Swap k-th node from begining with k-th node from end in doubly linked list
-               10. Pairs of numbers whose sum is equal to given sum 
+                1. Doubly linked list
+                2. Sorted doubly linked list
+                3. Circular doubly linked list
+                4. Sorted circular doubly linked list
+                5  Merge sort doubly linked list
+                6. Reverse doubly linked list
+                7. Clone doubly linked list with random links
+                8. Clone doubly linked list with random links using hashing
+                9. Swap k-th node from begining with k-th node from end in doubly linked list
+                10. Pairs of numbers whose sum is equal to given sum 
     2. Stack
 
                1. Stack
@@ -77,6 +77,7 @@
                1. Minimum and maximum data from a binary tree
                2. Convert binary tree to mirror binary tree
                3. Isomorphic check on two binary trees
+               4. Convert binary tree to sum tree 
 
     5. Binary Search Tree
 
