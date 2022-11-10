@@ -231,7 +231,7 @@
           42. Replace K 0's from a binary array to get longest sub-segment of 1's length
           43. Find triplets with sum equal to zero
           44. LRU cache implementation 
-          45.
+          45. Longest common pefix (LCP)
           46.
           47.
           48.
