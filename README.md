@@ -232,10 +232,10 @@
           43. Find triplets with sum equal to zero
           44. LRU cache implementation 
           45. Longest common pefix (LCP)
-          46.
-          47.
-          48.
-          49.
+          46. Split string into balanced strings 
+          47. Reverse vowels in a given string
+          48. Remove vowels from a given string
+          49. Valid mountain array check
           50. 
         
         
