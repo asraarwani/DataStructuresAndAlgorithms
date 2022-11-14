@@ -9,6 +9,7 @@ import java.util.Arrays;
  * Reference : https://www.geeksforgeeks.org/longest-common-prefix-using-character-by-character-matching/
  * Reference : https://www.geeksforgeeks.org/longest-common-prefix-using-divide-and-conquer-algorithm/
  * Reference : https://www.geeksforgeeks.org/longest-common-prefix-using-sorting/
+ * Reference : https://www.youtube.com/watch?v=1YQmI7F9dJ0&ab_channel=KevinNaughtonJr.
  */
 public class LongestCommonPrefix {
 
@@ -29,7 +30,12 @@ public class LongestCommonPrefix {
         System.out.println();
         lcp = instance.findLongestCommonPrefixUsingSorting(strings);
         System.out.println("LCP using sorting is  : " + lcp);
-        System.out.println("Time complexity is O(MAX * N * log N ) where N is the number of strings in the array and MAX is maximum number of characters in any string");
+        System.out.println("Time complexity is O(MAX * N * log N) where N is the number of strings in the array and MAX is maximum number of characters in any string");
+
+        System.out.println();
+        lcp = instance.lcp(strings);
+        System.out.println("LCP using alternate approach is  : " + lcp);
+        System.out.println("Time complexity is O(N*M)");
 
     }
 
@@ -102,5 +108,22 @@ public class LongestCommonPrefix {
             i++;
         }
         return strings[0].substring(0, i);
+    }
+
+    private String lcp(String[] strings) {
+        String lcp = "";
+        if (strings == null || strings.length == 0)
+            return lcp;
+        int index = 0;
+        for (char ch : strings[0].toCharArray()) {
+            for (int i = 1; i < strings.length; i++) {
+                if (index >= strings.length || ch != strings[i].charAt(index)) {
+                    return lcp;
+                }
+            }
+            lcp += ch;
+            index++;
+        }
+        return lcp;
     }
 }
