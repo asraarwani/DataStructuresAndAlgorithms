@@ -236,7 +236,8 @@
           47. Reverse vowels in a given string
           48. Remove vowels from a given string
           49. Valid mountain array check
-          50. 
+          50. Buy sell stock with max profit
+          51. Rotten oranges problem 
         
         
         
