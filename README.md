@@ -68,6 +68,8 @@
     2. Stack
 
                1. Stack
+               2. Queue using two stacks
+               3. Stack using single queue
     3. Queue
 
                1. Queue
